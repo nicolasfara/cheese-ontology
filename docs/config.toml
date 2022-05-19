@@ -1,0 +1,16 @@
+baseURL = 'https:/nicolasfara.github.io/cheese-ontology'
+languageCode = 'en-us'
+title = 'Cheese Ontology'
+
+theme = "reveal-hugo"
+
+[params.reveal_hugo]
+theme = "white"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
