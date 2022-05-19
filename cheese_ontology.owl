@@ -1,5 +1,5 @@
 @prefix : <https://github.com/nicolasfara/cheese-ontology/> .
-@prefix obo: <http://purl.obolibrary.org/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -18,113 +18,189 @@
 
 ###  http://aims.fao.org/aos/agrovoc/c_1507
 agrovoc:c_1507 rdf:type owl:Class ;
-               owl:equivalentClass obo:FOODON_00001013 ;
-               rdfs:subClassOf food-upper:MateriaPrima ;
-               rdfs:label "Cheese"@en .
+               rdfs:subClassOf obo:FOODON_00001013 ,
+                               food-upper:MateriaPrima ;
+               rdfs:label "CheeseRawMaterial"@en .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_16076
+agrovoc:c_16076 rdf:type owl:Class ;
+                rdfs:subClassOf agrovoc:c_4826 ,
+                                :BuffaloMilk ;
+                rdfs:label "BuffaloMilkRawMaterial" .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_16080
+agrovoc:c_16080 rdf:type owl:Class ;
+                rdfs:subClassOf agrovoc:c_4826 ,
+                                obo:FOODON_00001771 ;
+                rdfs:label "CowMilkRawMaterial" .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_16081
+agrovoc:c_16081 rdf:type owl:Class ;
+                rdfs:subClassOf agrovoc:c_4826 ,
+                                :SheepMilk ;
+                rdfs:label "SheepMilkRawMaterial" .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_16083
+agrovoc:c_16083 rdf:type owl:Class ;
+                rdfs:subClassOf agrovoc:c_4826 ,
+                                :GoatMilk ;
+                rdfs:label "GoatMilkRawMaterial" .
 
 
 ###  http://aims.fao.org/aos/agrovoc/c_24075
 agrovoc:c_24075 rdf:type owl:Class ;
-                owl:equivalentClass <http://purl.obolibrary.org/obo/FOODON_00001228> ;
-                rdfs:subClassOf food-upper:MateriaPrima ;
-                rdfs:label "Rennet"@en .
+                rdfs:subClassOf obo:FOODON_00001228 ,
+                                food-upper:MateriaPrima ;
+                rdfs:label "RennetRawMaterial"@en .
 
 
 ###  http://aims.fao.org/aos/agrovoc/c_33129
 agrovoc:c_33129 rdf:type owl:Class ;
-                owl:equivalentClass <http://purl.obolibrary.org/obo/FOODON_00002221> ;
-                rdfs:subClassOf food-upper:MateriaPrima ;
-                rdfs:label "Salt"@en .
+                rdfs:subClassOf obo:FOODON_00002221 ,
+                                food-upper:MateriaPrima ;
+                rdfs:label "SaltRawMaterial"@en .
 
 
 ###  http://aims.fao.org/aos/agrovoc/c_4826
 agrovoc:c_4826 rdf:type owl:Class ;
-               owl:equivalentClass obo:UBERON_0001913 ;
-               rdfs:subClassOf food-upper:MateriaPrima ;
-               rdfs:label "Milk"@en .
+               rdfs:subClassOf obo:UBERON_0001913 ,
+                               food-upper:MateriaPrima ;
+               rdfs:label "MilkRawMaterial"@en .
 
 
-###  http://purl.obolibrary.org/
-obo: rdf:type owl:Class ;
-     rdfs:subClassOf obo:FOODON_00001013 ;
-     rdfs:label "HardCheese" .
+###  http://aims.fao.org/aos/agrovoc/c_8309
+agrovoc:c_8309 rdf:type owl:Class ;
+               rdfs:subClassOf obo:FOODON_00002340 ,
+                               food-upper:MateriaPrima ;
+               rdfs:label "WaterRawMaterial" .
 
 
-###  http://purl.obolibrary.org/FOODON_00001013
+###  http://purl.obolibrary.org/obo/FOODON_00001013
 obo:FOODON_00001013 rdf:type owl:Class ;
-                    rdfs:label "Cheese" .
+                                             rdfs:subClassOf obo:FOODON_00002403 ;
+                                             rdfs:label "Cheese" .
 
 
-###  http://purl.obolibrary.org/FOODON_00002230
+###  http://purl.obolibrary.org/obo/FOODON_00002230
 obo:FOODON_00002230 rdf:type owl:Class ;
-                    rdfs:subClassOf obo:FOODON_00001013 ;
-                    rdfs:label "SemiHardCheese" .
+                                             rdfs:subClassOf obo:FOODON_00001013 ;
+                                             rdfs:label "SemiHardCheese" .
 
 
-###  http://purl.obolibrary.org/FOODON_00002231
+###  http://purl.obolibrary.org/obo/FOODON_00002231
 obo:FOODON_00002231 rdf:type owl:Class ;
-                    rdfs:subClassOf obo:FOODON_00001013 ;
-                    rdfs:label "SemiSoftCheese" .
+                                             rdfs:subClassOf obo:FOODON_00001013 ;
+                                             rdfs:label "SemiSoftCheese" .
 
 
-###  http://purl.obolibrary.org/FOODON_00002252
+###  http://purl.obolibrary.org/obo/FOODON_00002252
 obo:FOODON_00002252 rdf:type owl:Class ;
-                    rdfs:subClassOf obo:FOODON_00001013 ;
-                    rdfs:label "SoftCheese" .
+                                             rdfs:subClassOf obo:FOODON_00001013 ;
+                                             rdfs:label "SoftCheese" .
 
 
-###  http://purl.obolibrary.org/FOODON_00002403
+###  http://purl.obolibrary.org/obo/FOODON_00002403
 obo:FOODON_00002403 rdf:type owl:Class ;
-                    rdfs:label "Food"@en .
+                                             rdfs:label "Food"@en .
 
 
-###  http://purl.obolibrary.org/FOODON_03301889
+###  http://purl.obolibrary.org/obo/FOODON_03301889
 obo:FOODON_03301889 rdf:type owl:Class ;
-                    rdfs:subClassOf obo:FOODON_00001013 ;
-                    rdfs:label "CreamCheese" .
+                                             rdfs:subClassOf obo:FOODON_00001013 ;
+                                             rdfs:label "CreamCheese" .
 
 
-###  http://purl.obolibrary.org/UBERON_0001913
+###  http://purl.obolibrary.org/obo/UBERON_0001913
 obo:UBERON_0001913 rdf:type owl:Class ;
-                   rdfs:subClassOf food-upper:MateriaPrima ;
-                   rdfs:label "Milk"@en .
+                                            rdfs:subClassOf obo:FOODON_00002403 ;
+                                            rdfs:label "Milk"@en .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_00001065
-<http://purl.obolibrary.org/obo/FOODON_00001065> rdf:type owl:Class ;
-                                                 rdfs:subClassOf :MoldRipenedCheese ;
-                                                 rdfs:label "BlueCheese"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001065
+obo:FOODON_00001065 rdf:type owl:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese ;
+                    rdfs:label "BlueCheese"@en .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_00001228
-<http://purl.obolibrary.org/obo/FOODON_00001228> rdf:type owl:Class ;
-                                                 rdfs:subClassOf food-upper:MateriaPrima ;
-                                                 rdfs:label "Rennet"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001124
+obo:FOODON_00001124 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "GoatCheese" .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_00002221
-<http://purl.obolibrary.org/obo/FOODON_00002221> rdf:type owl:Class ;
-                                                 rdfs:subClassOf food-upper:MateriaPrima ;
-                                                 rdfs:label "Salt"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001125
+obo:FOODON_00001125 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "SheepCheese" .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_00002340
-<http://purl.obolibrary.org/obo/FOODON_00002340> rdf:type owl:Class ;
-                                                 rdfs:subClassOf food-upper:MateriaPrima ;
-                                                 rdfs:label "Water"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001126
+obo:FOODON_00001126 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "CowCheese" .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_03306447
-<http://purl.obolibrary.org/obo/FOODON_03306447> rdf:type owl:Class ;
-                                                 owl:equivalentClass :MoldRipenedCheese ;
-                                                 rdfs:subClassOf obo:FOODON_00001013 ;
-                                                 rdfs:label "MoldRipenedCheese"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001228
+obo:FOODON_00001228 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:label "Rennet"@en .
 
 
-###  http://purl.obolibrary.org/obo/FOODON_03544452
-<http://purl.obolibrary.org/obo/FOODON_03544452> rdf:type owl:Class ;
-                                                 rdfs:subClassOf food-upper:MateriaPrima ;
-                                                 rdfs:label "FoodManifactureEnzyme"@en .
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001771
+obo:FOODON_00001771 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:label "CowMilk" .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_00001945
+obo:FOODON_00001945 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "HardCheese" .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_00002221
+obo:FOODON_00002221 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:label "Salt"@en .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_00002340
+obo:FOODON_00002340 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:label "Water"@en .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_03301039
+obo:FOODON_03301039 rdf:type owl:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese ;
+                    rdfs:label "SoftRipenedCheese" .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_03301484
+obo:FOODON_03301484 rdf:type owl:Class ;
+                    rdfs:subClassOf :PasteurizedMilk ;
+                    rdfs:label "SkimmedMilk" .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_03306447
+obo:FOODON_03306447 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "MoldRipenedCheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_03401217
+obo:FOODON_03401217 rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:label "SemiSkimmedMilkCheese" .
+
+
+###  http://purl.obolibrary.org/obo/obo/FOODON_03544452
+obo:FOODON_03544452 rdf:type owl:Class ;
+                    rdfs:label "FoodManifactureEnzyme"@en .
 
 
 ###  http://w3id.org/food/ontology/disciplinare-formaggio/DenominazioneFormaggio
@@ -135,6 +211,8 @@ food-cheese:DenominazioneFormaggio rdf:type owl:Class ;
 
 ###  http://w3id.org/food/ontology/disciplinare-formaggio/Formaggio
 food-cheese:Formaggio rdf:type owl:Class ;
+                      rdfs:subClassOf obo:FOODON_00001013 ,
+                                      food-upper:Prodotto ;
                       rdfs:label "CertifiedCheese"@en .
 
 
@@ -143,9 +221,20 @@ food-upper:Denominazione rdf:type owl:Class ;
                          rdfs:label "ProtectedName"@en .
 
 
+###  http://w3id.org/food/ontology/disciplinare-upper/DescrizioneMateriaPrima
+food-upper:DescrizioneMateriaPrima rdf:type owl:Class ;
+                                   rdfs:label "RawMaterialDescription" .
+
+
 ###  http://w3id.org/food/ontology/disciplinare-upper/MateriaPrima
 food-upper:MateriaPrima rdf:type owl:Class ;
                         rdfs:label "RawMaterial"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/Prodotto
+food-upper:Prodotto rdf:type owl:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:label "CertifiedFood" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/AgedCheese
@@ -158,6 +247,16 @@ food-upper:MateriaPrima rdf:type owl:Class ;
        rdfs:label "Aging" .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/BuffaloCheese
+:BuffaloCheese rdf:type owl:Class ;
+               rdfs:subClassOf obo:FOODON_00001013 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BuffaloMilk
+:BuffaloMilk rdf:type owl:Class ;
+             rdfs:subClassOf obo:UBERON_0001913 .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/CheeseTexture
 :CheeseTexture rdf:type owl:Class ;
                rdfs:label "CheeseTexture" .
@@ -168,6 +267,11 @@ food-upper:MateriaPrima rdf:type owl:Class ;
              rdfs:subClassOf obo:FOODON_00001013 .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/GoatMilk
+:GoatMilk rdf:type owl:Class ;
+          rdfs:subClassOf obo:UBERON_0001913 .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardCheese
 :MediumHardCheese rdf:type owl:Class ;
                   rdfs:subClassOf obo:FOODON_00001013 ;
@@ -176,7 +280,28 @@ food-upper:MateriaPrima rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/MilkEnzyme
 :MilkEnzyme rdf:type owl:Class ;
-            rdfs:subClassOf <http://purl.obolibrary.org/obo/FOODON_03544452> .
+            rdfs:subClassOf obo:FOODON_03544452 ,
+                            food-upper:MateriaPrima .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MilkSkimming
+:MilkSkimming rdf:type owl:Class .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MixedMilk
+:MixedMilk rdf:type owl:Class ;
+           rdfs:subClassOf obo:UBERON_0001913 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MixedMilkCheese
+:MixedMilkCheese rdf:type owl:Class ;
+                 rdfs:subClassOf obo:FOODON_00001013 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MixedMilkRawMaterial
+:MixedMilkRawMaterial rdf:type owl:Class ;
+                      rdfs:subClassOf agrovoc:c_4826 ,
+                                      :MixedMilk .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Mold
@@ -186,7 +311,37 @@ food-upper:MateriaPrima rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/MoldRipenedCheese
 :MoldRipenedCheese rdf:type owl:Class ;
+                   rdfs:subClassOf obo:FOODON_03306447 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PartlySkimmedMilk
+:PartlySkimmedMilk rdf:type owl:Class ;
+                   rdfs:subClassOf :PasteurizedMilk .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PasteurizedMilk
+:PasteurizedMilk rdf:type owl:Class ;
+                 rdfs:subClassOf obo:UBERON_0001913 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RawMilk
+:RawMilk rdf:type owl:Class ;
+         rdfs:subClassOf obo:UBERON_0001913 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SheepMilk
+:SheepMilk rdf:type owl:Class ;
+           rdfs:subClassOf obo:UBERON_0001913 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SkimmedMilkCheese
+:SkimmedMilkCheese rdf:type owl:Class ;
                    rdfs:subClassOf obo:FOODON_00001013 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SmearRipenedCheese
+:SmearRipenedCheese rdf:type owl:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/StretchedCurdCheese
@@ -195,28 +350,58 @@ food-upper:MateriaPrima rdf:type owl:Class ;
                      rdfs:label "StretchedCurdCheese" .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/WholeMilk
+:WholeMilk rdf:type owl:Class ;
+           rdfs:subClassOf :PasteurizedMilk .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/WholeMilkCheese
+:WholeMilkCheese rdf:type owl:Class ;
+                 rdfs:subClassOf obo:FOODON_00001013 .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
 ###  https://github.com/nicolasfara/cheese-ontology/HardTexture
-:HardTexture rdf:type owl:NamedIndividual .
+:HardTexture rdf:type owl:NamedIndividual ,
+                      :CheeseTexture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
-:MediumHardTexture rdf:type owl:NamedIndividual .
+:MediumHardTexture rdf:type owl:NamedIndividual ,
+                            :CheeseTexture .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
+:NoSkimming rdf:type owl:NamedIndividual ,
+                     :MilkSkimming .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PartialSkimming
+:PartialSkimming rdf:type owl:NamedIndividual ,
+                          :MilkSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SemiHardTexture
-:SemiHardTexture rdf:type owl:NamedIndividual .
+:SemiHardTexture rdf:type owl:NamedIndividual ,
+                          :CheeseTexture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SemiSoftTexture
-:SemiSoftTexture rdf:type owl:NamedIndividual .
+:SemiSoftTexture rdf:type owl:NamedIndividual ,
+                          :CheeseTexture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SoftTexture
-:SoftTexture rdf:type owl:NamedIndividual .
+:SoftTexture rdf:type owl:NamedIndividual ,
+                      :CheeseTexture .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
+:TotalSkimming rdf:type owl:NamedIndividual ,
+                        :MilkSkimming .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
