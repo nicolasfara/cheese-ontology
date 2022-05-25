@@ -106,16 +106,24 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/isMadeWithMilk
 :isMadeWithMilk rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <https://github.com/nicolasfara/cheese-ontology/http://w3id.org/food/ontology/disciplinare-upper/haDenominazione> ;
+                rdfs:subPropertyOf :isMadeWithRawMaterial ;
                 owl:inverseOf :isMilkUsedIn ;
                 rdfs:range agrovoc:c_4826 .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isMadeWithMold
 :isMadeWithMold rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <https://github.com/nicolasfara/cheese-ontology/http://w3id.org/food/ontology/disciplinare-upper/haDenominazione> ;
+                rdfs:subPropertyOf :isMadeWithRawMaterial ;
                 owl:inverseOf :isMoldUsedIn ;
                 rdfs:range :Mold .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMadeWithRawMaterial
+:isMadeWithRawMaterial rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :isRawMaterialUsedIn ;
+                       rdf:type owl:TransitiveProperty ;
+                       rdfs:domain obo:FOODON_00001013 ;
+                       rdfs:range food-upper:MateriaPrima .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isMilkUsedIn
@@ -140,8 +148,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isRawMaterialUsedIn
-:isRawMaterialUsedIn rdf:type owl:ObjectProperty ;
-                     owl:inverseOf <https://github.com/nicolasfara/cheese-ontology/http://w3id.org/food/ontology/disciplinare-upper/haDenominazione> .
+:isRawMaterialUsedIn rdf:type owl:ObjectProperty .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isRipenessOf
@@ -171,14 +178,6 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
                      owl:AsymmetricProperty ,
                      owl:IrreflexiveProperty ;
             rdfs:domain obo:FOODON_00001013 .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/http://w3id.org/food/ontology/disciplinare-upper/haDenominazione
-<https://github.com/nicolasfara/cheese-ontology/http://w3id.org/food/ontology/disciplinare-upper/haDenominazione> rdf:type owl:ObjectProperty ,
-                                                                                                                           owl:TransitiveProperty ;
-                                                                                                                  rdfs:domain obo:FOODON_00001013 ;
-                                                                                                                  rdfs:range food-upper:MateriaPrima ;
-                                                                                                                  rdfs:label "isMadeWithRawMaterial" .
 
 
 ###  https://www.geonames.org/ontology#locatedIn
@@ -675,6 +674,10 @@ food-upper:Prodotto rdf:type owl:Class ;
                       :CheeseTexture .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/LatteBrinta
+:LatteBrinta rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
 :MediumHardTexture rdf:type owl:NamedIndividual ,
                             :CheeseTexture .
@@ -703,6 +706,11 @@ food-upper:Prodotto rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/SoftTexture
 :SoftTexture rdf:type owl:NamedIndividual ,
                       :CheeseTexture .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Squacquerone
+:Squacquerone rdf:type owl:NamedIndividual ;
+              :isMadeWithMilk :LatteBrinta .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
