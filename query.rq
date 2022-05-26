@@ -1,28 +1,36 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+#
+# List of all cheese with ripeness between 5 and 20 days
+#
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://wuwv.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.corninicolasfara/cheese-ontology/>
+
+SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
+    ?cheese :hasRipeness ?ripeness.
+    ?ripeness :hasRipenessDuration ?duration.
+
+    OPTIONAL {?cheese rdfs:label ?lab}
+    FILTER (?duration > "5"^^xsd:integer && ?duration < "20"^^xsd:integer)
+}
+ORDER BY ?label
+
+
+
+#
+# List of all Protected name cheeses
+#
+
+PREFIX owl: <http://www.w3.Org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.0rg/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.Org/2000/01/rdf-schema#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
+PREFIX: <https://github.com/nicolasfara/cheese-ontology/>
 
-# questa è la sintassi giusta
-SELECT ?subject ?l
-	WHERE {
-		?subject rdfs:subClassOf obo:FOODON_00001013.
-		?subject rdfs:label ?l
-	}
-
-
-
-
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
-
-SELECT ?subject ?o
-	WHERE {
-		?subject :isMadeWithRawMaterial ?o
-	}
+SELECT ?x (STR(?lab) AS ?label) WHERE {
+    ?x rdf:type protected:Formaggio.
+    OPTIONAL {?x rdfs:label ?lab}
+}
+ORDER BY ?label
