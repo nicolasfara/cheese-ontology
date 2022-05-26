@@ -34,3 +34,26 @@ SELECT ?x (STR(?lab) AS ?label) WHERE {
     OPTIONAL {?x rdfs:label ?lab}
 }
 ORDER BY ?label
+
+
+
+#
+# List of all pit cheese
+#
+
+PREFIX owl: <http://www.w3.Org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.0rg/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.Org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
+PREFIX: <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese (STR(?lab) AS ?label) (STR(?envlab) AS ?environment)
+WHERE {
+    ?cheese rdf:type obo:FOODON_00001013.   # Represent the cheese class
+    ?cheese :locatedInEnvironment ?env.
+    ?env rdf:type obo:ENVO_01001871.        #Represent the Pit enviroment
+    OPTIONAL {?cheese rdfs:label ?lab}.
+    OPTIONAL {?env rdfs:label ?envlab}
+}
+ORDER BY ?label
