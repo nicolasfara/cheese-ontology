@@ -1,0 +1,92 @@
+@import "reveal-js/css/theme/template/mixins";
+@import "reveal-js/css/theme/template/settings";
+
+
+// Include theme-specific fonts
+@import url(reveal-js/lib/font/source-sans-pro/source-sans-pro.css);
+
+$backgroundColor: #fff;
+
+$mainColor: #000;
+$headingColor: #111;
+
+$mainFontSize: 2em;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingLetterSpacing: normal;
+$headingFontWeight: 600;
+$linkColor: #0000b0;
+$linkColorHover: lighten( $linkColor, 25% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+@import "reveal-js/css/theme/template/theme";
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+.reveal pre {
+	margin: 1em auto;
+}
+
+.reveal strong,
+.reveal b {
+	font-weight: bold;
+	color: #9f0000
+}
+
+.reveal em {
+	font-style: italic;
+	color: #006900
+}
+
+.reveal section img {
+	border: 0em;
+	box-shadow: none;
+}
+
+.reveal div .gist .hljs-ln {
+	color: black;
+	font-size: 60%;
+	line-height: 100%;
+}
+
+.reveal code {
+	color: deeppink;
+	line-height: 140%;
+	// font-size: 130%;
+	font-family: "Oxygen Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
+}
+
+.reveal pre code {
+	color: black;
+}
+
+.reveal h3 {
+	margin: .5em 0 0;
+}
+
+.reveal ul {
+	margin: .2em .2em .2em;
+}
+
+.gist-it-gist .gist-file .gist-data pre, .gister-gist .gist-file .gist-data pre {
+	box-shadow: none !important;
+}
+
+.reveal pre code {
+	color: rgb(0, 0, 0);
+	max-height: none;
+}
+
+.hljs {
+	background: rgba(255, 255, 255, 0.08) !important;
+	box-shadow: 0 0 3em 0.6em rgba(255, 255, 255, 0.2);
+}

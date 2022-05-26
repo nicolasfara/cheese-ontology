@@ -1,4 +1,4 @@
-baseURL = 'https:/nicolasfara.github.io/cheese-ontology'
+baseURL = 'https://nicolasfara.github.io/cheese-ontology'
 languageCode = 'en-us'
 title = 'Cheese Ontology'
 
@@ -14,3 +14,8 @@ unsafe = true
 baseName = "index"
 mediaType = "text/html"
 isHTML = true
+
+[markup.highlight]
+#style = "monokailight"
+#style = "pastie"
+style = "pygments"
