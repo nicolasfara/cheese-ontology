@@ -671,6 +671,15 @@ food-upper:Prodotto rdf:type owl:Class ;
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :locatedInEnvironment ;
                             owl:allValuesFrom :Environment
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRipenessDuration ;
+                            owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                owl:onDatatype xsd:integer ;
+                                                owl:withRestrictions ( [ xsd:maxInclusive 30
+                                                                       ]
+                                                                     )
+                                              ]
                           ] .
 
 
@@ -931,6 +940,10 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 :m rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment ""^^xsd:string ;
    rdfs:label "S5"^^xsd:string ;
@@ -959,6 +972,39 @@ food-upper:Prodotto rdf:type owl:Class ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#classPredicate> food-cheese:Formaggio ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> :c
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S1"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Ripeness ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :r
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRipenessDuration ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :r ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                    rdf:first :d ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first 30 ;
+                                                                                                               rdf:rest rdf:nil
+                                                                                                             ]
+                                                                                                  ]
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
