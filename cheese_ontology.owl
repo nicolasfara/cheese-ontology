@@ -442,6 +442,11 @@ food-cheese:Formaggio rdf:type owl:Class ;
                                                                ) ;
                                             rdf:type owl:Class
                                           ] ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isMadeWithMilk ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :ProtectedMilkRawMaterial
+                                      ] ;
                       rdfs:label "ProtectedCheese"@en .
 
 
