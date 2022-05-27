@@ -182,7 +182,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 ###  https://github.com/nicolasfara/cheese-ontology/hasAgingDuration
 :hasAgingDuration rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Aging ;
-                  rdfs:range xsd:integer ;
+                  rdfs:range xsd:positiveInteger ;
                   rdfs:comment "Rappresenta il tempo di stagionatura di un dato formaggio espresso in mesi"@it ,
                                "Represent the aging duration for a given cheese in months"@en .
 
@@ -190,7 +190,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 ###  https://github.com/nicolasfara/cheese-ontology/hasRipenessDuration
 :hasRipenessDuration rdf:type owl:DatatypeProperty ;
                      rdfs:domain :Ripeness ;
-                     rdfs:range xsd:integer ;
+                     rdfs:range xsd:positiveInteger ;
                      rdfs:comment "Rappresenta il tempo di maturazione di un dato formaggio espresso in giorni"@it ,
                                   "Represent the ripeness time for a given cheese in days"@en .
 
@@ -940,9 +940,11 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 :m rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+:a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 :d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment ""^^xsd:string ;
@@ -979,6 +981,39 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment ""^^xsd:string ;
+   rdfs:label "S2"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Aging ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :a
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAgingDuration ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :a ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                    rdf:first :d ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first 1 ;
+                                                                                                               rdf:rest rdf:nil
+                                                                                                             ]
+                                                                                                  ]
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
    rdfs:label "S1"^^xsd:string ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
@@ -997,16 +1032,28 @@ food-upper:Prodotto rdf:type owl:Class ;
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
                                                                                                     rdf:first :d ;
                                                                                                     rdf:rest [ rdf:type rdf:List ;
-                                                                                                               rdf:first 30 ;
+                                                                                                               rdf:first 1 ;
                                                                                                                rdf:rest rdf:nil
                                                                                                              ]
                                                                                                   ]
                                                      ] ;
-                                           rdf:rest rdf:nil
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :d ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 30 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
                                          ]
  ] .
 
