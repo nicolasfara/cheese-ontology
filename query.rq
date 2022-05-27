@@ -4,7 +4,7 @@
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://wuwv.w3.org/2000/01/rdf-schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
@@ -12,26 +12,26 @@ SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
     ?ripeness :hasRipenessDuration ?duration.
 
     OPTIONAL {?cheese rdfs:label ?lab}
-    FILTER (?duration > "5"^^xsd:integer && ?duration < "20"^^xsd:integer)
+    FILTER (?duration > 5 && ?duration < 20)
 }
 ORDER BY ?label
 
 
 
 #
-# List of all Protected name cheeses
+# List of all protected name cheeses
 #
 
-PREFIX owl: <http://www.w3.Org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.0rg/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.Org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
-PREFIX: <https://github.com/nicolasfara/cheese-ontology/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?x (STR(?lab) AS ?label) WHERE {
-    ?x rdf:type protected:Formaggio.
-    OPTIONAL {?x rdfs:label ?lab}
+SELECT ?cheese (STR(?lab) AS ?label) WHERE {
+    ?cheese rdf:type protected:Formaggio.
+    OPTIONAL {?cheese rdfs:label ?lab}
 }
 ORDER BY ?label
 
@@ -41,19 +41,37 @@ ORDER BY ?label
 # List of all pit cheese
 #
 
-PREFIX owl: <http://www.w3.Org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.0rg/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.Org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
-PREFIX: <https://github.com/nicolasfara/cheese-ontology/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese (STR(?lab) AS ?label) (STR(?envlab) AS ?environment)
+SELECT?cheese (STR(?lab) as ?label)
 WHERE {
-    ?cheese rdf:type obo:FOODON_00001013.   # Represent the cheese class
+    ?cheese rdf:type ?cheeseclass.
+    ?cheeseclass rdfs:label "Cheese".
     ?cheese :locatedInEnvironment ?env.
-    ?env rdf:type obo:ENVO_01001871.        #Represent the Pit enviroment
-    OPTIONAL {?cheese rdfs:label ?lab}.
-    OPTIONAL {?env rdfs:label ?envlab}
+    ?env rdf:type ?envclass.
+    ?envclass rdfs:label "Pit".
+    OPTIONAL {?cheese rdfs:label ?lab}
+}
+ORDER BY ?label
+
+
+#
+# List of all cheese made with raw milk
+#
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
+    ?cheese :isMadeWithMilk ?milk.
+    ?milk rdf:type :RawMilk.
+
+    OPTIONAL {?cheese rdfs:label ?lab}
 }
 ORDER BY ?label
