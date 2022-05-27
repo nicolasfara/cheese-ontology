@@ -735,13 +735,64 @@ food-upper:Prodotto rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  https://github.com/nicolasfara/cheese-ontology/AnticheFossePit
+:AnticheFossePit rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrandinelliPit
+:BrandinelliPit rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBuffaloMilk
+:BrintazzoliBuffaloMilk rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCowMilk
+:BrintazzoliCowMilk rdf:type owl:NamedIndividual ,
+                             obo:FOODON_00001771 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCowMilkProtectedName
+:BrintazzoliCowMilkProtectedName rdf:type owl:NamedIndividual ,
+                                          obo:FOODON_00001771 ,
+                                          :ProtectedMilkRawMaterial .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliSheepMilk
+:BrintazzoliSheepMilk rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Caciotta
+:Caciotta rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaAlSaleDiCervia
+:CaciottaAlSaleDiCervia rdf:type owl:NamedIndividual ;
+                        :isMadeWithRawMaterial :SaleDiCervia .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaCaglioVegetale
+:CaciottaCaglioVegetale rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaDiRomagna
+:CaciottaDiRomagna rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaglieronCave
+:CaglieronCave rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/Casatella
 :Casatella rdf:type owl:NamedIndividual .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/CellaFrgorifera
-:CellaFrgorifera rdf:type owl:NamedIndividual ,
-                          obo:ENVO_01000583 .
+###  https://github.com/nicolasfara/cheese-ontology/CasatellaDiRomagna
+:CasatellaDiRomagna rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CastelGrottaCave
+:CastelGrottaCave rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CertificazioneDOP
@@ -750,11 +801,23 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/FermentiLatticiAlce
-:FermentiLatticiAlce rdf:type owl:NamedIndividual .
+:FermentiLatticiAlce rdf:type owl:NamedIndividual ,
+                              :MilkEnzyme .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/FermentiLatticiSacco
-:FermentiLatticiSacco rdf:type owl:NamedIndividual .
+:FermentiLatticiSacco rdf:type owl:NamedIndividual ,
+                               :MilkEnzyme .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Ghiottella
+:Ghiottella rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/GhiottinoConRucolaAlSaleDiCervia
+:GhiottinoConRucolaAlSaleDiCervia rdf:type owl:NamedIndividual ;
+                                  :isMadeWithRawMaterial :Rocket ,
+                                                         :SaleDiCervia .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/HardTexture
@@ -762,15 +825,13 @@ food-upper:Prodotto rdf:type owl:Class ;
                       :CheeseTexture .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/LatteBrintazzoli
-:LatteBrintazzoli rdf:type owl:NamedIndividual ,
-                           obo:FOODON_00001771 .
+###  https://github.com/nicolasfara/cheese-ontology/MarineSalt
+:MarineSalt rdf:type owl:NamedIndividual ,
+                     agrovoc:c_33129 .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/LatteBrintazzoliProtectedName
-:LatteBrintazzoliProtectedName rdf:type owl:NamedIndividual ,
-                                        obo:FOODON_00001771 ,
-                                        :ProtectedMilkRawMaterial .
+###  https://github.com/nicolasfara/cheese-ontology/MartarelliCave
+:MartarelliCave rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Mascarpone
@@ -787,17 +848,48 @@ food-upper:Prodotto rdf:type owl:Class ;
                      :MilkSkimming .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/ParmalatGoatMilk
+:ParmalatGoatMilk rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/PartialSkimming
 :PartialSkimming rdf:type owl:NamedIndividual ,
                           :MilkSkimming .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PrimoSale
+:PrimoSale rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PrimosaleAlSaleDiCervia
+:PrimosaleAlSaleDiCervia rdf:type owl:NamedIndividual ;
+                         :isMadeWithRawMaterial :SaleDiCervia .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Refrigerator
+:Refrigerator rdf:type owl:NamedIndividual ,
+                       obo:ENVO_01000583 .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Ricotta
 :Ricotta rdf:type owl:NamedIndividual .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/Sale
-:Sale rdf:type owl:NamedIndividual .
+###  https://github.com/nicolasfara/cheese-ontology/RicottaDiRomagna
+:RicottaDiRomagna rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RicottaFrescaBio
+:RicottaFrescaBio rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Rocket
+:Rocket rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SaleDiCervia
+:SaleDiCervia rdf:type owl:NamedIndividual ,
+                       agrovoc:c_33129 .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SemiHardTexture
@@ -815,14 +907,18 @@ food-upper:Prodotto rdf:type owl:Class ;
                       :CheeseTexture .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneBio
+:SquacqueroneBio rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneMambelliDOP
 :SquacqueroneMambelliDOP rdf:type owl:NamedIndividual ;
                          :hasRipeness :SquacqueroneRipeness ;
-                         :hasTakenPlaceIn :CellaFrgorifera ;
+                         :hasTakenPlaceIn :Refrigerator ;
                          :hasTexture :SoftTexture ;
-                         :isMadeWithMilk :LatteBrintazzoliProtectedName ;
+                         :isMadeWithMilk :BrintazzoliCowMilkProtectedName ;
                          :isMadeWithRawMaterial :FermentiLatticiAlce ,
-                                                :Sale ;
+                                                :MarineSalt ;
                          rdfs:label "Squacquerone Mambelli D.O.P."@it .
 
 
@@ -832,9 +928,29 @@ food-upper:Prodotto rdf:type owl:Class ;
                       :hasRipenessDuration 10 .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneSenzaLattosio
+:SquacqueroneSenzaLattosio rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Stracchino
+:Stracchino rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/StracchinoCaglioVegetale
+:StracchinoCaglioVegetale rdf:type owl:NamedIndividual .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Straccone
+:Straccone rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
 :TotalSkimming rdf:type owl:NamedIndividual ,
                         :MilkSkimming .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/VenturiPit
+:VenturiPit rdf:type owl:NamedIndividual .
 
 
 #################################################################
@@ -948,7 +1064,7 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment ""^^xsd:string ;
-   rdfs:label "S5"^^xsd:string ;
+   rdfs:label "S3"^^xsd:string ;
    rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
