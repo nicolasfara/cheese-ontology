@@ -1,77 +1,206 @@
 #
-# List of all cheese with ripeness between 5 and 20 days
+# List of all cheeses with ripeness between 5 and 20 days
 #
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
-    ?cheese :hasRipeness ?ripeness.
-    ?ripeness :hasRipenessDuration ?duration.
+SELECT ?cheese ?label ?duration WHERE {
+    ?cheese :hasRipening/:hasRipeningDuration ?duration.
 
-    OPTIONAL {?cheese rdfs:label ?lab}
+    OPTIONAL { ?cheese rdfs:label ?label }
     FILTER (?duration > 5 && ?duration < 20)
 }
 ORDER BY ?label
 
-
-
 #
-# List of all protected name cheeses
+# List of all protected cheeses
 #
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese (STR(?lab) AS ?label) WHERE {
-    ?cheese rdf:type protected:Formaggio.
-    OPTIONAL {?cheese rdfs:label ?lab}
+SELECT ?cheese ?label ?protectedname WHERE {
+    ?cheese a/rdfs:label "ProtectedCheese"@en.
+	
+    OPTIONAL { ?cheese :hasProtectedName ?protectedname }
+    OPTIONAL { ?cheese rdfs:label ?label }
 }
 ORDER BY ?label
 
-
-
 #
-# List of all pit cheese
+# List of all pit cheeses
 #
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT?cheese (STR(?lab) as ?label)
+SELECT ?cheese ?cheeselabel ?pit ?pitlabel
 WHERE {
-    ?cheese rdf:type ?cheeseclass.
-    ?cheeseclass rdfs:label "Cheese".
-    ?cheese :locatedInEnvironment ?env.
-    ?env rdf:type ?envclass.
-    ?envclass rdfs:label "Pit".
-    OPTIONAL {?cheese rdfs:label ?lab}
+    ?cheese (:hasRipening|:hasAging)/:locatedInEnvironment ?pit.
+    ?pit a/rdfs:label "Pit"@en.
+  
+    OPTIONAL { ?pit rdfs:label ?pitlabel }
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel }
 }
-ORDER BY ?label
-
+ORDER BY ?cheeselabel
 
 #
-# List of all cheese made with raw milk
+# List of all cheeses made with raw milk
 #
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese (STR(?lab) AS ?label) ?duration WHERE {
+SELECT ?cheese ?cheeselabel ?milk ?milklabel
+WHERE {
     ?cheese :isMadeWithMilk ?milk.
-    ?milk rdf:type :RawMilk.
+    ?milk a :RawMilk.
 
-    OPTIONAL {?cheese rdfs:label ?lab}
+    OPTIONAL { ?milk rdfs:label ?milklabel }
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel }
+}
+ORDER BY ?cheeselabel
+
+#
+# List of all cheeses made with Cervia salt
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?label
+WHERE {
+    ?cheese :isMadeWithRawMaterial :SaleDiCervia.
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+
+#
+# List of all cheeses along with the animal milk used for producing them
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?cheeselabel ?milk ?milklabel ?animal
+WHERE {
+    ?cheese :isMadeWithMilk ?milk.
+    { 
+    	?milk a/rdfs:label "CowMilk"@en.
+    	VALUES ?animal { "Formaggio di mucca" }
+  	}
+    UNION
+    { 
+    	?milk a/rdfs:label "SheepMilk"@en.
+    	VALUES ?animal { "Formaggio di pecora" }
+  	}
+    UNION
+    { 
+    	?milk a/rdfs:label "GoatMilk"@en.
+    	VALUES ?animal { "Formaggio di capra" }
+  	}
+    UNION
+    { 
+    	?milk a/rdfs:label "BuffaloMilk"@en.
+    	VALUES ?animal { "Formaggio di bufala" }
+  	}
+
+    OPTIONAL { ?milk rdfs:label ?milklabel }
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel }
+}
+ORDER BY ?cheeselabel
+
+#
+# List of all fresh cream cheeses
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?label
+WHERE {
+  	?cheese a/rdfs:label "CreamCheese"@en.
+  	?cheese a :FreshCheese.
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+
+#
+# List of all high-digeribility cheeses
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?label
+WHERE {
+  	?cheese :isMadeWithRawMaterial/a :VegetalRennet.
+  	?cheese :isMadeWithMilk/a/rdfs:label "SkimmedMilk"@en.
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+
+#
+# List of all soft or semi-soft cheeses which are moldy cheeses
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?label ?type
+WHERE {
+  	{ ?cheese a/rdfs:label "SoftCheese"@en. }
+  	UNION
+    { ?cheese a/rdfs:label "SemiSoftCheese"@en. }
+    {
+    	?cheese a/rdfs:label "BlueCheese"@en.
+    	VALUES ?type { "Formaggio erborinato" }
+  	}
+  	UNION
+  	{
+    	?cheese a :SmearRipenedCheese
+    	VALUES ?type { "Formaggio a crosta lavata" }
+  	}
+  	UNION
+  	{
+    	?cheese a/rdfs:label "SoftRipenedCheese"@en.
+    	VALUES ?type { "Formaggio a crosta fiorita" }
+  	}
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+
+#
+# List of all cheeses made from other cheeses
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT DISTINCT ?cheese ?label
+WHERE {
+  	?cheese :isMadeWithRawMaterial+/a/rdfs:label "Cheese"@en
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+
+#
+# List all Mambelli's cheeses
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT DISTINCT ?cheese ?label
+WHERE {
+  	?cheese rdfs:label ?label.
+  	
+  	FILTER(regex(?label, "Mambelli"))
 }
 ORDER BY ?label
