@@ -273,7 +273,9 @@ obo:FOODON_00001013 rdf:type owl:Class ;
                                           :SkimmedMilkCheese
                                           :WholeMilkCheese
                                         ) ;
-                    rdfs:label "Cheese"@en .
+                    rdfs:comment "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein."@en ;
+                    rdfs:label "Cheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001065
@@ -336,7 +338,9 @@ obo:FOODON_00001126 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/FOODON_00001228
 obo:FOODON_00001228 rdf:type owl:Class ;
                     rdfs:subClassOf obo:FOODON_00002403 ;
-                    rdfs:label "Rennet"@en .
+                    rdfs:comment "Rennet is a complex set of enzymes produced in the stomachs of ruminant mammals."@en ;
+                    rdfs:label "Rennet"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001771
@@ -360,7 +364,9 @@ obo:FOODON_00001945 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/FOODON_00002221
 obo:FOODON_00002221 rdf:type owl:Class ;
                     rdfs:subClassOf obo:FOODON_00002403 ;
-                    rdfs:label "Salt"@en .
+                    rdfs:comment "Salt is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts; salt in the form of a natural crystalline mineral is known as rock salt or halite."@en ;
+                    rdfs:label "Salt"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Salt"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00002230
@@ -384,7 +390,9 @@ obo:FOODON_00002252 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/FOODON_00002340
 obo:FOODON_00002340 rdf:type owl:Class ;
                     rdfs:subClassOf obo:FOODON_00002403 ;
-                    rdfs:label "Water"@en .
+                    rdfs:comment "Water (chemical formula H2O) is an inorganic, transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's hydrosphere and the fluids of all known living organisms (in which it acts as a solvent[1]). It is vital for all known forms of life, even though it provides neither food, energy, nor organic micronutrients."@en ;
+                    rdfs:label "Water"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Water"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00002403
@@ -446,7 +454,9 @@ obo:UBERON_0001913 rdf:type owl:Class ;
                                        ( :PasteurizedMilk
                                          :RawMilk
                                        ) ;
-                   rdfs:label "Milk"@en .
+                   rdfs:comment "Milk is a nutrient-rich liquid food produced by the mammary glands of mammals."@en ;
+                   rdfs:label "Milk"@en ;
+                   rdfs:seeAlso "https://en.wikipedia.org/wiki/Milk"@en .
 
 
 ###  http://w3id.org/food/ontology/disciplinare-formaggio/DenominazioneFormaggio
@@ -525,6 +535,7 @@ food-upper:Prodotto rdf:type owl:Class ;
                          owl:onProperty :locatedInEnvironment ;
                          owl:allValuesFrom :Environment
                        ] ;
+       owl:disjointWith :Ripening ;
        rdfs:label "Aging" .
 
 
@@ -619,7 +630,9 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/Mold
 :Mold rdf:type owl:Class ;
-      rdfs:subClassOf food-upper:MateriaPrima .
+      rdfs:subClassOf food-upper:MateriaPrima ;
+      rdfs:comment "A mold (US) or mould (UK, NZ, AU, ZA, IN, CA, IE) is a fungus that grows in the form of multicellular filaments called hyphae. In contrast, fungi that can adopt a single-celled growth habit are called yeasts."@en ;
+      rdfs:seeAlso "https://en.wikipedia.org/wiki/Mold"@en .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MoldRipenedCheese
@@ -677,7 +690,9 @@ food-upper:Prodotto rdf:type owl:Class ;
                                                                        ]
                                                                      )
                                               ]
-                          ] .
+                          ] ;
+          rdfs:comment "Cheese ripening, alternatively cheese maturation or affinage, is a process in cheesemaking. It is responsible for the distinct flavour of cheese, and through the modification of \"ripening agents\", determines the features that define many different varieties of cheeses, such as taste, texture, and body."@en ;
+          rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese_ripening"@en .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SkimmedMilkCheese
@@ -728,12 +743,14 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/AnticheFossePit
 :AnticheFossePit rdf:type owl:NamedIndividual ,
-                          obo:ENVO_01001871 .
+                          obo:ENVO_01001871 ;
+                 rdfs:seeAlso "https://www.antichefosse.com/" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrandinelliPit
 :BrandinelliPit rdf:type owl:NamedIndividual ,
-                         obo:ENVO_01001871 .
+                         obo:ENVO_01001871 ;
+                rdfs:seeAlso "https://www.fossebrandinelli.it/" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBuffaloMilk
@@ -763,21 +780,25 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaAlSaleDiCervia
 :CaciottaAlSaleDiCervia rdf:type owl:NamedIndividual ;
-                        :isMadeWithRawMaterial :SaleDiCervia .
+                        :isMadeWithRawMaterial :SaleDiCervia ;
+                        rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaCaglioVegetale
 :CaciottaCaglioVegetale rdf:type owl:NamedIndividual ;
-                        :isMadeWithRawMaterial :CaglioVegetale .
+                        :isMadeWithRawMaterial :CaglioVegetale ;
+                        rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/114-caciotta-with-vegetable-rennet-2480395.html" .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/CaciottaDiRomagna
-:CaciottaDiRomagna rdf:type owl:NamedIndividual .
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaDiRomagnaInfossata
+:CaciottaDiRomagnaInfossata rdf:type owl:NamedIndividual ;
+                            rdfs:seeAlso "https://www.mambelli.com/en/100-caciotta-di-romagna-infossata" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaglieronCave
 :CaglieronCave rdf:type owl:NamedIndividual ,
-                        obo:ENVO_00000067 .
+                        obo:ENVO_00000067 ;
+               rdfs:seeAlso "https://www.prolocofregona.it/en/parco-grotte-del-caglieron/" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaglioVegetale
@@ -790,12 +811,14 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaDiRomagna
-:CasatellaDiRomagna rdf:type owl:NamedIndividual .
+:CasatellaDiRomagna rdf:type owl:NamedIndividual ;
+                    rdfs:seeAlso "https://www.mambelli.com/en/4-casatella-of-romagna" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CastelGrottaCave
 :CastelGrottaCave rdf:type owl:NamedIndividual ,
-                           obo:ENVO_00000067 .
+                           obo:ENVO_00000067 ;
+                  rdfs:seeAlso "https://latterievicentine.it/grotta-del-castello/" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/FermentiLatticiAlce
@@ -809,7 +832,8 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Ghiottella
-:Ghiottella rdf:type owl:NamedIndividual .
+:Ghiottella rdf:type owl:NamedIndividual ;
+            rdfs:seeAlso "https://www.mambelli.com/en/7-la-ghiottella" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/GhiottinoConRucolaAlSaleDiCervia
@@ -823,6 +847,10 @@ food-upper:Prodotto rdf:type owl:Class ;
                       :CheeseTexture .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/LatterieVicentineCowMilk
+:LatterieVicentineCowMilk rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/MarineSalt
 :MarineSalt rdf:type owl:NamedIndividual ,
                      obo:FOODON_00002221 .
@@ -834,7 +862,8 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Mascarpone
-:Mascarpone rdf:type owl:NamedIndividual .
+:Mascarpone rdf:type owl:NamedIndividual ;
+            rdfs:seeAlso "https://www.mambelli.com/en/20-il-mascarpone" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
@@ -863,7 +892,8 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/PrimosaleAlSaleDiCervia
 :PrimosaleAlSaleDiCervia rdf:type owl:NamedIndividual ;
-                         :isMadeWithRawMaterial :SaleDiCervia .
+                         :isMadeWithRawMaterial :SaleDiCervia ;
+                         rdfs:seeAlso "https://www.mambelli.com/en/14-primosale-with-salt-from-cervia" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Refrigerator
@@ -876,7 +906,8 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RicottaDiRomagna
-:RicottaDiRomagna rdf:type owl:NamedIndividual .
+:RicottaDiRomagna rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso "https://www.mambelli.com/en/6-ricotta-of-romagna" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RicottaFrescaBio
@@ -915,11 +946,13 @@ food-upper:Prodotto rdf:type owl:Class ;
 :SquacqueroneMambelliDOP rdf:type owl:NamedIndividual ;
                          food-upper:haDenominazione :SquaqueroneDiRomagnaDOP ;
                          :hasRipening :SquacqueroneRipening ;
+                         :hasTakenPlaceIn :Refrigerator ;
                          :hasTexture :SoftTexture ;
                          :isMadeWithMilk :BrintazzoliCowMilkProtectedName ;
                          :isMadeWithRawMaterial :FermentiLatticiAlce ,
                                                 :MarineSalt ;
-                         rdfs:label "Squacquerone Mambelli D.O.P."@it .
+                         rdfs:label "Squacquerone Mambelli D.O.P."@it ;
+                         rdfs:seeAlso "https://www.mambelli.com/en/2-squacquerone" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneRipening
@@ -944,16 +977,20 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/StracchinoCaglioVegetale
 :StracchinoCaglioVegetale rdf:type owl:NamedIndividual ;
-                          :isMadeWithRawMaterial :CaglioVegetale .
+                          :isMadeWithRawMaterial :CaglioVegetale ;
+                          rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/113-stracchino-with-vegetable-rennet-2933164.html" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Straccone
-:Straccone rdf:type owl:NamedIndividual .
+:Straccone rdf:type owl:NamedIndividual ;
+           rdfs:seeAlso "https://www.mambelli.com/en/5-straccone" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
 :TotalSkimming rdf:type owl:NamedIndividual ,
-                        :MilkSkimming .
+                        :MilkSkimming ;
+               rdfs:comment "Skimmed milk (British English), or skim milk (American English), is made when all the milkfat is removed from whole milk. It tends to contain around 0.1% fat." ;
+               rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/VenturiPit
