@@ -1,4 +1,5 @@
 @prefix : <https://github.com/nicolasfara/cheese-ontology/> .
+@prefix geo: <https://www.geonames.org/ontology#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6,8 +7,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix food-ita: <http://w3id.org/food/ontology/denominazione-italiana/> .
 @prefix food-upper: <http://w3id.org/food/ontology/disciplinare-upper/> .
 @prefix food-cheese: <http://w3id.org/food/ontology/disciplinare-formaggio/> .
+@prefix food-ricotta: <http://w3id.org/food/ontology/disciplinare-ricotta/> .
 @base <https://github.com/nicolasfara/cheese-ontology/> .
 
 <https://github.com/nicolasfara/cheese-ontology/> rdf:type owl:Ontology .
@@ -44,7 +47,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/hasRipening
 :hasRipening rdf:type owl:ObjectProperty ;
-             owl:inverseOf :isRipenessOf ;
+             owl:inverseOf :isRipeningOf ;
              rdf:type owl:FunctionalProperty ,
                       owl:AsymmetricProperty ,
                       owl:IrreflexiveProperty ;
@@ -64,7 +67,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/hasTakenPlaceIn
 :hasTakenPlaceIn rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <https://www.geonames.org/ontology#locatedIn> ;
+                 rdfs:subPropertyOf geo:locatedIn ;
                  owl:inverseOf :isPlaceWhere ;
                  rdf:type owl:FunctionalProperty ,
                           owl:AsymmetricProperty ,
@@ -84,10 +87,6 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/isAgingOf
 :isAgingOf rdf:type owl:ObjectProperty .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/isDurationOf
-:isDurationOf rdf:type owl:ObjectProperty .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isEnvironmentLocationOf
@@ -142,8 +141,8 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 :isRawMaterialUsedIn rdf:type owl:ObjectProperty .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/isRipenessOf
-:isRipenessOf rdf:type owl:ObjectProperty .
+###  https://github.com/nicolasfara/cheese-ontology/isRipeningOf
+:isRipeningOf rdf:type owl:ObjectProperty .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isSkimmingOf
@@ -165,16 +164,16 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/producedIn
 :producedIn rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <https://www.geonames.org/ontology#locatedIn> ;
+            rdfs:subPropertyOf geo:locatedIn ;
             rdf:type owl:FunctionalProperty ,
                      owl:AsymmetricProperty ,
                      owl:IrreflexiveProperty ;
-            rdfs:domain obo:FOODON_00001013 .
+            rdfs:domain obo:FOODON_00002403 .
 
 
 ###  https://www.geonames.org/ontology#locatedIn
-<https://www.geonames.org/ontology#locatedIn> rdf:type owl:ObjectProperty ;
-                                              rdfs:range <https://www.geonames.org/ontology#Feature> .
+geo:locatedIn rdf:type owl:ObjectProperty ;
+              rdfs:range geo:Feature .
 
 
 #################################################################
@@ -236,16 +235,22 @@ agrovoc:c_8309 rdf:type owl:Class ;
                rdfs:label "WaterRawMaterial" .
 
 
+###  http://aims.fao.org/aos/agrovoc/c_8376
+agrovoc:c_8376 rdf:type owl:Class ;
+               rdfs:subClassOf food-upper:MateriaPrima ;
+               rdfs:label "Whey"@en .
+
+
 ###  http://purl.obolibrary.org/obo/ENVO_00000067
 obo:ENVO_00000067 rdf:type owl:Class ;
                   rdfs:subClassOf :Environment ;
-                  rdfs:label "Cave" .
+                  rdfs:label "Cave"@en .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_01000583
 obo:ENVO_01000583 rdf:type owl:Class ;
                   rdfs:subClassOf :Environment ;
-                  rdfs:label "Refrigerator"^^xsd:string .
+                  rdfs:label "Refrigerator"@en .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_01001871
@@ -272,6 +277,9 @@ obo:FOODON_00001013 rdf:type owl:Class ;
                                         ( obo:FOODON_03401217
                                           :SkimmedMilkCheese
                                           :WholeMilkCheese
+                                        ) ,
+                                        ( :AgedCheese
+                                          :FreshCheese
                                         ) ;
                     rdfs:comment "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein."@en ;
                     rdfs:label "Cheese"@en ;
@@ -459,9 +467,38 @@ obo:UBERON_0001913 rdf:type owl:Class ;
                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Milk"@en .
 
 
+###  http://w3id.org/food/ontology/denominazione-italiana/DenominazioneOrigineControllata
+food-ita:DenominazioneOrigineControllata rdf:type owl:Class ;
+                                         rdfs:subClassOf food-upper:Denominazione ;
+                                         rdfs:label "ControlledDesignationOrigin"@en ,
+                                                    "DenominazioneOrigineControllata"@it .
+
+
+###  http://w3id.org/food/ontology/denominazione-italiana/DenominazioneOrigineControllataGarantita
+food-ita:DenominazioneOrigineControllataGarantita rdf:type owl:Class ;
+                                                  rdfs:subClassOf food-upper:Denominazione ;
+                                                  rdfs:label "ControlledGuaranteedDesignationOrigin"@en ,
+                                                             "DenominazioneOrigineControllataGarantita"@it .
+
+
+###  http://w3id.org/food/ontology/denominazione-italiana/IndicazioneGeograficaTipica
+food-ita:IndicazioneGeograficaTipica rdf:type owl:Class ;
+                                     rdfs:subClassOf food-upper:Denominazione ;
+                                     rdfs:label "IndicazioneGeograficaTipica"@en ,
+                                                "TypicalGeographicalIndication"@en .
+
+
+###  http://w3id.org/food/ontology/denominazione-italiana/ProdottiAgroalimentariTradizionali
+food-ita:ProdottiAgroalimentariTradizionali rdf:type owl:Class ;
+                                            rdfs:subClassOf food-upper:Denominazione ;
+                                            rdfs:label "ProdottiAgroalimentariTradizionali"@it ,
+                                                       "TraditionalAgriFoodstuff"@en .
+
+
 ###  http://w3id.org/food/ontology/disciplinare-formaggio/DenominazioneFormaggio
 food-cheese:DenominazioneFormaggio rdf:type owl:Class ;
                                    rdfs:subClassOf food-upper:Denominazione ;
+                                   owl:disjointWith food-ricotta:DenominazioneRicotta ;
                                    rdfs:label "CheeseProtectedName"@en .
 
 
@@ -470,26 +507,77 @@ food-cheese:Formaggio rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( obo:FOODON_00001013
                                                                  [ rdf:type owl:Restriction ;
                                                                    owl:onProperty food-upper:haDenominazione ;
-                                                                   owl:someValuesFrom food-cheese:DenominazioneFormaggio
-                                                                 ]
-                                                               ) ;
-                                            rdf:type owl:Class
-                                          ] ,
-                                          [ owl:intersectionOf ( obo:FOODON_00001013
-                                                                 [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty :isMadeWithMilk ;
-                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                   owl:onClass :ProtectedMilkRawMaterial
+                                                                   owl:allValuesFrom food-cheese:DenominazioneFormaggio
                                                                  ]
                                                                ) ;
                                             rdf:type owl:Class
                                           ] ;
+                      rdfs:subClassOf [ owl:intersectionOf ( obo:FOODON_00001013
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isMadeWithMilk ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass :ProtectedMilkRawMaterial
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                      owl:disjointWith food-ricotta:Ricotta ;
                       rdfs:label "ProtectedCheese"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-ricotta/DenominazioneRicotta
+food-ricotta:DenominazioneRicotta rdf:type owl:Class ;
+                                  rdfs:subClassOf food-upper:Denominazione ;
+                                  rdfs:label "RicottaProtectedName"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-ricotta/Ricotta
+food-ricotta:Ricotta rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( obo:FOODON_00001013
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty food-upper:haDenominazione ;
+                                                                  owl:allValuesFrom food-ricotta:DenominazioneRicotta
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf [ owl:intersectionOf ( obo:FOODON_00001013
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :isMadeWithMilk ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass :ProtectedMilkRawMaterial
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                     rdfs:label "ProtectedRicotta"@en .
 
 
 ###  http://w3id.org/food/ontology/disciplinare-upper/Denominazione
 food-upper:Denominazione rdf:type owl:Class ;
+                         owl:disjointUnionOf ( food-ita:DenominazioneOrigineControllata
+                                               food-ita:DenominazioneOrigineControllataGarantita
+                                               food-ita:IndicazioneGeograficaTipica
+                                               food-ita:ProdottiAgroalimentariTradizionali
+                                               food-upper:DenominazioneOrigineProtetta
+                                               food-upper:IndicazioneGeograficaProtetta
+                                               food-upper:SpecialitaTradizionaleGarantita
+                                             ) ;
                          rdfs:label "ProtectedName"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/DenominazioneOrigineProtetta
+food-upper:DenominazioneOrigineProtetta rdf:type owl:Class ;
+                                        rdfs:subClassOf food-upper:Denominazione ;
+                                        rdfs:label "DenominazioneOrigineProtetta"@it ,
+                                                   "ProtectedDesignationOrigin"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/IndicazioneGeograficaProtetta
+food-upper:IndicazioneGeograficaProtetta rdf:type owl:Class ;
+                                         rdfs:subClassOf food-upper:Denominazione ;
+                                         rdfs:label "IndicazioneGeograficaProtetta"@it ,
+                                                    "ProtectedGeographicalIndication"@en .
 
 
 ###  http://w3id.org/food/ontology/disciplinare-upper/MateriaPrima
@@ -499,6 +587,7 @@ food-upper:MateriaPrima rdf:type owl:Class ;
                                               agrovoc:c_33129
                                               agrovoc:c_4826
                                               agrovoc:c_8309
+                                              agrovoc:c_8376
                                               :MilkEnzyme
                                               :Mold
                                             ) ;
@@ -518,24 +607,21 @@ food-upper:Prodotto rdf:type owl:Class ;
                     rdfs:label "ProtectedFood"^^xsd:string .
 
 
+###  http://w3id.org/food/ontology/disciplinare-upper/SpecialitaTradizionaleGarantita
+food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
+                                           rdfs:subClassOf food-upper:Denominazione ;
+                                           rdfs:label "SpecialitàTradizionaleGarantita"@it ,
+                                                      "TraditionalSpecialtyGuaranteed"@en .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/AgedCheese
 :AgedCheese rdf:type owl:Class ;
-            rdfs:subClassOf obo:FOODON_00001013 ;
-            owl:disjointWith :FreshCheese .
+            rdfs:subClassOf obo:FOODON_00001013 .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Aging
 :Aging rdf:type owl:Class ;
-       rdfs:subClassOf :Event ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasTakenPlaceIn ;
-                         owl:allValuesFrom <https://www.geonames.org/ontology#Feature>
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :locatedInEnvironment ;
-                         owl:allValuesFrom :Environment
-                       ] ;
-       owl:disjointWith :Ripening ;
+       rdfs:subClassOf :Event ;
        rdfs:label "Aging" .
 
 
@@ -637,7 +723,11 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/MoldRipenedCheese
 :MoldRipenedCheese rdf:type owl:Class ;
-                   rdfs:subClassOf obo:FOODON_03306447 .
+                   rdfs:subClassOf obo:FOODON_03306447 ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isMadeWithMold ;
+                                     owl:allValuesFrom :Mold
+                                   ] .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/PartlySkimmedMilk
@@ -656,10 +746,14 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/ProtectedMilkRawMaterial
 :ProtectedMilkRawMaterial rdf:type owl:Class ;
-                          owl:equivalentClass [ owl:intersectionOf ( obo:UBERON_0001913
+                          owl:equivalentClass [ owl:intersectionOf ( agrovoc:c_4826
                                                                      [ rdf:type owl:Restriction ;
                                                                        owl:onProperty :isMilkUsedIn ;
-                                                                       owl:someValuesFrom food-cheese:Formaggio
+                                                                       owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                            owl:unionOf ( food-cheese:Formaggio
+                                                                                                          food-ricotta:Ricotta
+                                                                                                        )
+                                                                                          ]
                                                                      ]
                                                                    ) ;
                                                 rdf:type owl:Class
@@ -675,18 +769,10 @@ food-upper:Prodotto rdf:type owl:Class ;
 :Ripening rdf:type owl:Class ;
           rdfs:subClassOf :Event ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasTakenPlaceIn ;
-                            owl:allValuesFrom <https://www.geonames.org/ontology#Feature>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :locatedInEnvironment ;
-                            owl:allValuesFrom :Environment
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty :hasRipeningDuration ;
                             owl:allValuesFrom [ rdf:type rdfs:Datatype ;
-                                                owl:onDatatype xsd:integer ;
-                                                owl:withRestrictions ( [ xsd:maxInclusive 30
+                                                owl:onDatatype xsd:positiveInteger ;
+                                                owl:withRestrictions ( [ xsd:maxInclusive "30"^^xsd:positiveInteger
                                                                        ]
                                                                      )
                                               ]
@@ -727,14 +813,8 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 
 ###  https://www.geonames.org/ontology#Feature
-<https://www.geonames.org/ontology#Feature> rdf:type owl:Class ;
-                                            rdfs:label "GeographicalFeature"^^xsd:string .
-
-
-###  https://www.geonames.org/ontology#P.PPL
-<https://www.geonames.org/ontology#P.PPL> rdf:type owl:Class ;
-                                          rdfs:subClassOf <https://www.geonames.org/ontology#Feature> ;
-                                          rdfs:label "PopulatedPlace"^^xsd:string .
+geo:Feature rdf:type owl:Class ;
+            rdfs:label "GeographicalFeature"@en .
 
 
 #################################################################
@@ -968,7 +1048,7 @@ food-upper:Prodotto rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquaqueroneDiRomagnaDOP
 :SquaqueroneDiRomagnaDOP rdf:type owl:NamedIndividual ,
-                                  food-upper:Denominazione .
+                                  food-upper:DenominazioneOrigineProtetta .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Stracchino
@@ -1001,6 +1081,18 @@ food-upper:Prodotto rdf:type owl:Class ;
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( food-ita:DenominazioneOrigineControllata
+                food-ita:DenominazioneOrigineControllataGarantita
+                food-ita:IndicazioneGeograficaTipica
+                food-ita:ProdottiAgroalimentariTradizionali
+                food-upper:DenominazioneOrigineProtetta
+                food-upper:IndicazioneGeograficaProtetta
+                food-upper:SpecialitaTradizionaleGarantita
+              )
+] .
+
 
 [ rdf:type owl:AllDifferent ;
   owl:distinctMembers ( :HardTexture
