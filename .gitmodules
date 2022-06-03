@@ -4,3 +4,4 @@
 [submodule "report"]
 	path = report
 	url = git@github.com:cake-lier/cheese-ontology-report.git
+	branch = main
