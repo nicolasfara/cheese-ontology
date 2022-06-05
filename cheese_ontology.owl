@@ -1005,6 +1005,21 @@ geo:Feature rdf:type owl:Class ;
                           :MilkSkimming .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/PenicilliumCandidum
+:PenicilliumCandidum rdf:type owl:NamedIndividual ,
+                              :Mold .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PenicilliumGlaucum
+:PenicilliumGlaucum rdf:type owl:NamedIndividual ,
+                             :Mold .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PenicilliumRoqueforti
+:PenicilliumRoqueforti rdf:type owl:NamedIndividual ,
+                                :Mold .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/PrimoSale
 :PrimoSale rdf:type owl:NamedIndividual .
 
