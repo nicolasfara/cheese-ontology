@@ -51,25 +51,37 @@ A detailed cheese ontology
 
 # Cheese
 
+![Cheese](cheese.svg)
+
 ---
 
 # Raw Material
+
+![Raw material](rawMaterial.svg)
 
 ---
 
 # Milk
 
+<img src="milk.svg" width="80%" alt="milk">
+
 ---
 
 # Environment
+
+![Environment](environment.svg)
 
 ---
 
 # Event
 
+![Event](event.svg)
+
 ---
 
 # Certifications
+
+![Certifications](certification.svg)
 
 ---
 
@@ -93,48 +105,121 @@ A detailed cheese ontology
 
 ---
 
-# SPARQL queries
+## Rule #1
 
-Some example query
+With this rule we __prevent__ a certified cheese from being made from uncertified milk:
+
+```prolog
+obo:FOODON_00001013(?cheese) ^
+isMadeWithMilk(?cheese, ?milk) ^
+ProtectedMilkRawMaterial(?milk) -> food-cheese:Formaggio(?cheese)
+```
+<small>
+⚠️ This rule implies that if a cheese is made from certified milk, then the cheese itself is also certified
+</small>
+
+Due to the _open world assumption_, we are unable to tight this constraint even with __SWLR__.
 
 ---
 
-# Query #1
+## Rule #2
+
+This rule defines that the __ripening__ of a cheese should be between 1 and 30 days.
+
+
+```prolog
+hasRipeningDuration(?r, ?d) ^ Ripening(?r) ->
+swrlb:greaterThanOrEqual(?d, 1) ^
+swrlb:lessThanOrEqual(?d, 30)
+```
+<small>
+In the ontology when referring to the ripening period we refer to a period expressed in days
+</small>
+
+---
+
+## Rule #3
+
+This rule defines that the __aging__ period should be at least one month:
+
+```prolog
+Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
+```
+<small>
+In the ontology when referring to the aging period we refer to a period expressed in month
+</small>
+
+---
+
+# SPARQL queries
+
+---
+
+## Query #1
+
 _"Find all cheeses with ripeness between 5 and 20 days"_
 
 ```sql
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://wwv.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://wuwv.w3.org/2000/01/rdf-schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese (STR(?lab) AS ?label) ?duration
+SELECT ?cheese ?label ?duration
 WHERE {
-    ?cheese :hasRipeness ?ripeness.
-    ?ripeness :hasRipenessDuration ?duration.
+    ?cheese :hasRipening/:hasRipeningDuration ?duration.
 
-    OPTIONAL {?cheese rdfs:label ?lab}
-    FILTER (?duration > "5"^^xsd:integer && ?duration < "20"^^xsd:integer)
+    OPTIONAL { ?cheese rdfs:label ?label }
+    FILTER (?duration > 5 && ?duration < 20)
 }
 ORDER BY ?label
 ```
 
 ---
 
-# Query #2
-_"Find all cheeses with a genereic certification"_
+## Query #2
+
+_"Find all cheeses with a certification"_
 
 ```sql
-PREFIX owl: <http://www.w3.Org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.0rg/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.Org/2000/01/rdf-schema#>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX protected: <http://w3id.org/food/ontology/disciplinare-formaggio/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?x (STR(?lab) AS ?label) WHERE {
-    ?x rdf:type protected:Formaggio.
-    OPTIONAL {?x rdfs:label ?lab}
+SELECT ?cheese ?label ?protectedname
+WHERE {
+    ?cheese a/rdfs:label "ProtectedCheese"@en.
+	
+    OPTIONAL { ?cheese :hasProtectedName ?protectedname }
+    OPTIONAL { ?cheese rdfs:label ?label }
 }
 ORDER BY ?label
 ```
+
+---
+
+## Query #3
+
+_"Get all cheese made from animal milk"_
+
+```sql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?cheeselabel ?milk ?milklabel ?animal WHERE {
+    ?cheese :isMadeWithMilk ?milk.
+    { 	?milk a/rdfs:label "CowMilk"@en.
+    	VALUES ?animal { "Formaggio di mucca" }
+  	} UNION { 
+    	?milk a/rdfs:label "SheepMilk"@en.
+    	VALUES ?animal { "Formaggio di pecora" }
+  	} UNION { 
+    	?milk a/rdfs:label "GoatMilk"@en.
+    	VALUES ?animal { "Formaggio di capra" }
+  	} UNION { 
+    	?milk a/rdfs:label "BuffaloMilk"@en.
+    	VALUES ?animal { "Formaggio di bufala" }
+  	}
+
+    OPTIONAL { ?milk rdfs:label ?milklabel }
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel }
+} ORDER BY ?cheeselabel
+```
+---
