@@ -24,6 +24,75 @@ A detailed cheese ontology
 
 ---
 
+# Motivations
+
+- We have _domain experts_ to ask
+- There is no available ontology on **cheese**
+- An ontology classifying cheeses may be useful
+- We **❤** Cheese
+
+---
+
+# Alignments
+
+  - `OBO` -- TODO
+  - `GeoNames` -- Used to get places
+  - `FOODON` -- Used to take all food classes
+  - `Agrovoc` -- TODO
+  - `disciplinare` -- Used to modelling certifications
+
+---
+
+# Overview
+
+![Overview diagram](generic-overview.svg)
+
+---
+
+# Cheese
+
+---
+
+# Raw Material
+
+---
+
+# Milk
+
+---
+
+# Environment
+
+---
+
+# Event
+
+---
+
+# Certifications
+
+---
+
+# Statistics
+
+| Metrics | Count |
+|---------|-------|
+| _Axioms_  | __452__   |
+| _Logical axioms_ | __214__ |
+| _Declaration axioms_ | __149__ |
+| _Class_ | __74__ |
+| _Object property_ | __23__ |
+| _Data property_ | __2__ |
+| _Individuals_ | __49__ |
+| _Annotation Property_ | __4__ |
+
+
+---
+
+# SWRL Rules
+
+---
+
 # SPARQL queries
 
 Some example query
