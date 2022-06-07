@@ -37,17 +37,30 @@ A detailed cheese ontology
 
 # Alignments
 
-  - `OBO` -- TODO
-  - `GeoNames` -- Used to get places
-  - `FOODON` -- Used to take all food classes
-  - `Agrovoc` -- TODO
-  - `disciplinare` -- Used to modelling certifications
+  - `obo` -- Open Biological and Biomedical Ontologies
+  - `geonames` -- Geographical database covers countries and places
+  - `foodon` -- A farm to fork ontology
+  - `agrovoc` -- Cover subject like agriculture, food, etc.
+  - `disciplinare` -- Italian's food certifications
+
+---
+
+# Main Concepts
+
+The ontology captures the following concepts in the **cheese** domain
+
+- _Cheese_ types
+- _Raw Materials_ and _Milk_ used to make a cheese
+- _Environment_ where a cheese has taken place
+- _Aging_ or _Ripening_ of a cheese
+- _Certifications_
+- _Locations_ were a cheese is made
 
 ---
 
 # Overview
 
-![Overview diagram](generic-overview.svg)
+<img src="generic-overview.svg" width="85%">
 
 ---
 
