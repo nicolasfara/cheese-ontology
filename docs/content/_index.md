@@ -26,10 +26,12 @@ A detailed cheese ontology
 
 # Motivations
 
-- We have _domain experts_ to ask
-- There is no available ontology on **cheese**
-- An ontology classifying cheeses may be useful
-- We **❤** Cheese
+<ul>
+{{% fragment %}}<li>We have <b>domain experts</b> to ask</li>{{% /fragment %}}
+{{% fragment %}}<li>There is <b>no available ontology</b> on cheese</li>{{% /fragment %}}
+{{% fragment %}}<li>An ontology classifying cheeses may be <b>useful</b></li>{{% /fragment %}}
+{{% fragment %}}<li>We <b>❤</b> Cheese</li>{{% /fragment %}}
+</ul>
 
 ---
 
@@ -222,4 +224,3 @@ SELECT ?cheese ?cheeselabel ?milk ?milklabel ?animal WHERE {
     OPTIONAL { ?cheese rdfs:label ?cheeselabel }
 } ORDER BY ?cheeselabel
 ```
----
