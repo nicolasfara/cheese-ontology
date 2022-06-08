@@ -199,3 +199,28 @@ WHERE {
   	}
 }
 ORDER BY ?label
+
+#
+# List the number of cheeses produced in a given city for all cities along with the region containing them
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?city ?citylabel ?region ?regionlabel (COUNT(?city) AS ?count)
+WHERE {
+  	?cheese :producedIn ?city.
+  
+  	SERVICE <https://dbpedia.org/sparql> {
+    	?region dbo:type dbr:Regions_of_Italy.
+    	?city dbo:region ?region.
+    
+        OPTIONAL {
+      		?region rdfs:label ?regionlabel.
+            ?city rdfs:label ?citylabel.
+        }
+  	}
+}
+GROUP BY ?city ?citylabel ?region ?regionlabel
