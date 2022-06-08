@@ -450,8 +450,12 @@ obo:FOODON_03301039 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/FOODON_03301484
 obo:FOODON_03301484 rdf:type owl:Class ;
-                    rdfs:subClassOf :PasteurizedMilk ;
-                    rdfs:label "SkimmedMilk"@en .
+                    rdfs:subClassOf obo:UBERON_0001913 ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSkimming ;
+                                      owl:hasValue :TotalSkimming
+                                    ] ;
+                    rdfs:label "SkimmedMilk"^^xsd:string .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_03301889
@@ -472,7 +476,7 @@ obo:FOODON_03401217 rdf:type owl:Class ;
                     owl:equivalentClass [ owl:intersectionOf ( obo:FOODON_00001013
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty :isMadeWithMilk ;
-                                                                 owl:allValuesFrom :PartlySkimmedMilk
+                                                                 owl:allValuesFrom :PartiallySkimmedMilk
                                                                ]
                                                              ) ;
                                           rdf:type owl:Class
@@ -493,6 +497,10 @@ obo:UBERON_0001913 rdf:type owl:Class ;
                                          obo:FOODON_00001771
                                          obo:FOODON_00001911
                                          :MixedMilk
+                                       ) ,
+                                       ( obo:FOODON_03301484
+                                         :PartiallySkimmedMilk
+                                         :WholeMilk
                                        ) ,
                                        ( :PasteurizedMilk
                                          :RawMilk
@@ -634,7 +642,14 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/AgedCheese
 :AgedCheese rdf:type owl:Class ;
-            rdfs:subClassOf obo:FOODON_00001013 .
+            owl:equivalentClass [ owl:intersectionOf ( obo:FOODON_00001013
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasAging ;
+                                                         owl:someValuesFrom :Aging
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Aging
@@ -755,18 +770,18 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                    ] .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/PartlySkimmedMilk
-:PartlySkimmedMilk rdf:type owl:Class ;
-                   rdfs:subClassOf :PasteurizedMilk .
+###  https://github.com/nicolasfara/cheese-ontology/PartiallySkimmedMilk
+:PartiallySkimmedMilk rdf:type owl:Class ;
+                      rdfs:subClassOf obo:UBERON_0001913 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasSkimming ;
+                                        owl:hasValue :PartialSkimming
+                                      ] .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/PasteurizedMilk
 :PasteurizedMilk rdf:type owl:Class ;
-                 rdfs:subClassOf obo:UBERON_0001913 ;
-                 owl:disjointUnionOf ( obo:FOODON_03301484
-                                       :PartlySkimmedMilk
-                                       :WholeMilk
-                                     ) .
+                 rdfs:subClassOf obo:UBERON_0001913 .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/ProtectedMilkRawMaterial
@@ -836,7 +851,11 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/WholeMilk
 :WholeMilk rdf:type owl:Class ;
-           rdfs:subClassOf :PasteurizedMilk .
+           rdfs:subClassOf obo:UBERON_0001913 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasSkimming ;
+                             owl:hasValue :NoSkimming
+                           ] .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/WholeMilkCheese
@@ -860,10 +879,9 @@ geo:Feature rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://github.com/nicolasfara/cheese-ontology/AnticheFossePit
-:AnticheFossePit rdf:type owl:NamedIndividual ,
-                          obo:ENVO_01001871 ;
-                 rdfs:seeAlso "https://www.antichefosse.com/"^^xsd:string .
+###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
+:AnimalRennet rdf:type owl:NamedIndividual ,
+                       :AnimalRennet .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrandinelliPit
@@ -874,23 +892,31 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBioCowMilk
 :BrintazzoliBioCowMilk rdf:type owl:NamedIndividual ,
-                                :ProtectedMilkRawMaterial .
+                                obo:FOODON_00001771 ,
+                                :PasteurizedMilk ;
+                       :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBuffaloMilk
 :BrintazzoliBuffaloMilk rdf:type owl:NamedIndividual ,
-                                 obo:FOODON_00001108 .
+                                 obo:FOODON_00001108 ,
+                                 :PasteurizedMilk ;
+                        :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCowMilk
 :BrintazzoliCowMilk rdf:type owl:NamedIndividual ,
-                             obo:FOODON_00001771 .
+                             obo:FOODON_00001771 ,
+                             :PasteurizedMilk ;
+                    :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCowMilkProtectedName
 :BrintazzoliCowMilkProtectedName rdf:type owl:NamedIndividual ,
                                           obo:FOODON_00001771 ,
-                                          :ProtectedMilkRawMaterial .
+                                          :PasteurizedMilk ,
+                                          :ProtectedMilkRawMaterial ;
+                                 :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCream
@@ -899,50 +925,70 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliSheepMilk
 :BrintazzoliSheepMilk rdf:type owl:NamedIndividual ,
-                               obo:FOODON_00001112 .
+                               obo:FOODON_00001112 ,
+                               :PasteurizedMilk ;
+                      :hasSkimming :NoSkimming .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/Caciotta
-:Caciotta rdf:type owl:NamedIndividual ;
-          :hasTexture :SemiSoftTexture ;
-          :isMadeWithMilk :ParmalatCowMilk .
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaCaglioVegetaleMambelli
+:CaciottaCaglioVegetaleMambelli rdf:type owl:NamedIndividual ;
+                                :hasRipening :CaciottaRipening ;
+                                :hasTexture :SemiSoftTexture ;
+                                :isMadeWithMilk :BrintazzoliCowMilk ;
+                                :isMadeWithRawMaterial :CaveSalt ,
+                                                       :FermentiLatticiAlce ,
+                                                       :VegetalRennet ;
+                                :producedIn <https://sws.geonames.org/3167527/> ;
+                                rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/114-caciotta-with-vegetable-rennet-2480395.html"^^xsd:string .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/CaciottaAlSaleDiCerviaMambelli
-:CaciottaAlSaleDiCerviaMambelli rdf:type owl:NamedIndividual ;
-                                :isMadeWithRawMaterial :SaleDiCervia ;
-                                rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia"^^xsd:string .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/CaciottaCaglioVegetale
-:CaciottaCaglioVegetale rdf:type owl:NamedIndividual ;
-                        :isMadeWithRawMaterial :CaglioVegetale ;
-                        rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/114-caciotta-with-vegetable-rennet-2480395.html"^^xsd:string .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/CaciottaDiRomagnaMambelliInfossata
-:CaciottaDiRomagnaMambelliInfossata rdf:type owl:NamedIndividual ;
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaDiRomagnaInfossataMambelli
+:CaciottaDiRomagnaInfossataMambelli rdf:type owl:NamedIndividual ;
                                     :hasAging :CaciottaInfossataAging ;
+                                    :hasRipening :CaciottaRipening ;
+                                    :hasTexture :SemiHardTexture ;
                                     :isMadeWithMilk :BrintazzoliCowMilk ;
+                                    :isMadeWithRawMaterial :AnimalRennet ,
+                                                           :CaveSalt ,
+                                                           :FermentiLatticiSacco ;
                                     :producedIn <https://sws.geonames.org/3167527/> ;
                                     rdfs:seeAlso "https://www.mambelli.com/en/100-caciotta-di-romagna-infossata"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaInfossataAging
 :CaciottaInfossataAging rdf:type owl:NamedIndividual ;
+                        :hasTakenPlaceIn <https://sws.geonames.org/3166458> ;
                         :locatedInEnvironment :BrandinelliPit ;
                         :hasAgingDuration "1"^^xsd:positiveInteger .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/CaglieronCave
-:CaglieronCave rdf:type owl:NamedIndividual ,
-                        obo:ENVO_00000067 ;
-               rdfs:seeAlso "https://www.prolocofregona.it/en/parco-grotte-del-caglieron/"^^xsd:string .
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaMambelli
+:CaciottaMambelli rdf:type owl:NamedIndividual ;
+                  :hasRipening :CaciottaRipening ;
+                  :hasTexture :SemiSoftTexture ;
+                  :isMadeWithMilk :ParmalatCowMilk ;
+                  :isMadeWithRawMaterial :AnimalRennet ,
+                                         :CaveSalt ,
+                                         :FermentiLatticiAlce ;
+                  :producedIn <https://sws.geonames.org/3167527/> .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/CaglioVegetale
-:CaglioVegetale rdf:type owl:NamedIndividual ,
-                         :VegetalRennet .
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaRipening
+:CaciottaRipening rdf:type owl:NamedIndividual ;
+                  :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
+                  :hasRipeningDuration "30"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaciottaSaleDiCerviaMambelli
+:CaciottaSaleDiCerviaMambelli rdf:type owl:NamedIndividual ;
+                              :hasRipening :CaciottaRipening ;
+                              :hasTexture :SemiSoftTexture ;
+                              :isMadeWithMilk :BrintazzoliCowMilk ;
+                              :isMadeWithRawMaterial :AnimalRennet ,
+                                                     :FermentiLatticiSacco ,
+                                                     :SaleDiCervia ;
+                              :producedIn <https://sws.geonames.org/3167527/> ;
+                              rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaDiRomagna
@@ -950,25 +996,26 @@ geo:Feature rdf:type owl:Class ;
                     :hasRipening :CasatellaRipening ;
                     :hasTexture :SoftTexture ;
                     :isMadeWithMilk :BrintazzoliCowMilk ;
-                    :isMadeWithRawMaterial :CaveSalt ,
+                    :isMadeWithRawMaterial :AnimalRennet ,
+                                           :CaveSalt ,
                                            :FermentiLatticiSacco ;
+                    :producedIn <https://sws.geonames.org/3167527/> ;
                     rdfs:seeAlso "https://www.mambelli.com/en/4-casatella-of-romagna"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaRipening
 :CasatellaRipening rdf:type owl:NamedIndividual ;
-                   :hasRipeningDuration "7"^^xsd:positiveInteger .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/CastelGrottaCave
-:CastelGrottaCave rdf:type owl:NamedIndividual ,
-                           obo:ENVO_00000067 ;
-                  rdfs:seeAlso "https://latterievicentine.it/grotta-del-castello/"^^xsd:string .
+                   :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
+                   :hasRipeningDuration "6"^^xsd:positiveInteger .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaveSalt
 :CaveSalt rdf:type owl:NamedIndividual ,
                    obo:FOODON_00002221 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CitricAcid
+:CitricAcid rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/FermentiLatticiAlce
@@ -986,19 +1033,15 @@ geo:Feature rdf:type owl:Class ;
                       obo:FOODON_00002340 .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/GhiottinoConRucolaAlSaleDiCervia
-:GhiottinoConRucolaAlSaleDiCervia rdf:type owl:NamedIndividual ;
-                                  :isMadeWithRawMaterial :Rocket ,
-                                                         :SaleDiCervia .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/HardTexture
 :HardTexture rdf:type owl:NamedIndividual ,
                       :CheeseTexture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/LatterieVicentineCowMilk
-:LatterieVicentineCowMilk rdf:type owl:NamedIndividual .
+:LatterieVicentineCowMilk rdf:type owl:NamedIndividual ,
+                                   obo:FOODON_00001771 ;
+                          :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MarineSalt
@@ -1006,10 +1049,14 @@ geo:Feature rdf:type owl:Class ;
                      obo:FOODON_00002221 .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/Mascarpone
-:Mascarpone rdf:type owl:NamedIndividual ;
-            :isMadeWithRawMaterial :BrintazzoliCream ;
-            rdfs:seeAlso "https://www.mambelli.com/en/20-il-mascarpone"^^xsd:string .
+###  https://github.com/nicolasfara/cheese-ontology/MascarponeMambelli
+:MascarponeMambelli rdf:type owl:NamedIndividual ,
+                             :FreshCheese ;
+                    :isMadeWithRawMaterial :BrintazzoliCowMilk ,
+                                           :BrintazzoliCream ,
+                                           :CitricAcid ;
+                    :producedIn <https://sws.geonames.org/3167527/> ;
+                    rdfs:seeAlso "https://www.mambelli.com/en/20-il-mascarpone"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
@@ -1023,7 +1070,10 @@ geo:Feature rdf:type owl:Class ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/ParmalatCowMilk
-:ParmalatCowMilk rdf:type owl:NamedIndividual .
+:ParmalatCowMilk rdf:type owl:NamedIndividual ,
+                          obo:FOODON_00001771 ,
+                          :PasteurizedMilk ;
+                 :hasSkimming :NoSkimming .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/ParmalatGoatMilk
@@ -1051,18 +1101,53 @@ geo:Feature rdf:type owl:Class ;
                                 :Mold .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/PrimoSale
-:PrimoSale rdf:type owl:NamedIndividual ;
-           :hasTexture :SemiSoftTexture ;
-           :isMadeWithMilk :LatterieVicentineCowMilk ;
-           :isMadeWithRawMaterial :FermentiLatticiAlce ,
-                                  :SaleDiCervia .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/PrimosaleAlSaleDiCerviaMambelli
 :PrimosaleAlSaleDiCerviaMambelli rdf:type owl:NamedIndividual ;
-                                 :isMadeWithRawMaterial :SaleDiCervia ;
+                                 :hasTexture :SemiSoftTexture ;
+                                 :isMadeWithMilk :BrintazzoliCowMilk ;
+                                 :isMadeWithRawMaterial :AnimalRennet ,
+                                                        :FermentiLatticiSacco ,
+                                                        :SaleDiCervia ;
+                                 :producedIn <https://sws.geonames.org/3167527/> ;
                                  rdfs:seeAlso "https://www.mambelli.com/en/14-primosale-with-salt-from-cervia"^^xsd:string .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PrimosaleMambelli
+:PrimosaleMambelli rdf:type owl:NamedIndividual ;
+                   :hasTexture :SemiSoftTexture ;
+                   :isMadeWithMilk :LatterieVicentineCowMilk ;
+                   :isMadeWithRawMaterial :AnimalRennet ,
+                                          :FermentiLatticiAlce ,
+                                          :SaleDiCervia ;
+                   :producedIn <https://sws.geonames.org/3167527/> .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RavigioloAlSaleDiCerviaMambelli
+:RavigioloAlSaleDiCerviaMambelli rdf:type owl:NamedIndividual ,
+                                          :FreshCheese ;
+                                 :isMadeWithMilk :BrintazzoliCowMilk ;
+                                 :isMadeWithRawMaterial :AnimalRennet ,
+                                                        :SaleDiCervia ;
+                                 :producedIn <https://sws.geonames.org/3167527/> .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RavigioloConRucolaAlSaleDiCerviaMambelli
+:RavigioloConRucolaAlSaleDiCerviaMambelli rdf:type owl:NamedIndividual ,
+                                                   :FreshCheese ;
+                                          :isMadeWithMilk :BrintazzoliCowMilk ;
+                                          :isMadeWithRawMaterial :AnimalRennet ,
+                                                                 :Rocket ,
+                                                                 :SaleDiCervia ;
+                                          :producedIn <https://sws.geonames.org/3167527/> .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RavigioloMambelli
+:RavigioloMambelli rdf:type owl:NamedIndividual ,
+                            :FreshCheese ;
+                   :isMadeWithMilk :BrintazzoliCowMilk ;
+                   :isMadeWithRawMaterial :AnimalRennet ,
+                                          :CaveSalt ;
+                   :producedIn <https://sws.geonames.org/3167527/> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Refrigerator
@@ -1070,29 +1155,30 @@ geo:Feature rdf:type owl:Class ;
                        obo:ENVO_01000583 .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/RiccottaBiologica
-:RiccottaBiologica rdf:type owl:NamedIndividual ,
-                            food-upper:DenominazioneOrigineProtetta .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/Ricotta
-:Ricotta rdf:type owl:NamedIndividual ;
-         :isMadeWithMilk :LatterieVicentineCowMilk ;
-         :isMadeWithRawMaterial :Serum .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/RicottaDiRomagnaMambelli
-:RicottaDiRomagnaMambelli rdf:type owl:NamedIndividual ;
+:RicottaDiRomagnaMambelli rdf:type owl:NamedIndividual ,
+                                   :FreshCheese ;
                           :isMadeWithMilk :BrintazzoliCowMilk ;
                           :isMadeWithRawMaterial :FrattaWater ;
+                          :producedIn <https://sws.geonames.org/3167527/> ;
                           rdfs:seeAlso "https://www.mambelli.com/en/6-ricotta-of-romagna"^^xsd:string .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/RicottaFrescaBio
-:RicottaFrescaBio rdf:type owl:NamedIndividual ;
-                  food-upper:haDenominazione :RiccottaBiologica ;
-                  :isMadeWithMilk :BrintazzoliBioCowMilk ;
-                  :isMadeWithRawMaterial :FrattaWater .
+###  https://github.com/nicolasfara/cheese-ontology/RicottaFrescaBioMambelli
+:RicottaFrescaBioMambelli rdf:type owl:NamedIndividual ,
+                                   :FreshCheese ;
+                          :isMadeWithMilk :BrintazzoliBioCowMilk ;
+                          :isMadeWithRawMaterial :FrattaWater ;
+                          :producedIn <https://sws.geonames.org/3167527/> .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RicottaSieroMambelli
+:RicottaSieroMambelli rdf:type owl:NamedIndividual ,
+                               :FreshCheese ;
+                      :isMadeWithMilk :BrintazzoliCowMilk ;
+                      :isMadeWithRawMaterial :CaveSalt ,
+                                             :Whey ;
+                      :producedIn <https://sws.geonames.org/3167527/> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Rocket
@@ -1114,33 +1200,49 @@ geo:Feature rdf:type owl:Class ;
                           :CheeseTexture .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/Serum
-:Serum rdf:type owl:NamedIndividual .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/SoftTexture
 :SoftTexture rdf:type owl:NamedIndividual ,
                       :CheeseTexture .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneMambelliDOP
-:SquacqueroneMambelliDOP rdf:type owl:NamedIndividual ;
-                         food-upper:haDenominazione :SquaqueroneDiRomagnaDOP ;
-                         :hasRipening :SquacqueroneRipening ;
-                         :hasTexture :SoftTexture ;
-                         :isMadeWithMilk :BrintazzoliCowMilkProtectedName ;
-                         :isMadeWithRawMaterial :FermentiLatticiAlce ,
-                                                :MarineSalt ;
-                         :producedIn <https://sws.geonames.org/3167527/> ;
-                         rdfs:label "Squacquerone Mambelli D.O.P."@it ;
-                         rdfs:seeAlso "https://www.mambelli.com/en/2-squacquerone"^^xsd:string .
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroncremaMambelli
+:SquacqueroncremaMambelli rdf:type owl:NamedIndividual ,
+                                   obo:FOODON_03301889 ;
+                          :isMadeWithRawMaterial :BrintazzoliCream ,
+                                                 :SquacqueroneMambelli .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneDiRomagnaDOPMambelli
+:SquacqueroneDiRomagnaDOPMambelli rdf:type owl:NamedIndividual ;
+                                  food-upper:haDenominazione :SquaqueroneDiRomagnaDOP ;
+                                  :hasRipening :SquacqueroneRipening ;
+                                  :hasTexture :SoftTexture ;
+                                  :isMadeWithMilk :BrintazzoliCowMilkProtectedName ;
+                                  :isMadeWithRawMaterial :AnimalRennet ,
+                                                         :FermentiLatticiAlce ,
+                                                         :MarineSalt ;
+                                  :producedIn <https://sws.geonames.org/3167527/> ;
+                                  rdfs:label "Squacquerone Mambelli D.O.P."@it ;
+                                  rdfs:seeAlso "https://www.mambelli.com/en/2-squacquerone"^^xsd:string .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneMambelli
+:SquacqueroneMambelli rdf:type owl:NamedIndividual ;
+                      :hasRipening :SquacqueroneRipening ;
+                      :hasTexture :SoftTexture ;
+                      :isMadeWithMilk :BrintazzoliCowMilk ;
+                      :isMadeWithRawMaterial :AnimalRennet ,
+                                             :CaveSalt ,
+                                             :FermentiLatticiSacco ;
+                      :producedIn <https://sws.geonames.org/3167527/> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneRipening
 :SquacqueroneRipening rdf:type owl:NamedIndividual ,
                                :Ripening ;
+                      :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
                       :locatedInEnvironment :Refrigerator ;
-                      :hasRipeningDuration 10 .
+                      :hasRipeningDuration "6"^^xsd:positiveInteger .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquaqueroneDiRomagnaDOP
@@ -1150,10 +1252,12 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/StracchinoCaglioVegetale
 :StracchinoCaglioVegetale rdf:type owl:NamedIndividual ;
+                          :hasTexture :SoftTexture ;
                           :isMadeWithMilk :ParmalatCowMilk ;
-                          :isMadeWithRawMaterial :CaglioVegetale ,
-                                                 :CaveSalt ,
-                                                 :FermentiLatticiAlce ;
+                          :isMadeWithRawMaterial :CaveSalt ,
+                                                 :FermentiLatticiAlce ,
+                                                 :VegetalRennet ;
+                          :producedIn <https://sws.geonames.org/3167527/> ;
                           rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/113-stracchino-with-vegetable-rennet-2933164.html"^^xsd:string .
 
 
@@ -1162,22 +1266,26 @@ geo:Feature rdf:type owl:Class ;
                     :hasRipeningDuration "8"^^xsd:positiveInteger .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/StracconeMambelli
-:StracconeMambelli rdf:type owl:NamedIndividual ;
-                   :hasRipening :StracchinoRipening ;
-                   :hasTexture :SoftTexture ;
-                   :isMadeWithMilk :BrintazzoliCowMilk ;
-                   :isMadeWithRawMaterial :BrintazzoliCream ,
-                                          :CaveSalt ,
-                                          :FermentiLatticiSacco ;
-                   rdfs:seeAlso "https://www.mambelli.com/it/straccone/19-straccone-vassoio-230g-flow-pack-8032523624342.html?search_query=straccone&results=2"^^xsd:string .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
 :TotalSkimming rdf:type owl:NamedIndividual ,
                         :MilkSkimming ;
                rdfs:comment "Skimmed milk (British English), or skim milk (American English), is made when all the milkfat is removed from whole milk. It tends to contain around 0.1% fat."^^xsd:string ;
                rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk"^^xsd:string .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/VegetalRennet
+:VegetalRennet rdf:type owl:NamedIndividual ,
+                        :VegetalRennet .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Whey
+:Whey rdf:type owl:NamedIndividual ,
+               agrovoc:c_8376 .
+
+
+###  https://sws.geonames.org/3166458
+<https://sws.geonames.org/3166458> rdf:type owl:NamedIndividual ;
+                                   rdfs:label "SoglianoAlRubicone"^^xsd:string .
 
 
 ###  https://sws.geonames.org/3167527/
