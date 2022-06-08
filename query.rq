@@ -113,22 +113,6 @@ WHERE {
 ORDER BY ?cheeselabel
 
 #
-# List of all fresh cream cheeses
-#
-
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
-
-SELECT ?cheese ?label
-WHERE {
-  	?cheese a/rdfs:label "CreamCheese"@en.
-  	?cheese a :FreshCheese.
-    
-    OPTIONAL { ?cheese rdfs:label ?label }
-}
-ORDER BY ?label
-
-#
 # List of all high-digeribility cheeses
 #
 
@@ -137,8 +121,13 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT ?cheese ?label
 WHERE {
-  	?cheese :isMadeWithRawMaterial/a :VegetalRennet.
-  	?cheese :isMadeWithMilk/a/rdfs:label "SkimmedMilk"@en.
+	{
+		?cheese :isMadeWithRawMaterial/a :VegetalRennet.
+	}
+	UNION
+	{
+		?cheese :isMadeWithMilk/a/rdfs:label "SkimmedMilk"@en.
+	}
     
     OPTIONAL { ?cheese rdfs:label ?label }
 }
@@ -199,8 +188,14 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT DISTINCT ?cheese ?label
 WHERE {
-  	?cheese rdfs:label ?label.
-  	
-  	FILTER(regex(?label, "Mambelli"))
+  	?cheese a/rdfs:label "Cheese"@en.
+  
+  	FILTER(regex(str(?cheese), "Mambelli"))
+  
+  	OPTIONAL {
+    	?cheese rdfs:label ?label.
+    	
+    	FILTER(regex(?label, "Mambelli"))
+  	}
 }
 ORDER BY ?label
