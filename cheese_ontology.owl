@@ -958,8 +958,8 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 dbr:Bertinoro rdf:type owl:NamedIndividual .
 
 
-###  http://dbpedia.org/resource/Napoli
-dbr:Napoli rdf:type owl:NamedIndividual .
+###  http://dbpedia.org/resource/Naples
+dbr:Naples rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/Sogliano_al_Rubicone
@@ -1175,7 +1175,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                       :isMadeWithRawMaterial :AnimalRennet ,
                                              :CaveSalt ,
                                              :FermentiLatticiSacco ;
-                      :producedIn dbr:Napoli .
+                      :producedIn dbr:Naples .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
