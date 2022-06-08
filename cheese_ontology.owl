@@ -360,7 +360,7 @@ obo:FOODON_00001126 rdf:type owl:Class ;
                                         ] ;
                     rdfs:comment "A cheese made with cow milk."@en ,
                                  "Un formaggio prodotto da latte di mucca."@it ;
-                    rdfs:label "CowCheese" ,
+                    rdfs:label "CowCheese"^^xsd:string ,
                                "FormaggioDiMucca"@it .
 
 
@@ -964,6 +964,10 @@ geo:Feature rdf:type owl:Class ;
                 rdfs:seeAlso "https://www.fossebrandinelli.it/"^^xsd:string .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/BrieCarozzi
+:BrieCarozzi rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBioCowMilk
 :BrintazzoliBioCowMilk rdf:type owl:NamedIndividual ,
                                 obo:FOODON_00001771 ,
@@ -974,7 +978,7 @@ geo:Feature rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBuffaloMilk
 :BrintazzoliBuffaloMilk rdf:type owl:NamedIndividual ,
                                  obo:FOODON_00001108 ,
-                                 :PasteurizedMilk ;
+                                 :RawMilk ;
                         :hasSkimming :NoSkimming .
 
 
@@ -1065,6 +1069,10 @@ geo:Feature rdf:type owl:Class ;
                               rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia"^^xsd:string .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/CaprinoCarozzi
+:CaprinoCarozzi rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaDiRomagna
 :CasatellaDiRomagna rdf:type owl:NamedIndividual ;
                     :hasRipening :CasatellaRipening ;
@@ -1102,9 +1110,17 @@ geo:Feature rdf:type owl:Class ;
                                :MilkEnzyme .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/FormaggioDiFossaDOPAnticaCascina
+:FormaggioDiFossaDOPAnticaCascina rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/FrattaWater
 :FrattaWater rdf:type owl:NamedIndividual ,
                       obo:FOODON_00002340 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/GorgonzolaCarozzi
+:GorgonzolaCarozzi rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/HardTexture
@@ -1138,6 +1154,21 @@ geo:Feature rdf:type owl:Class ;
                             :Texture .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/MozzarellaLatteCrudo
+:MozzarellaLatteCrudo rdf:type owl:NamedIndividual ,
+                               :StretchedCurdCheese ;
+                      :hasTexture :SoftTexture ;
+                      :isMadeWithMilk :BrintazzoliBuffaloMilk ;
+                      :isMadeWithRawMaterial :AnimalRennet ,
+                                             :CaveSalt ,
+                                             :FermentiLatticiSacco ;
+                      :producedIn :Napoli .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Napoli
+:Napoli rdf:type owl:NamedIndividual .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
 :NoSkimming rdf:type owl:NamedIndividual ,
                      :MilkSkimming .
@@ -1153,6 +1184,10 @@ geo:Feature rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/ParmalatGoatMilk
 :ParmalatGoatMilk rdf:type owl:NamedIndividual ,
                            obo:FOODON_00001911 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/ParmigianoReggianoDOP
+:ParmigianoReggianoDOP rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/PartialSkimming
@@ -1191,8 +1226,8 @@ geo:Feature rdf:type owl:Class ;
                    :hasTexture :SemiSoftTexture ;
                    :isMadeWithMilk :LatterieVicentineCowMilk ;
                    :isMadeWithRawMaterial :AnimalRennet ,
-                                          :FermentiLatticiAlce ,
-                                          :SaleDiCervia ;
+                                          :CaveSalt ,
+                                          :FermentiLatticiAlce ;
                    :producedIn <https://sws.geonames.org/3167527/> .
 
 
