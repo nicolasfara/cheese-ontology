@@ -1,4 +1,6 @@
 @prefix : <https://github.com/nicolasfara/cheese-ontology/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix geo: <https://www.geonames.org/ontology#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -67,7 +69,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/hasTakenPlaceIn
 :hasTakenPlaceIn rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf geo:locatedIn ;
+                 rdfs:subPropertyOf :locatedIn ;
                  owl:inverseOf :isPlaceWhere ;
                  rdf:type owl:FunctionalProperty ,
                           owl:AsymmetricProperty ,
@@ -153,6 +155,11 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 :isTextureOf rdf:type owl:ObjectProperty .
 
 
+###  https://github.com/nicolasfara/cheese-ontology/locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:range dbo:PopulatedPlace .
+
+
 ###  https://github.com/nicolasfara/cheese-ontology/locatedInEnvironment
 :locatedInEnvironment rdf:type owl:ObjectProperty ,
                                owl:FunctionalProperty ,
@@ -164,16 +171,11 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/producedIn
 :producedIn rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf geo:locatedIn ;
+            rdfs:subPropertyOf :locatedIn ;
             rdf:type owl:FunctionalProperty ,
                      owl:AsymmetricProperty ,
                      owl:IrreflexiveProperty ;
             rdfs:domain obo:FOODON_00002403 .
-
-
-###  https://www.geonames.org/ontology#locatedIn
-geo:locatedIn rdf:type owl:ObjectProperty ;
-              rdfs:range geo:Feature .
 
 
 #################################################################
@@ -242,6 +244,10 @@ agrovoc:c_8309 rdf:type owl:Class ;
 agrovoc:c_8376 rdf:type owl:Class ;
                rdfs:subClassOf food-upper:MateriaPrima ;
                rdfs:label "Whey"@en .
+
+
+###  http://dbpedia.org/ontology/PopulatedPlace
+dbo:PopulatedPlace rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_00000067
@@ -944,14 +950,21 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                      ] .
 
 
-###  https://www.geonames.org/ontology#Feature
-geo:Feature rdf:type owl:Class ;
-            rdfs:label "GeographicalFeature"@en .
-
-
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://dbpedia.org/resource/Bertinoro
+dbr:Bertinoro rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource/Napoli
+dbr:Napoli rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource/Sogliano_al_Rubicone
+dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
+
 
 ###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
 :AnimalRennet rdf:type owl:NamedIndividual ,
@@ -1016,7 +1029,7 @@ geo:Feature rdf:type owl:Class ;
                                 :isMadeWithRawMaterial :CaveSalt ,
                                                        :FermentiLatticiAlce ,
                                                        :VegetalRennet ;
-                                :producedIn <https://sws.geonames.org/3167527/> ;
+                                :producedIn dbr:Bertinoro ;
                                 rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/114-caciotta-with-vegetable-rennet-2480395.html"^^xsd:string .
 
 
@@ -1029,13 +1042,13 @@ geo:Feature rdf:type owl:Class ;
                                     :isMadeWithRawMaterial :AnimalRennet ,
                                                            :CaveSalt ,
                                                            :FermentiLatticiSacco ;
-                                    :producedIn <https://sws.geonames.org/3167527/> ;
+                                    :producedIn dbr:Bertinoro ;
                                     rdfs:seeAlso "https://www.mambelli.com/en/100-caciotta-di-romagna-infossata"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaInfossataAging
 :CaciottaInfossataAging rdf:type owl:NamedIndividual ;
-                        :hasTakenPlaceIn <https://sws.geonames.org/3166458> ;
+                        :hasTakenPlaceIn dbr:Sogliano_al_Rubicone ;
                         :locatedInEnvironment :BrandinelliPit ;
                         :hasAgingDuration "1"^^xsd:positiveInteger .
 
@@ -1048,12 +1061,12 @@ geo:Feature rdf:type owl:Class ;
                   :isMadeWithRawMaterial :AnimalRennet ,
                                          :CaveSalt ,
                                          :FermentiLatticiAlce ;
-                  :producedIn <https://sws.geonames.org/3167527/> .
+                  :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaRipening
 :CaciottaRipening rdf:type owl:NamedIndividual ;
-                  :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
+                  :hasTakenPlaceIn dbr:Bertinoro ;
                   :hasRipeningDuration "30"^^xsd:positiveInteger .
 
 
@@ -1065,7 +1078,7 @@ geo:Feature rdf:type owl:Class ;
                               :isMadeWithRawMaterial :AnimalRennet ,
                                                      :FermentiLatticiSacco ,
                                                      :SaleDiCervia ;
-                              :producedIn <https://sws.geonames.org/3167527/> ;
+                              :producedIn dbr:Bertinoro ;
                               rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia"^^xsd:string .
 
 
@@ -1081,13 +1094,13 @@ geo:Feature rdf:type owl:Class ;
                     :isMadeWithRawMaterial :AnimalRennet ,
                                            :CaveSalt ,
                                            :FermentiLatticiSacco ;
-                    :producedIn <https://sws.geonames.org/3167527/> ;
+                    :producedIn dbr:Bertinoro ;
                     rdfs:seeAlso "https://www.mambelli.com/en/4-casatella-of-romagna"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaRipening
 :CasatellaRipening rdf:type owl:NamedIndividual ;
-                   :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
+                   :hasTakenPlaceIn dbr:Bertinoro ;
                    :hasRipeningDuration "6"^^xsd:positiveInteger .
 
 
@@ -1145,7 +1158,7 @@ geo:Feature rdf:type owl:Class ;
                     :isMadeWithRawMaterial :BrintazzoliCowMilk ,
                                            :BrintazzoliCream ,
                                            :CitricAcid ;
-                    :producedIn <https://sws.geonames.org/3167527/> ;
+                    :producedIn dbr:Bertinoro ;
                     rdfs:seeAlso "https://www.mambelli.com/en/20-il-mascarpone"^^xsd:string .
 
 
@@ -1162,11 +1175,7 @@ geo:Feature rdf:type owl:Class ;
                       :isMadeWithRawMaterial :AnimalRennet ,
                                              :CaveSalt ,
                                              :FermentiLatticiSacco ;
-                      :producedIn :Napoli .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/Napoli
-:Napoli rdf:type owl:NamedIndividual .
+                      :producedIn dbr:Napoli .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
@@ -1217,7 +1226,7 @@ geo:Feature rdf:type owl:Class ;
                                  :isMadeWithRawMaterial :AnimalRennet ,
                                                         :FermentiLatticiSacco ,
                                                         :SaleDiCervia ;
-                                 :producedIn <https://sws.geonames.org/3167527/> ;
+                                 :producedIn dbr:Bertinoro ;
                                  rdfs:seeAlso "https://www.mambelli.com/en/14-primosale-with-salt-from-cervia"^^xsd:string .
 
 
@@ -1228,7 +1237,7 @@ geo:Feature rdf:type owl:Class ;
                    :isMadeWithRawMaterial :AnimalRennet ,
                                           :CaveSalt ,
                                           :FermentiLatticiAlce ;
-                   :producedIn <https://sws.geonames.org/3167527/> .
+                   :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloAlSaleDiCerviaMambelli
@@ -1237,7 +1246,7 @@ geo:Feature rdf:type owl:Class ;
                                  :isMadeWithMilk :BrintazzoliCowMilk ;
                                  :isMadeWithRawMaterial :AnimalRennet ,
                                                         :SaleDiCervia ;
-                                 :producedIn <https://sws.geonames.org/3167527/> .
+                                 :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloConRucolaAlSaleDiCerviaMambelli
@@ -1247,7 +1256,7 @@ geo:Feature rdf:type owl:Class ;
                                           :isMadeWithRawMaterial :AnimalRennet ,
                                                                  :Rocket ,
                                                                  :SaleDiCervia ;
-                                          :producedIn <https://sws.geonames.org/3167527/> .
+                                          :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloMambelli
@@ -1256,7 +1265,7 @@ geo:Feature rdf:type owl:Class ;
                    :isMadeWithMilk :BrintazzoliCowMilk ;
                    :isMadeWithRawMaterial :AnimalRennet ,
                                           :CaveSalt ;
-                   :producedIn <https://sws.geonames.org/3167527/> .
+                   :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Refrigerator
@@ -1269,7 +1278,7 @@ geo:Feature rdf:type owl:Class ;
                                    :FreshCheese ;
                           :isMadeWithMilk :BrintazzoliCowMilk ;
                           :isMadeWithRawMaterial :FrattaWater ;
-                          :producedIn <https://sws.geonames.org/3167527/> ;
+                          :producedIn dbr:Bertinoro ;
                           rdfs:seeAlso "https://www.mambelli.com/en/6-ricotta-of-romagna"^^xsd:string .
 
 
@@ -1278,7 +1287,7 @@ geo:Feature rdf:type owl:Class ;
                                    :FreshCheese ;
                           :isMadeWithMilk :BrintazzoliBioCowMilk ;
                           :isMadeWithRawMaterial :FrattaWater ;
-                          :producedIn <https://sws.geonames.org/3167527/> .
+                          :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RicottaSieroMambelli
@@ -1287,7 +1296,7 @@ geo:Feature rdf:type owl:Class ;
                       :isMadeWithMilk :BrintazzoliCowMilk ;
                       :isMadeWithRawMaterial :CaveSalt ,
                                              :Whey ;
-                      :producedIn <https://sws.geonames.org/3167527/> .
+                      :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Rocket
@@ -1330,7 +1339,7 @@ geo:Feature rdf:type owl:Class ;
                                   :isMadeWithRawMaterial :AnimalRennet ,
                                                          :FermentiLatticiAlce ,
                                                          :MarineSalt ;
-                                  :producedIn <https://sws.geonames.org/3167527/> ;
+                                  :producedIn dbr:Bertinoro ;
                                   rdfs:label "Squacquerone Mambelli D.O.P."@it ;
                                   rdfs:seeAlso "https://www.mambelli.com/en/2-squacquerone"^^xsd:string .
 
@@ -1343,13 +1352,13 @@ geo:Feature rdf:type owl:Class ;
                       :isMadeWithRawMaterial :AnimalRennet ,
                                              :CaveSalt ,
                                              :FermentiLatticiSacco ;
-                      :producedIn <https://sws.geonames.org/3167527/> .
+                      :producedIn dbr:Bertinoro .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneRipening
 :SquacqueroneRipening rdf:type owl:NamedIndividual ,
                                :Ripening ;
-                      :hasTakenPlaceIn <https://sws.geonames.org/3167527/> ;
+                      :hasTakenPlaceIn dbr:Bertinoro ;
                       :locatedInEnvironment :Refrigerator ;
                       :hasRipeningDuration "6"^^xsd:positiveInteger .
 
@@ -1366,7 +1375,7 @@ geo:Feature rdf:type owl:Class ;
                           :isMadeWithRawMaterial :CaveSalt ,
                                                  :FermentiLatticiAlce ,
                                                  :VegetalRennet ;
-                          :producedIn <https://sws.geonames.org/3167527/> ;
+                          :producedIn dbr:Bertinoro ;
                           rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/113-stracchino-with-vegetable-rennet-2933164.html"^^xsd:string .
 
 
@@ -1390,16 +1399,6 @@ geo:Feature rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/Whey
 :Whey rdf:type owl:NamedIndividual ,
                agrovoc:c_8376 .
-
-
-###  https://sws.geonames.org/3166458
-<https://sws.geonames.org/3166458> rdf:type owl:NamedIndividual ;
-                                   rdfs:label "SoglianoAlRubicone"^^xsd:string .
-
-
-###  https://sws.geonames.org/3167527/
-<https://sws.geonames.org/3167527/> rdf:type owl:NamedIndividual ;
-                                    rdfs:label "SantaMariaNuova"^^xsd:string .
 
 
 #################################################################
