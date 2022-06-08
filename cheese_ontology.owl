@@ -82,7 +82,7 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
                      owl:AsymmetricProperty ,
                      owl:IrreflexiveProperty ;
             rdfs:domain obo:FOODON_00001013 ;
-            rdfs:range :CheeseTexture .
+            rdfs:range :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/isAgingOf
@@ -204,7 +204,10 @@ geo:locatedIn rdf:type owl:ObjectProperty ;
 agrovoc:c_1507 rdf:type owl:Class ;
                rdfs:subClassOf obo:FOODON_00001013 ,
                                food-upper:MateriaPrima ;
-               rdfs:label "CheeseRawMaterial"@en .
+               rdfs:comment "A cheese used as a raw material in the production of another cheese."@en ,
+                            "Un formaggio usato come materia prima nella produzione di un altro formaggio."@it ;
+               rdfs:label "CheeseRawMaterial"@en ,
+                          "MateriaPrimaFormaggio"@it .
 
 
 ###  http://aims.fao.org/aos/agrovoc/c_24075
@@ -244,19 +247,28 @@ agrovoc:c_8376 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/ENVO_00000067
 obo:ENVO_00000067 rdf:type owl:Class ;
                   rdfs:subClassOf :Environment ;
-                  rdfs:label "Cave"@en .
+                  rdfs:comment "A large hole in the side of a hill, cliff, or mountain, or one that is underground, used for cheese affinage."@en ,
+                               "Cavità naturale a sviluppo prevalentemente orizzontale, formatasi in seguito all’azione di forze esogene o endogene, che si addentra nel sottosuolo o nei fianchi di un monte, utilizzata per l'affinatura dei formaggi."@it ;
+                  rdfs:label "Cave"@en ,
+                             "Grotta"@it .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_01000583
 obo:ENVO_01000583 rdf:type owl:Class ;
                   rdfs:subClassOf :Environment ;
+                  rdfs:comment "A large piece of equipment that uses electricity to preserve cheese at a cold temperature."@en ,
+                               "CellaFrigorifera"@it ,
+                               "Un locale di conservazione del formaggio, ove viene mantenuta una temperatura inferiore a quella ambientale."@it ;
                   rdfs:label "Refrigerator"@en .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_01001871
 obo:ENVO_01001871 rdf:type owl:Class ;
                   rdfs:subClassOf :Environment ;
-                  rdfs:label "Pit"@en .
+                  rdfs:comment "A large hole in the ground, or a slightly low area in any surface used for cheese affinage."@en ,
+                               "Scavatura del terreno, di solito rettangolare o quadrata, più o meno profonda, praticata per l'affinatura dei formaggi."@it ;
+                  rdfs:label "Fossa"@it ,
+                             "Pit"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001013
@@ -281,9 +293,12 @@ obo:FOODON_00001013 rdf:type owl:Class ;
                                         ( :AgedCheese
                                           :FreshCheese
                                         ) ;
-                    rdfs:comment "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein."@en ;
-                    rdfs:label "Cheese"@en ;
-                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese"@en .
+                    rdfs:comment "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein."@en ,
+                                 "Il formaggio è un prodotto caseario ottenuto dalla coagulazione acida o presamica del latte intero, parzialmente o totalmente scremato per coagulazione delle caseine, facendo anche uso di fermenti e sale da cucina."@it ;
+                    rdfs:label "Cheese"@en ,
+                               "Formaggio"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Formaggio"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001065
@@ -314,7 +329,10 @@ obo:FOODON_00001124 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "GoatCheese"^^xsd:string .
+                    rdfs:comment "A cheese made with goat milk."@en ;
+                    rdfs:label "FormaggioDiCapra"@it ,
+                               "GoatCheese"@en ,
+                               "Un formaggio prodotto da latte di capra."@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001125
@@ -340,7 +358,10 @@ obo:FOODON_00001126 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "CowCheese"^^xsd:string .
+                    rdfs:comment "A cheese made with cow milk."@en ,
+                                 "Un formaggio prodotto da latte di mucca."@it ;
+                    rdfs:label "CowCheese" ,
+                               "FormaggioDiMucca"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001228
@@ -373,7 +394,12 @@ obo:FOODON_00001945 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "HardCheese"^^xsd:string .
+                    rdfs:comment "Hard cheeses are quite firmly packed into large forms and aged for months or years."@en ,
+                                 "I formaggi a \"pasta dura\" hanno un contenuto di acqua relativamente basso, in genere dal 30% al 40%, e sono a stagionatura lenta."@it ;
+                    rdfs:label "FormaggioAPastaDura"@it ,
+                               "HardCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Hard_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_dura"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00002221
@@ -439,7 +465,12 @@ obo:FOODON_00002403 rdf:type owl:Class ;
                                           obo:FOODON_00002340
                                           obo:UBERON_0001913
                                         ) ;
-                    rdfs:label "Food"@en .
+                    rdfs:comment "Food is any substance consumed to provide nutritional support for an organism."@en ,
+                                 "Si definisce alimento ogni sostanza o miscela di sostanze in qualsiasi stato della materia e struttura non lavorata, parzialmente lavorata o lavorata, destinata a essere ingerita, o di cui si prevede ragionevolmente l'ingestione da parte dell'essere umano."@it ;
+                    rdfs:label "Alimento"@it ,
+                               "Food"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Food"@en ,
+                                 "https://it.wikipedia.org/wiki/Alimento"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_03301039
@@ -462,7 +493,12 @@ obo:FOODON_03301484 rdf:type owl:Class ;
 obo:FOODON_03301889 rdf:type owl:Class ;
                     rdfs:subClassOf obo:FOODON_00001013 ;
                     owl:disjointWith :StretchedCurdCheese ;
-                    rdfs:label "CreamCheese"@en .
+                    rdfs:comment "Cream cheese is a soft, usually mild-tasting fresh cheese made from milk and cream."@en ,
+                                 "Il formaggio spalmabile, anche detto formaggio cremoso, è un tipo di formaggio fresco, molto tenero e spesso delicato."@it ;
+                    rdfs:label "CreamCheese"@en ,
+                               "FormaggioCremoso"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cream_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Formaggio_spalmabile"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_03306447
@@ -649,13 +685,21 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                                        ]
                                                      ) ;
                                   rdf:type owl:Class
-                                ] .
+                                ] ;
+            rdfs:comment "A cheese which endured the aging process."@en ,
+                         "Un formaggio che ha subito il processo di stagionatura."@it ;
+            rdfs:label "AgedCheese"@en ,
+                       "FormaggioStagionato"@en .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Aging
 :Aging rdf:type owl:Class ;
        rdfs:subClassOf :Event ;
-       rdfs:label "Aging"^^xsd:string .
+       rdfs:comment "A phase during the lifetime of a cheese which happens at the ending of the cheesemaking process which determines its aspect, its consistency, its aroma and its flavor."@en ,
+                    "La parte della vita di un formaggio che avviene al termine della lavorazione casearia e che ne determina l’aspetto, la consistenza, l’aroma e il sapore."@it ;
+       rdfs:label "Aging"@en ,
+                  "Stagionatura"@it ;
+       rdfs:seeAlso "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_stagionatura_del_formaggio"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
@@ -672,20 +716,11 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
-                                   ] .
-
-
-###  https://github.com/nicolasfara/cheese-ontology/CheeseTexture
-:CheeseTexture rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Class ;
-                                     owl:oneOf ( :HardTexture
-                                                 :MediumHardTexture
-                                                 :SemiHardTexture
-                                                 :SemiSoftTexture
-                                                 :SoftTexture
-                                               )
                                    ] ;
-               rdfs:label "CheeseTexture"^^xsd:string .
+               rdfs:comment "A cheese made with buffalo milk."@en ,
+                            "Un formaggio prodotto da latte di bufala."@it ;
+               rdfs:label "BuffaloCheese"@en ,
+                          "FormaggioDiBufala"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Environment
@@ -693,19 +728,33 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
              owl:disjointUnionOf ( obo:ENVO_00000067
                                    obo:ENVO_01000583
                                    obo:ENVO_01001871
-                                 ) .
+                                 ) ;
+             rdfs:comment "I dintorni o le condizioni in cui un formaggio stagiona o matura."@it ,
+                          "The surroundings or conditions in which a cheese ages or ripens."@en ;
+             rdfs:label "Ambiente"@it ,
+                        "Environment"@en .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Event
 :Event rdf:type owl:Class ;
        owl:disjointUnionOf ( :Aging
                              :Ripening
-                           ) .
+                           ) ;
+       rdfs:comment "A physical phenomenon which took place during the cheese production process."@en ,
+                    "Un fenomeno fisico avvenuto nel processo di produzione del formaggio."@it ;
+       rdfs:label "Event"@en ,
+                  "Evento"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/FreshCheese
 :FreshCheese rdf:type owl:Class ;
-             rdfs:subClassOf obo:FOODON_00001013 .
+             rdfs:subClassOf obo:FOODON_00001013 ;
+             rdfs:comment "I formaggi \"freschi\" sono quelli a pasta molle (spesso di consistenza cremosa o tenera) come la crescenza oppure certi caprini, la cui cagliata oltre a non essere stata sottoposta a cottura, non è stata nemmeno sottoposta a stagionatura ma solo a maturazione comunque inferiore ai 30 giorni."@it ,
+                          "The main factor in categorizing these cheeses is age. Fresh cheeses without additional preservatives can spoil in a matter of days. For these simplest cheeses, milk is curdled and drained, with little other processing."@en ;
+             rdfs:label "FreshCheese"@en ;
+             rdfs:seeAlso "FormaggioFresco"@it ,
+                          "https://en.wikipedia.org/wiki/Types_of_cheese#Fresh_and_whey_cheeses"@en ,
+                          "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_freschi"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardCheese
@@ -718,7 +767,12 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:label "MediumHardCheese"^^xsd:string .
+                  rdfs:comment "Cheeses that range in texture from semi-soft to firm. Cheeses of this type are ideal for melting and are often served on toast for quick snacks or simple meals."@en ,
+                               "Formaggi a \"pasta semidura\" sono quelli il cui contenuto di acqua è generalmente compreso tra il 36% e il 45% e subiscono una stagionatura media."@it ;
+                  rdfs:label "FormaggioAPastaMedia"@it ,
+                             "MediumHardCheese"@en ;
+                  rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Medium-hard_cheese"@en ,
+                               "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_semidura"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MilkEnzyme
@@ -818,6 +872,8 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                               ]
                           ] ;
           rdfs:comment "Cheese ripening, alternatively cheese maturation or affinage, is a process in cheesemaking. It is responsible for the distinct flavour of cheese, and through the modification of \"ripening agents\", determines the features that define many different varieties of cheeses, such as taste, texture, and body."@en ;
+          rdfs:label "Maturazione"@it ,
+                     "Ripening"@en ;
           rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese_ripening"@en .
 
 
@@ -842,6 +898,24 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 :StretchedCurdCheese rdf:type owl:Class ;
                      rdfs:subClassOf obo:FOODON_00001013 ;
                      rdfs:label "StretchedCurdCheese"^^xsd:string .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Texture
+:Texture rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:oneOf ( :HardTexture
+                                           :MediumHardTexture
+                                           :SemiHardTexture
+                                           :SemiSoftTexture
+                                           :SoftTexture
+                                         )
+                             ] ;
+         rdfs:comment "A composite sensory attribute resulting from a combination of physical properties that are perceived by the senses of touch (including kinesthesis and mouthfeel), sight, and hearing."@en ,
+                      "Un attributo sensoriale composto che risulta da una combinazione di proprietà fisiche che sono percepite dai sensi tattili (inclusi la cinestesia e la sensazione in bocca), dalla vista e dall'udito."@it ;
+         rdfs:label "Texture"@en ;
+         rdfs:seeAlso "Pasta"@it ,
+                      "https://en.wikipedia.org/wiki/Types_of_cheese#Moisture:_soft_to_hard"@en ,
+                      "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_pasta_del_formaggio"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/VegetalRennet
@@ -1035,7 +1109,7 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/HardTexture
 :HardTexture rdf:type owl:NamedIndividual ,
-                      :CheeseTexture .
+                      :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/LatterieVicentineCowMilk
@@ -1061,7 +1135,7 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
 :MediumHardTexture rdf:type owl:NamedIndividual ,
-                            :CheeseTexture .
+                            :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
@@ -1192,17 +1266,17 @@ geo:Feature rdf:type owl:Class ;
 
 ###  https://github.com/nicolasfara/cheese-ontology/SemiHardTexture
 :SemiHardTexture rdf:type owl:NamedIndividual ,
-                          :CheeseTexture .
+                          :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SemiSoftTexture
 :SemiSoftTexture rdf:type owl:NamedIndividual ,
-                          :CheeseTexture .
+                          :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SoftTexture
 :SoftTexture rdf:type owl:NamedIndividual ,
-                      :CheeseTexture .
+                      :Texture .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroncremaMambelli
