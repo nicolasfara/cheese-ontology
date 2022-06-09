@@ -37,17 +37,17 @@ A detailed cheese ontology
 
 # Alignments
 
-  - `obo` -- Open Biological and Biomedical Ontologies
-  - `geonames` -- Geographical database covers countries and places
-  - `foodon` -- A farm to fork ontology
-  - `agrovoc` -- Cover subject like agriculture, food, etc.
-  - `disciplinare` -- Italian's food certifications
+- `obo` -- Open Biological and Biomedical Ontologies
+- `geonames` -- Geographical database covers countries and places
+- `foodon` -- A farm to fork ontology
+- `agrovoc` -- Cover subject like agriculture, food, etc.
+- `disciplinare` -- Italian's food certifications
 
 ---
 
 # Main Concepts
 
-The ontology captures the following concepts in the **cheese** domain
+The ontology captures the following concepts in the __cheese__ domain
 
 - _Cheese_ types
 - _Raw Materials_ and _Milk_ used to make a cheese
@@ -113,22 +113,23 @@ The ontology captures the following concepts in the **cheese** domain
 | _Individuals_ | __49__ |
 | _Annotation Property_ | __4__ |
 
-
 ---
 
 # SWRL Rules
 
 ---
 
-## Rule #1
+## Rule 1
 
-With this rule we __prevent__ a certified cheese from being made from uncertified milk:
+With this rule you can __infer__ that a cheese which is made with a certified milk must be a certified cheese
+
+<img src="swrl1.svg" alt="SWRL1" width="80%">
 
 ```prolog
-obo:FOODON_00001013(?cheese) ^
-isMadeWithMilk(?cheese, ?milk) ^
-ProtectedMilkRawMaterial(?milk) -> food-cheese:Formaggio(?cheese)
+obo:FOODON_00001013(?cheese) ^ isMadeWithMilk(?cheese, ?milk) ^
+           ProtectedMilkRawMaterial(?milk) -> food-cheese:Formaggio(?cheese)
 ```
+
 <small>
 ⚠️ This rule implies that if a cheese is made from certified milk, then the cheese itself is also certified
 </small>
@@ -141,12 +142,14 @@ Due to the _open world assumption_, we are unable to tight this constraint even 
 
 This rule defines that the __ripening__ of a cheese should be between 1 and 30 days.
 
+<img src="swrl2.svg" alt="SWRL2" width="55%">
 
 ```prolog
 hasRipeningDuration(?r, ?d) ^ Ripening(?r) ->
 swrlb:greaterThanOrEqual(?d, 1) ^
 swrlb:lessThanOrEqual(?d, 30)
 ```
+
 <small>
 In the ontology when referring to the ripening period we refer to a period expressed in days
 </small>
@@ -157,9 +160,12 @@ In the ontology when referring to the ripening period we refer to a period expre
 
 This rule defines that the __aging__ period should be at least one month:
 
+<img src="swrl3.svg" alt="SWRL3" width="55%">
+
 ```prolog
 Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 ```
+
 <small>
 In the ontology when referring to the aging period we refer to a period expressed in month
 </small>
@@ -201,7 +207,7 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 SELECT ?cheese ?label ?protectedname
 WHERE {
     ?cheese a/rdfs:label "ProtectedCheese"@en.
-	
+ 
     OPTIONAL { ?cheese :hasProtectedName ?protectedname }
     OPTIONAL { ?cheese rdfs:label ?label }
 }
@@ -220,18 +226,18 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT ?cheese ?cheeselabel ?milk ?milklabel ?animal WHERE {
     ?cheese :isMadeWithMilk ?milk.
-    { 	?milk a/rdfs:label "CowMilk"@en.
-    	VALUES ?animal { "Formaggio di mucca" }
-  	} UNION { 
-    	?milk a/rdfs:label "SheepMilk"@en.
-    	VALUES ?animal { "Formaggio di pecora" }
-  	} UNION { 
-    	?milk a/rdfs:label "GoatMilk"@en.
-    	VALUES ?animal { "Formaggio di capra" }
-  	} UNION { 
-    	?milk a/rdfs:label "BuffaloMilk"@en.
-    	VALUES ?animal { "Formaggio di bufala" }
-  	}
+    {  ?milk a/rdfs:label "CowMilk"@en.
+     VALUES ?animal { "Formaggio di mucca" }
+   } UNION { 
+     ?milk a/rdfs:label "SheepMilk"@en.
+     VALUES ?animal { "Formaggio di pecora" }
+   } UNION { 
+     ?milk a/rdfs:label "GoatMilk"@en.
+     VALUES ?animal { "Formaggio di capra" }
+   } UNION { 
+     ?milk a/rdfs:label "BuffaloMilk"@en.
+     VALUES ?animal { "Formaggio di bufala" }
+   }
 
     OPTIONAL { ?milk rdfs:label ?milklabel }
     OPTIONAL { ?cheese rdfs:label ?cheeselabel }
