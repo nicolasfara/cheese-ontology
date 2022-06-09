@@ -1,6 +1,4 @@
 @prefix : <https://github.com/nicolasfara/cheese-ontology/> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
-@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix geo: <https://www.geonames.org/ontology#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -156,8 +154,11 @@ food-upper:haDenominazione rdf:type owl:ObjectProperty ;
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/locatedIn
-:locatedIn rdf:type owl:ObjectProperty ;
-           rdfs:range dbo:PopulatedPlace .
+:locatedIn rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ,
+                    owl:AsymmetricProperty ,
+                    owl:IrreflexiveProperty ;
+           rdfs:range <http://dbpedia.org/ontology/PopulatedPlace> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/locatedInEnvironment
@@ -237,7 +238,7 @@ agrovoc:c_4826 rdf:type owl:Class ;
 agrovoc:c_8309 rdf:type owl:Class ;
                rdfs:subClassOf obo:FOODON_00002340 ,
                                food-upper:MateriaPrima ;
-               rdfs:label "WaterRawMaterial"^^xsd:string .
+               rdfs:label "WaterRawMaterial" .
 
 
 ###  http://aims.fao.org/aos/agrovoc/c_8376
@@ -247,7 +248,7 @@ agrovoc:c_8376 rdf:type owl:Class ;
 
 
 ###  http://dbpedia.org/ontology/PopulatedPlace
-dbo:PopulatedPlace rdf:type owl:Class .
+<http://dbpedia.org/ontology/PopulatedPlace> rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_00000067
@@ -351,7 +352,7 @@ obo:FOODON_00001125 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "SheepCheese"^^xsd:string .
+                    rdfs:label "SheepCheese" .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001126
@@ -366,7 +367,7 @@ obo:FOODON_00001126 rdf:type owl:Class ;
                                         ] ;
                     rdfs:comment "A cheese made with cow milk."@en ,
                                  "Un formaggio prodotto da latte di mucca."@it ;
-                    rdfs:label "CowCheese"^^xsd:string ,
+                    rdfs:label "CowCheese" ,
                                "FormaggioDiMucca"@it .
 
 
@@ -426,7 +427,7 @@ obo:FOODON_00002230 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "SemiHardCheese"^^xsd:string .
+                    rdfs:label "SemiHardCheese" .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00002231
@@ -903,7 +904,7 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/StretchedCurdCheese
 :StretchedCurdCheese rdf:type owl:Class ;
                      rdfs:subClassOf obo:FOODON_00001013 ;
-                     rdfs:label "StretchedCurdCheese"^^xsd:string .
+                     rdfs:label "StretchedCurdCheese" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Texture
@@ -955,15 +956,15 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 #################################################################
 
 ###  http://dbpedia.org/resource/Bertinoro
-dbr:Bertinoro rdf:type owl:NamedIndividual .
+<http://dbpedia.org/resource/Bertinoro> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/Naples
-dbr:Naples rdf:type owl:NamedIndividual .
+<http://dbpedia.org/resource/Naples> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/Sogliano_al_Rubicone
-dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
+<http://dbpedia.org/resource/Sogliano_al_Rubicone> rdf:type owl:NamedIndividual .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
@@ -974,7 +975,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
 ###  https://github.com/nicolasfara/cheese-ontology/BrandinelliPit
 :BrandinelliPit rdf:type owl:NamedIndividual ,
                          obo:ENVO_01001871 ;
-                rdfs:seeAlso "https://www.fossebrandinelli.it/"^^xsd:string .
+                rdfs:seeAlso "https://www.fossebrandinelli.it/" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/BrieCarozzi
@@ -1029,7 +1030,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                 :isMadeWithRawMaterial :CaveSalt ,
                                                        :FermentiLatticiAlce ,
                                                        :VegetalRennet ;
-                                :producedIn dbr:Bertinoro ;
+                                :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                                 rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/114-caciotta-with-vegetable-rennet-2480395.html"^^xsd:string .
 
 
@@ -1042,13 +1043,13 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                     :isMadeWithRawMaterial :AnimalRennet ,
                                                            :CaveSalt ,
                                                            :FermentiLatticiSacco ;
-                                    :producedIn dbr:Bertinoro ;
+                                    :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                                     rdfs:seeAlso "https://www.mambelli.com/en/100-caciotta-di-romagna-infossata"^^xsd:string .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaInfossataAging
 :CaciottaInfossataAging rdf:type owl:NamedIndividual ;
-                        :hasTakenPlaceIn dbr:Sogliano_al_Rubicone ;
+                        :hasTakenPlaceIn <http://dbpedia.org/resource/Sogliano_al_Rubicone> ;
                         :locatedInEnvironment :BrandinelliPit ;
                         :hasAgingDuration "1"^^xsd:positiveInteger .
 
@@ -1061,12 +1062,12 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                   :isMadeWithRawMaterial :AnimalRennet ,
                                          :CaveSalt ,
                                          :FermentiLatticiAlce ;
-                  :producedIn dbr:Bertinoro .
+                  :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CaciottaRipening
 :CaciottaRipening rdf:type owl:NamedIndividual ;
-                  :hasTakenPlaceIn dbr:Bertinoro ;
+                  :hasTakenPlaceIn <http://dbpedia.org/resource/Bertinoro> ;
                   :hasRipeningDuration "30"^^xsd:positiveInteger .
 
 
@@ -1078,7 +1079,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                               :isMadeWithRawMaterial :AnimalRennet ,
                                                      :FermentiLatticiSacco ,
                                                      :SaleDiCervia ;
-                              :producedIn dbr:Bertinoro ;
+                              :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                               rdfs:seeAlso "https://www.mambelli.com/en/13-caciotta-with-salt-from-cervia"^^xsd:string .
 
 
@@ -1094,13 +1095,13 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                     :isMadeWithRawMaterial :AnimalRennet ,
                                            :CaveSalt ,
                                            :FermentiLatticiSacco ;
-                    :producedIn dbr:Bertinoro ;
-                    rdfs:seeAlso "https://www.mambelli.com/en/4-casatella-of-romagna"^^xsd:string .
+                    :producedIn <http://dbpedia.org/resource/Bertinoro> ;
+                    rdfs:seeAlso "https://www.mambelli.com/en/4-casatella-of-romagna" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/CasatellaRipening
 :CasatellaRipening rdf:type owl:NamedIndividual ;
-                   :hasTakenPlaceIn dbr:Bertinoro ;
+                   :hasTakenPlaceIn <http://dbpedia.org/resource/Bertinoro> ;
                    :hasRipeningDuration "6"^^xsd:positiveInteger .
 
 
@@ -1158,7 +1159,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                     :isMadeWithRawMaterial :BrintazzoliCowMilk ,
                                            :BrintazzoliCream ,
                                            :CitricAcid ;
-                    :producedIn dbr:Bertinoro ;
+                    :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                     rdfs:seeAlso "https://www.mambelli.com/en/20-il-mascarpone"^^xsd:string .
 
 
@@ -1175,7 +1176,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                       :isMadeWithRawMaterial :AnimalRennet ,
                                              :CaveSalt ,
                                              :FermentiLatticiSacco ;
-                      :producedIn dbr:Naples .
+                      :producedIn <http://dbpedia.org/resource/Naples> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
@@ -1226,7 +1227,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                  :isMadeWithRawMaterial :AnimalRennet ,
                                                         :FermentiLatticiSacco ,
                                                         :SaleDiCervia ;
-                                 :producedIn dbr:Bertinoro ;
+                                 :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                                  rdfs:seeAlso "https://www.mambelli.com/en/14-primosale-with-salt-from-cervia"^^xsd:string .
 
 
@@ -1237,7 +1238,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                    :isMadeWithRawMaterial :AnimalRennet ,
                                           :CaveSalt ,
                                           :FermentiLatticiAlce ;
-                   :producedIn dbr:Bertinoro .
+                   :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloAlSaleDiCerviaMambelli
@@ -1246,7 +1247,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                  :isMadeWithMilk :BrintazzoliCowMilk ;
                                  :isMadeWithRawMaterial :AnimalRennet ,
                                                         :SaleDiCervia ;
-                                 :producedIn dbr:Bertinoro .
+                                 :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloConRucolaAlSaleDiCerviaMambelli
@@ -1256,7 +1257,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                           :isMadeWithRawMaterial :AnimalRennet ,
                                                                  :Rocket ,
                                                                  :SaleDiCervia ;
-                                          :producedIn dbr:Bertinoro .
+                                          :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RavigioloMambelli
@@ -1265,7 +1266,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                    :isMadeWithMilk :BrintazzoliCowMilk ;
                    :isMadeWithRawMaterial :AnimalRennet ,
                                           :CaveSalt ;
-                   :producedIn dbr:Bertinoro .
+                   :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Refrigerator
@@ -1278,7 +1279,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                    :FreshCheese ;
                           :isMadeWithMilk :BrintazzoliCowMilk ;
                           :isMadeWithRawMaterial :FrattaWater ;
-                          :producedIn dbr:Bertinoro ;
+                          :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                           rdfs:seeAlso "https://www.mambelli.com/en/6-ricotta-of-romagna"^^xsd:string .
 
 
@@ -1287,7 +1288,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                    :FreshCheese ;
                           :isMadeWithMilk :BrintazzoliBioCowMilk ;
                           :isMadeWithRawMaterial :FrattaWater ;
-                          :producedIn dbr:Bertinoro .
+                          :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RicottaSieroMambelli
@@ -1296,7 +1297,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                       :isMadeWithMilk :BrintazzoliCowMilk ;
                       :isMadeWithRawMaterial :CaveSalt ,
                                              :Whey ;
-                      :producedIn dbr:Bertinoro .
+                      :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Rocket
@@ -1339,7 +1340,7 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                   :isMadeWithRawMaterial :AnimalRennet ,
                                                          :FermentiLatticiAlce ,
                                                          :MarineSalt ;
-                                  :producedIn dbr:Bertinoro ;
+                                  :producedIn <http://dbpedia.org/resource/Bertinoro> ;
                                   rdfs:label "Squacquerone Mambelli D.O.P."@it ;
                                   rdfs:seeAlso "https://www.mambelli.com/en/2-squacquerone"^^xsd:string .
 
@@ -1352,13 +1353,13 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                       :isMadeWithRawMaterial :AnimalRennet ,
                                              :CaveSalt ,
                                              :FermentiLatticiSacco ;
-                      :producedIn dbr:Bertinoro .
+                      :producedIn <http://dbpedia.org/resource/Bertinoro> .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneRipening
 :SquacqueroneRipening rdf:type owl:NamedIndividual ,
                                :Ripening ;
-                      :hasTakenPlaceIn dbr:Bertinoro ;
+                      :hasTakenPlaceIn <http://dbpedia.org/resource/Bertinoro> ;
                       :locatedInEnvironment :Refrigerator ;
                       :hasRipeningDuration "6"^^xsd:positiveInteger .
 
@@ -1375,8 +1376,8 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                           :isMadeWithRawMaterial :CaveSalt ,
                                                  :FermentiLatticiAlce ,
                                                  :VegetalRennet ;
-                          :producedIn dbr:Bertinoro ;
-                          rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/113-stracchino-with-vegetable-rennet-2933164.html"^^xsd:string .
+                          :producedIn <http://dbpedia.org/resource/Bertinoro> ;
+                          rdfs:seeAlso "https://www.mambelli.com/en/cheese-with-vegetable-rennet/113-stracchino-with-vegetable-rennet-2933164.html" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/StracchinoRipening
@@ -1387,8 +1388,8 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
 ###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
 :TotalSkimming rdf:type owl:NamedIndividual ,
                         :MilkSkimming ;
-               rdfs:comment "Skimmed milk (British English), or skim milk (American English), is made when all the milkfat is removed from whole milk. It tends to contain around 0.1% fat."^^xsd:string ;
-               rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk"^^xsd:string .
+               rdfs:comment "Skimmed milk (British English), or skim milk (American English), is made when all the milkfat is removed from whole milk. It tends to contain around 0.1% fat." ;
+               rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk" .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/VegetalRennet
@@ -1633,4 +1634,4 @@ dbr:Sogliano_al_Rubicone rdf:type owl:NamedIndividual .
                                          ]
  ] .
 
-###  Generated by the OWL API (version 4.5.19.2020-11-07T15:38:34Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
