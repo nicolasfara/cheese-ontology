@@ -5,7 +5,8 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?label ?duration WHERE {
+SELECT ?cheese ?label ?duration 
+WHERE {
     ?cheese :hasRipening/:hasRipeningDuration ?duration.
 
     OPTIONAL { ?cheese rdfs:label ?label }
@@ -20,7 +21,8 @@ ORDER BY ?label
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?label ?protectedname WHERE {
+SELECT ?cheese ?label ?protectedname 
+WHERE {
     ?cheese a/rdfs:label "ProtectedCheese"@en.
 	
     OPTIONAL { ?cheese :hasProtectedName ?protectedname }
@@ -119,7 +121,7 @@ ORDER BY ?cheeselabel
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?label
+SELECT DISTINCT ?cheese ?label
 WHERE {
 	{
 		?cheese :isMadeWithRawMaterial/a :VegetalRennet.
@@ -186,7 +188,7 @@ ORDER BY ?label
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT DISTINCT ?cheese ?label
+SELECT ?cheese ?label
 WHERE {
   	?cheese a/rdfs:label "Cheese"@en.
   
@@ -238,17 +240,15 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT ?region ?cheese ?cheeselabel
 WHERE {
-  	?cheese :producedIn ?city.
-  	?cheese a/rdfs:label "ProtectedCheese"@en.
+    ?cheese :producedIn ?city.
+    ?cheese a/rdfs:label "ProtectedCheese"@en.
   
-  	SERVICE <https://dbpedia.org/sparql> {
-    	?region dbo:type dbr:Regions_of_Italy.
-    	?city dbo:region ?region.
-  	}
+    SERVICE <https://dbpedia.org/sparql> {
+        ?region dbo:type dbr:Regions_of_Italy.
+        ?city dbo:region ?region.
+    }
   
-  	OPTIONAL {
-    	?cheese rdfs:label ?cheeselabel
-  	}
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel. }
 }
 GROUP BY ?cheese ?cheeselabel ?region
 ORDER BY ?regionlabel
@@ -264,25 +264,23 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
 SELECT ?cheese ?cheeselabel ?city ?citylabel ?pit ?pitlabel
 WHERE {
-  	?cheese :hasAging ?aging.
-  	?aging :hasTakenPlaceIn ?city.
+    ?cheese :hasAging ?aging.
+    ?aging :hasTakenPlaceIn ?city.
     ?aging :locatedInEnvironment ?pit.
     ?pit a/rdfs:label "Pit"@en.
   
-  	SERVICE <https://dbpedia.org/sparql> {
-    	?city dbo:province dbr:Province_of_Forlì-Cesena.
-    	
+    SERVICE <https://dbpedia.org/sparql> {
+        ?city dbo:province dbr:Province_of_Forlì-Cesena.
+    
         OPTIONAL {
-        	?city rdfs:label ?citylabel.
+            ?city rdfs:label ?citylabel.
         
-        	FILTER(LANG(?citylabel) = "it")
-  		}
-  	}
+            FILTER(LANG(?citylabel) = "it")
+        }
+    }
   
-  	OPTIONAL {
-    	?cheese rdfs:label ?cheeselabel.
-    	?pit rdfs:label ?pitlabel.
-  	}
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel. }
+    OPTIONAL { ?pit rdfs:label ?pitlabel. }
 }
 ORDER BY ?citylabel
 
@@ -298,7 +296,5 @@ PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 ASK
 WHERE {
    	?cheese a/rdfs:label "Cheese"@en.
-    FILTER NOT EXISTS {
-  		?cheese :isMadeWithRawMaterial/a :AnimalRennet.
-  	}
+    FILTER NOT EXISTS { ?cheese :isMadeWithRawMaterial/a :AnimalRennet. }
 }
