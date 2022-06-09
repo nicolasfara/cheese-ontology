@@ -121,7 +121,7 @@ The ontology captures the following concepts in the __cheese__ domain
 
 ## Rule 1
 
-With this rule you can __infer__ that a cheese which is made with a certified milk must be a certified cheese
+This rule you can __infer__ that a cheese which is made with a certified milk must be a certified cheese
 
 <img src="swrl1.svg" alt="SWRL1" width="80%">
 
@@ -151,7 +151,7 @@ swrlb:lessThanOrEqual(?d, 30)
 ```
 
 <small>
-In the ontology when referring to the ripening period we refer to a period expressed in days
+⚠️ In the ontology when referring to the ripening period we refer to a period expressed in days
 </small>
 
 ---
@@ -167,7 +167,7 @@ Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 ```
 
 <small>
-In the ontology when referring to the aging period we refer to a period expressed in month
+⚠️ In the ontology when referring to the aging period we refer to a period expressed in month
 </small>
 
 ---
