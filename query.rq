@@ -209,7 +209,7 @@ PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?city ?citylabel ?region ?regionlabel (COUNT(?city) AS ?count)
+SELECT ?city ?citylabel ?region (COUNT(?city) AS ?count)
 WHERE {
   	?cheese :producedIn ?city.
   
@@ -218,9 +218,87 @@ WHERE {
     	?city dbo:region ?region.
     
         OPTIONAL {
-      		?region rdfs:label ?regionlabel.
             ?city rdfs:label ?citylabel.
+      
+      		FILTER(LANG(?citylabel) = "it")
         }
   	}
 }
-GROUP BY ?city ?citylabel ?region ?regionlabel
+GROUP BY ?city ?citylabel ?region
+ORDER BY ?citylabel
+
+#
+# List all protected cheeses for each italian region
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?region ?cheese ?cheeselabel
+WHERE {
+  	?cheese :producedIn ?city.
+  	?cheese a/rdfs:label "ProtectedCheese"@en.
+  
+  	SERVICE <https://dbpedia.org/sparql> {
+    	?region dbo:type dbr:Regions_of_Italy.
+    	?city dbo:region ?region.
+  	}
+  
+  	OPTIONAL {
+    	?cheese rdfs:label ?cheeselabel
+  	}
+}
+GROUP BY ?cheese ?cheeselabel ?region
+ORDER BY ?regionlabel
+
+#
+# List all cheeses aged in pits which are located in the Forlì-Cesena province. 
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?cheeselabel ?city ?citylabel ?pit ?pitlabel
+WHERE {
+  	?cheese :hasAging ?aging.
+  	?aging :hasTakenPlaceIn ?city.
+    ?aging :locatedInEnvironment ?pit.
+    ?pit a/rdfs:label "Pit"@en.
+  
+  	SERVICE <https://dbpedia.org/sparql> {
+    	?city dbo:province dbr:Province_of_Forlì-Cesena.
+    	
+        OPTIONAL {
+        	?city rdfs:label ?citylabel.
+        
+        	FILTER(LANG(?citylabel) = "it")
+  		}
+  	}
+  
+  	OPTIONAL {
+    	?cheese rdfs:label ?cheeselabel.
+    	?pit rdfs:label ?pitlabel.
+  	}
+}
+ORDER BY ?citylabel
+
+#
+# Check whether it exists some cheeses which are edible for vegetarians.
+#
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+ASK
+WHERE {
+   	?cheese a/rdfs:label "Cheese"@en.
+    FILTER NOT EXISTS {
+  		?cheese :isMadeWithRawMaterial/a :AnimalRennet.
+  	}
+}
