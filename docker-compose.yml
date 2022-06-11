@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  fuseki:
+    image: stain/jena-fuseki:jena4
+    container_name: fuseki
+    ports:
+      - 3030:3030
+    volumes:
+      - .:/staging
+      - fuseki-data:/fuseki
+    environment:
+      - ADMIN_PASSWORD=password
+      - FUSEKI_DATASET_1=cheeseontology
+
+volumes:
+  fuseki-data:
