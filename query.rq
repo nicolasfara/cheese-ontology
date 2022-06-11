@@ -112,7 +112,7 @@ WHERE {
     OPTIONAL { ?milk rdfs:label ?milklabel }
     OPTIONAL { ?cheese rdfs:label ?cheeselabel }
 }
-ORDER BY ?cheeselabel
+ORDER BY ?animal
 
 #
 # List of all high-digeribility cheeses
@@ -211,23 +211,17 @@ PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?city ?citylabel ?region (COUNT(?city) AS ?count)
+SELECT DISTINCT ?city ?region (COUNT(?city) AS ?count)
 WHERE {
   	?cheese :producedIn ?city.
   
   	SERVICE <https://dbpedia.org/sparql> {
     	?region dbo:type dbr:Regions_of_Italy.
     	?city dbo:region ?region.
-    
-        OPTIONAL {
-            ?city rdfs:label ?citylabel.
-      
-      		FILTER(LANG(?citylabel) = "it")
-        }
   	}
 }
-GROUP BY ?city ?citylabel ?region
-ORDER BY ?citylabel
+GROUP BY ?city ?region
+ORDER BY DESC(COUNT(?city))
 
 #
 # List all protected cheeses for each italian region
