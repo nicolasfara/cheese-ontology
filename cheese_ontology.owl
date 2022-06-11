@@ -552,12 +552,12 @@ obo:FOODON_03401217 rdf:type owl:Class ;
                     owl:equivalentClass [ owl:intersectionOf ( obo:FOODON_00001013
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty :isMadeWithMilk ;
-                                                                 owl:allValuesFrom :PartiallySkimmedMilk
+                                                                 owl:allValuesFrom :SemiSkimmedMilk
                                                                ]
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:label "PartlySkimmedMilkCheese"@en .
+                    rdfs:label "SemiSkimmedMilkCheese"@en .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_03544452
@@ -580,7 +580,7 @@ obo:UBERON_0001913 rdf:type owl:Class ;
                                          :MixedMilk
                                        ) ,
                                        ( obo:FOODON_03301484
-                                         :PartiallySkimmedMilk
+                                         :SemiSkimmedMilk
                                          :WholeMilk
                                        ) ,
                                        ( :PasteurizedMilk
@@ -920,15 +920,6 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                    rdfs:subClassOf obo:FOODON_03306447 .
 
 
-###  https://github.com/nicolasfara/cheese-ontology/PartiallySkimmedMilk
-:PartiallySkimmedMilk rdf:type owl:Class ;
-                      rdfs:subClassOf obo:UBERON_0001913 ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :hasSkimming ;
-                                        owl:hasValue :PartialSkimming
-                                      ] .
-
-
 ###  https://github.com/nicolasfara/cheese-ontology/PasteurizedMilk
 :PasteurizedMilk rdf:type owl:Class ;
                  rdfs:subClassOf obo:UBERON_0001913 .
@@ -977,6 +968,15 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                      "Ripening"@en ;
           rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese_ripening"@en ,
                        "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_stagionatura_del_formaggio"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SemiSkimmedMilk
+:SemiSkimmedMilk rdf:type owl:Class ;
+                 rdfs:subClassOf obo:UBERON_0001913 ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSkimming ;
+                                   owl:hasValue :PartialSkimming
+                                 ] .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SkimmedMilkCheese
