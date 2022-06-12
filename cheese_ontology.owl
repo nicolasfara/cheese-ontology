@@ -20,10 +20,11 @@
                                                    dcterms:author "Linda Vitali" ,
                                                                   "Matteo Castellucci" ,
                                                                   "Nicolas Farabegoli" ;
+                                                   dcterms:license "https://opensource.org/licenses/MIT"@en ;
                                                    dcterms:title "Cheese Ontology"@en ;
                                                    vann:preferredNamespacePrefix "cheese" ;
                                                    vann:preferredNamespaceUri "https://github.com/nicolasfara/cheese-ontology/" ;
-                                                   rdfs:comment "An ontology for modelling cheese and its properties."@en ;
+                                                   rdfs:comment "An ontology modelling cheese, its production process, the raw materials involved and the certifications it can own."@en ;
                                                    owl:versionInfo "1.0.0" .
 
 #################################################################
