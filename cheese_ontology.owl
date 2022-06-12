@@ -368,9 +368,9 @@ obo:FOODON_00001124 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:comment "A cheese made with goat milk."@en ,
+                    rdfs:comment "Cheese made with goat milk."@en ,
                                  "Un formaggio prodotto da latte di capra."@it ;
-                    rdfs:label "FormaggioDiCapra"@it ,
+                    rdfs:label "FormaggioCaprino"@it ,
                                "GoatCheese"@en .
 
 
@@ -397,10 +397,10 @@ obo:FOODON_00001126 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:comment "A cheese made with cow milk."@en ,
+                    rdfs:comment "Cheese made with cow milk."@en ,
                                  "Un formaggio prodotto da latte di mucca."@it ;
-                    rdfs:label "CowCheese" ,
-                               "FormaggioDiMucca"@it .
+                    rdfs:label "CowCheese"@en ,
+                               "FormaggioMucchino"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_00001228
@@ -446,9 +446,9 @@ obo:FOODON_00001945 rdf:type owl:Class ;
                                                              ) ;
                                           rdf:type owl:Class
                                         ] ;
-                    rdfs:comment "Hard cheeses are quite firmly packed into large forms and aged for months or years."@en ,
-                                 "I formaggi a \"pasta dura\" hanno un contenuto di acqua relativamente basso, in genere dal 30% al 40%, e sono a stagionatura lenta."@it ;
-                    rdfs:label "FormaggioAPastaDura"@it ,
+                    rdfs:comment "Cheese quite firmly packed into a large form and aged for months or years."@en ,
+                                 "Un formaggio abbastanza saldamente confezionato in una forma di grandi dimensioni e stagionato per mesi o anni."@it ;
+                    rdfs:label "FormaggioPastaDura"@it ,
                                "HardCheese"@en ;
                     rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Hard_cheese"@en ,
                                  "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_dura"@it .
@@ -544,16 +544,20 @@ obo:FOODON_03301484 rdf:type owl:Class ;
                                       owl:onProperty :hasSkimming ;
                                       owl:hasValue :TotalSkimming
                                     ] ;
+                    rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene meno dello 0,5% di grasso."@it ,
+                                 "Milk which endured a cream mixing process and it contains less than 0,5% fat."@en ;
                     rdfs:label "LatteScremato"@it ,
-                               "SkimmedMilk"@en .
+                               "SkimmedMilk"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                                 "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
 
 
 ###  http://purl.obolibrary.org/obo/FOODON_03301889
 obo:FOODON_03301889 rdf:type owl:Class ;
                     rdfs:subClassOf obo:FOODON_00001013 ;
                     owl:disjointWith :StretchedCurdCheese ;
-                    rdfs:comment "Cream cheese is a soft, usually mild-tasting fresh cheese made from milk and cream."@en ,
-                                 "Il formaggio spalmabile, anche detto formaggio cremoso, è un tipo di formaggio fresco, molto tenero e spesso delicato."@it ;
+                    rdfs:comment "A soft, usually mild-tasting fresh cheese made from milk and cream."@en ,
+                                 "Un formaggio fresco, molto tenero e spesso delicato fatto da latte e panna."@it ;
                     rdfs:label "CreamCheese"@en ,
                                "FormaggioCremoso"@it ;
                     rdfs:seeAlso "https://en.wikipedia.org/wiki/Cream_cheese"@en ,
@@ -746,10 +750,10 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 :AgedCheese rdf:type owl:Class ;
             rdfs:subClassOf obo:FOODON_00001013 ;
             owl:disjointWith :FreshCheese ;
-            rdfs:comment "A cheese which endured the aging process."@en ,
+            rdfs:comment "Cheese which endured the aging process."@en ,
                          "Un formaggio che ha subito il processo di stagionatura."@it ;
             rdfs:label "AgedCheese"@en ,
-                       "FormaggioStagionato"@en .
+                       "FormaggioStagionato"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Aging
@@ -766,8 +770,8 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
 :AnimalRennet rdf:type owl:Class ;
               rdfs:subClassOf obo:FOODON_00001228 ;
-              rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk extracted from the inner mucosa of the fourth stomach chamber of young, nursing calves."@en ,
-                           "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte estratto dalla mucosa interna del quarto stomaco di giovani vitelli lattanti."@it ;
+              rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk extracted from the inner mucosa of the stomach of specific animals."@en ,
+                           "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte estratto dalla mucosa interna dello stomaco di certi animali."@it ;
               rdfs:label "AnimalRennet"@en ,
                          "CaglioAnimale"@it ;
               rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet#Extraction_of_calf_rennet"@en ,
@@ -784,10 +788,10 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:comment "A cheese made with buffalo milk."@en ,
-                            "Un formaggio prodotto da latte di bufala."@it ;
+               rdfs:comment "Cheese made with buffalo milk."@en ,
+                            "Un formaggio prodotto da latte di bufalo."@it ;
                rdfs:label "BuffaloCheese"@en ,
-                          "FormaggioDiBufala"@it .
+                          "FormaggioBufalino"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Environment
@@ -816,11 +820,11 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/FreshCheese
 :FreshCheese rdf:type owl:Class ;
              rdfs:subClassOf obo:FOODON_00001013 ;
-             rdfs:comment "I formaggi \"freschi\" sono quelli a pasta molle (spesso di consistenza cremosa o tenera) come la crescenza oppure certi caprini, la cui cagliata oltre a non essere stata sottoposta a cottura, non è stata nemmeno sottoposta a stagionatura ma solo a maturazione comunque inferiore ai 30 giorni."@it ,
-                          "The main factor in categorizing these cheeses is age. Fresh cheeses without additional preservatives can spoil in a matter of days. For these simplest cheeses, milk is curdled and drained, with little other processing."@en ;
-             rdfs:label "FreshCheese"@en ;
-             rdfs:seeAlso "FormaggioFresco"@it ,
-                          "https://en.wikipedia.org/wiki/Types_of_cheese#Fresh_and_whey_cheeses"@en ,
+             rdfs:comment "The main factor in categorizing these cheeses is age. Fresh cheeses without additional preservatives can spoil in a matter of days. For these simplest cheeses, milk is curdled and drained, with little other processing."@en ,
+                          "Un formaggio a pasta molle la cui cagliata oltre a non essere stata sottoposta a cottura, non è stata nemmeno sottoposta a stagionatura ma solo a maturazione comunque inferiore ai 30 giorni."@it ;
+             rdfs:label "FormaggioFresco"@it ,
+                        "FreshCheese"@en ;
+             rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Fresh_and_whey_cheeses"@en ,
                           "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_freschi"@it .
 
 
@@ -834,12 +838,11 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:comment "Cheeses that range in texture from semi-soft to firm. Cheeses of this type are ideal for melting and are often served on toast for quick snacks or simple meals."@en ,
-                               "Formaggi a \"pasta semidura\" sono quelli il cui contenuto di acqua è generalmente compreso tra il 36% e il 45% e subiscono una stagionatura media."@it ;
-                  rdfs:label "FormaggioAPastaMedia"@it ,
+                  rdfs:comment "Cheese that range in texture from semi-soft to firm."@en ,
+                               "Un formaggio la cui pasta va da semi-soffice a solida."@it ;
+                  rdfs:label "FormaggioPastaMedia"@it ,
                              "MediumHardCheese"@en ;
-                  rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Medium-hard_cheese"@en ,
-                               "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_semidura"@it .
+                  rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Medium-hard_cheese"@en .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/MilkEnzyme
@@ -906,15 +909,23 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/PasteurizedMilk
 :PasteurizedMilk rdf:type owl:Class ;
                  rdfs:subClassOf obo:UBERON_0001913 ;
+                 rdfs:comment "Milk that has been pasteurized."@en ,
+                              "Un latte che ha subito il processo di pastorizzazione."@it ;
                  rdfs:label "LattePastorizzato"@it ,
-                            "PasteurizedMilk"@en .
+                            "PasteurizedMilk"@en ;
+                 rdfs:seeAlso "https://en.wikipedia.org/wiki/Pasteurized_milk"@en ,
+                              "https://it.wikipedia.org/wiki/Latte#Pastorizzazione"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/RawMilk
 :RawMilk rdf:type owl:Class ;
          rdfs:subClassOf obo:UBERON_0001913 ;
+         rdfs:comment "Milk that has not been pasteurized."@en ,
+                      "Un latte che non ha subito il processo di pastorizzazione."@it ;
          rdfs:label "LatteCrudo"@it ,
-                    "RawMilk"@en .
+                    "RawMilk"@en ;
+         rdfs:seeAlso "https://en.wikipedia.org/wiki/Raw_milk"@en ,
+                      "https://it.wikipedia.org/wiki/Latte_crudo"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/Ripening
@@ -944,8 +955,12 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                                    owl:onProperty :hasSkimming ;
                                    owl:hasValue :PartialSkimming
                                  ] ;
+                 rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene tra l'1,5% e l'1,8% di grasso."@it ,
+                              "Milk which endured a cream mixing process and it contains between 1,5% and 1,8% fat."@en ;
                  rdfs:label "LatteParzialmenteScremato"@it ,
-                            "SemiSkimmedMilk"@en .
+                            "SemiSkimmedMilk"@en ;
+                 rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                              "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/SkimmedMilkCheese
@@ -992,6 +1007,8 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
 ###  https://github.com/nicolasfara/cheese-ontology/VegetalRennet
 :VegetalRennet rdf:type owl:Class ;
                rdfs:subClassOf obo:FOODON_00001228 ;
+               rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk extracted from specific plants."@en ,
+                            "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte estratto da certe piante."@it ;
                rdfs:label "CaglioVegetale"@it ,
                           "VegetalRennet"@en ;
                rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet#Vegetable"@en ,
@@ -1005,8 +1022,12 @@ food-upper:SpecialitaTradizionaleGarantita rdf:type owl:Class ;
                              owl:onProperty :hasSkimming ;
                              owl:hasValue :NoSkimming
                            ] ;
+           rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene almeno il 3,5% di grasso."@it ,
+                        "Milk which endured a cream mixing process and it contains at least 3,5% fat."@en ;
            rdfs:label "LatteIntero"@it ,
-                      "WholeMilk"@en .
+                      "WholeMilk"@en ;
+           rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                        "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
 
 
 ###  https://github.com/nicolasfara/cheese-ontology/WholeMilkCheese
