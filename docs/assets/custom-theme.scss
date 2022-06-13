@@ -5,7 +5,7 @@
 // Include theme-specific fonts
 @import url(reveal-js/lib/font/source-sans-pro/source-sans-pro.css);
 
-$backgroundColor: #fff;
+$backgroundColor: #fff5e6;
 
 $mainColor: #000;
 $headingColor: #111;
@@ -16,8 +16,8 @@ $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingLetterSpacing: normal;
 $headingFontWeight: 600;
 $linkColor: #0000b0;
-$linkColorHover: lighten( $linkColor, 25% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten($linkColor, 25%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -27,7 +27,14 @@ $heading4Size: 1.0em;
 @import "reveal-js/css/theme/template/theme";
 
 section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
+
+	&,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		color: #222;
 	}
 }
@@ -77,7 +84,8 @@ section.has-light-background {
 	margin: .2em .2em .2em;
 }
 
-.gist-it-gist .gist-file .gist-data pre, .gister-gist .gist-file .gist-data pre {
+.gist-it-gist .gist-file .gist-data pre,
+.gister-gist .gist-file .gist-data pre {
 	box-shadow: none !important;
 }
 
