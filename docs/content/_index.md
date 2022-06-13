@@ -1,6 +1,6 @@
 +++
 title = "🧀 Cheese Ontology"
-description = "A Hugo theme for creating Reveal.js presentations"
+description = "A rich ontology for cheese and all things related"
 outputs = ["Reveal"]
 
 [reveal_hugo]
@@ -18,7 +18,7 @@ enableSourceMap = true
 
 # Cheese Ontology
 
-A detailed cheese ontology
+A rich ontology for cheese and all things related
 
 ~ __Castellucci__ | __Farabegoli__ | __Vitali__ ~
 
@@ -29,7 +29,16 @@ A detailed cheese ontology
 <ul>
 {{% fragment %}}<li>We have <b>domain experts</b> to ask</li>{{% /fragment %}}
 {{% fragment %}}<li>There is <b>no available ontology</b> on cheese</li>{{% /fragment %}}
-{{% fragment %}}<li>An ontology classifying cheeses may be <b>useful</b></li>{{% /fragment %}}
+{{% fragment %}}
+<li>
+An ontology classifying cheeses may be <b>useful</b> for:
+<ul>
+<li>Cheese factories aiming to standardize data management</li>
+<li><em>MIPAAF</em> aiming for improving traceability of cheese's raw material</li>
+<li>Local organizations aiming to promote local products</li>
+</ul>
+</li>
+{{% /fragment %}}
 {{% fragment %}}<li>We <b>❤</b> Cheese</li>{{% /fragment %}}
 </ul>
 
@@ -208,7 +217,7 @@ Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 
 This rule defines that a `Cheese` with a cheese certification is a `ProtectedCheese`:
 
-<img src="swrl3.svg" alt="SWRL3" width="80%">
+<img src="swrl3.svg" alt="SWRL3" width="50%">
 
 ```prolog
 obo:FOODON_00001013(?c) ^
@@ -381,3 +390,7 @@ WHERE {
     FILTER NOT EXISTS { ?cheese :isMadeWithRawMaterial/a :AnimalRennet }
 }
 ```
+
+---
+
+# Thanks for your attention
