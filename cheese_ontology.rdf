@@ -1,0 +1,1560 @@
+@prefix : <https://github.com/nicolasfara/cheese-ontology/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix food-ita: <http://w3id.org/food/ontology/denominazione-italiana/> .
+@prefix food-upper: <http://w3id.org/food/ontology/disciplinare-upper/> .
+@prefix food-cheese: <http://w3id.org/food/ontology/disciplinare-formaggio/> .
+@prefix food-ricotta: <http://w3id.org/food/ontology/disciplinare-ricotta/> .
+@base <https://github.com/nicolasfara/cheese-ontology/> .
+
+
+#################################################################
+#    Properties
+#################################################################
+
+###  http://w3id.org/food/ontology/disciplinare-upper/haDenominazione
+food-upper:haDenominazione rdf:type rdf:Property ;
+                           rdfs:domain food-upper:Prodotto ;
+                           rdfs:range food-upper:Denominazione ;
+                           rdfs:comment "Associa un alimento certificato alla sua denominazione."@it ,
+                                        "Relates a protected food to its protected name."@en ;
+                           rdfs:label "haDenominazione"@it ,
+                                      "hasProtectedName"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasAging
+:hasAging rdf:type rdf:Property ;
+          rdfs:domain :AgedCheese ;
+          rdfs:range :Aging ;
+          rdfs:comment "Associa un formaggio stagionato alla sua stagionatura."@it ,
+                       "Relates an aged cheese with its aging."@en ;
+          rdfs:label "haStagionatura"@it ,
+                     "hasAging"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasRipening
+:hasRipening rdf:type rdf:Property ;
+             rdfs:domain obo:FOODON_00001013 ;
+             rdfs:range :Ripening ;
+             rdfs:comment "Associa un formaggio alla sua maturazione."@it ,
+                          "Relates a cheese to its ripening."@en ;
+             rdfs:label "haMaturazione"@it ,
+                        "hasRipening"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasSkimming
+:hasSkimming rdf:type rdf:Property ;
+             rdfs:domain obo:UBERON_0001913 ;
+             rdfs:range :MilkSkimming ;
+             rdfs:comment "Associa un latte alla sua tipologia di scrematura."@it ,
+                          "Relates a milk to its skimming."@en ;
+             rdfs:label "haScrematura"@it ,
+                        "hasSkimming"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasTakenPlaceIn
+:hasTakenPlaceIn rdf:type rdf:Property ;
+                 rdfs:subPropertyOf :isLocatedIn ;
+                 rdfs:domain :Event ;
+                 rdfs:comment "Associa un evento all'insediamento umano più vicino al luogo in cui quell'evento si svolge."@it ,
+                              "Relates an event to the populated place nearest to the place in which that event takes place."@en ;
+                 rdfs:label "hasTakenPlaceIn"@en ,
+                            "siSvolgeA"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasTexture
+:hasTexture rdf:type rdf:Property ;
+            rdfs:domain obo:FOODON_00001013 ;
+            rdfs:range :Texture ;
+            rdfs:comment "Associa un formaggio al suo tipo di pasta."@it ,
+                         "Relates a cheese to its texture."@en ;
+            rdfs:label "haPasta"@it ,
+                       "hasTexture"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isAgingOf
+:isAgingOf rdf:type rdf:Property ;
+           rdfs:comment "Associa una stagionatura al formaggio stagionato che l'ha subita."@it ,
+                        "Relates an aging to the aged cheese that endured it."@en ;
+           rdfs:label "isAgingOf"@en ,
+                      "èStagionaturaDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isEnvironmentLocationOf
+:isEnvironmentLocationOf rdf:type rdf:Property ;
+                         rdfs:comment "Associa un ambiente con un evento che è avvenuto in quell'ambiente."@it ,
+                                      "Relates an environment with an event that took place in that environment."@en ;
+                         rdfs:label "isEnvironmentLocationOf"@en ,
+                                    "èLuogoAmbientaleDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isLocatedIn
+:isLocatedIn rdf:type rdf:Property ;
+             rdfs:range dbo:PopulatedPlace ;
+             rdfs:comment "Associa un qualcosa con l'insediamento umano più vicino al luogo in cui quel qualcosa si è svolto."@it ,
+                          "Relates something with the populated place nearest to the place in which that something happened."@en ;
+             rdfs:label "isLocatedIn"@en ,
+                        "èLocalizzatoA"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isLocatedInEnvironment
+:isLocatedInEnvironment rdf:type rdf:Property ;
+                        rdfs:domain :Event ;
+                        rdfs:range :Environment ;
+                        rdfs:comment "Associa un evento all'ambiente in cui si è svolto."@it ,
+                                     "Relates an event to the environment in which it happened."@en ;
+                        rdfs:label "isLocatedInEnvironment"@en ,
+                                   "èLocalizzatoInAmbiente"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isLocationOf
+:isLocationOf rdf:type rdf:Property ;
+              rdfs:comment "Associa l'insediamento umano più vicino al luogo in cui qualcosa si è svolto con questo qualcosa."@it ,
+                           "Relates the populated place nearest to a place in which something happened to this something."@en ;
+              rdfs:label "isLocationOf"@en ,
+                         "èLuogoDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMadeWithMilk
+:isMadeWithMilk rdf:type rdf:Property ;
+                rdfs:subPropertyOf :isMadeWithRawMaterial ;
+                rdfs:range agrovoc:c_4826 ;
+                rdfs:comment "Associa un formaggio al latte da cui è fatto."@it ,
+                             "Relates a cheese to the milk used for producing it."@en ;
+                rdfs:label "isMadeWithMilk"@en ,
+                           "èFattoDaLatte"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMadeWithMold
+:isMadeWithMold rdf:type rdf:Property ;
+                rdfs:subPropertyOf :isMadeWithRawMaterial ;
+                rdfs:domain :MoldRipenedCheese ;
+                rdfs:range :Mold ;
+                rdfs:comment "Associa un formaggio ammuffito con una muffa di cui è fatto."@it ,
+                             "Relates a mold-ripened cheese to a mold used for producing it."@en ;
+                rdfs:label "isMadeWithMold"@en ,
+                           "èFattoDaMuffa"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMadeWithRawMaterial
+:isMadeWithRawMaterial rdf:type rdf:Property ;
+                       rdfs:domain obo:FOODON_00001013 ;
+                       rdfs:range food-upper:MateriaPrima ;
+                       rdfs:comment "Associa un formaggio ad una materia prima di cui è fatto."@it ,
+                                    "Relates a cheese to a raw material used for producing it."@en ;
+                       rdfs:label "isMadeWithRawMaterial"@en ,
+                                  "èFattoDaMateriaPrima"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMilkUsedIn
+:isMilkUsedIn rdf:type rdf:Property ;
+              rdfs:comment "Associa un latte al formaggio in cui è stato utilizzato."@it ,
+                           "Relates a milk to a cheese in which it has been used."@en ;
+              rdfs:label "isMilkUsedIn"@en ,
+                         "èLatteUsatoIn"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isMoldUsedIn
+:isMoldUsedIn rdf:type rdf:Property ;
+              rdfs:comment "Associa una muffa ad un formaggio ammuffito in cui è usata."@it ,
+                           "Relates a mold with a mold-ripened cheese in which it has been used."@en ;
+              rdfs:label "isMoldUsedIn"@en ,
+                         "èMuffaUsataIn"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isPlaceWhere
+:isPlaceWhere rdf:type rdf:Property ;
+              rdfs:comment "Associa l'insediamento umano più vicino al luogo in cui i è svolto un evento con l'evento stesso."@it ,
+                           "Relates the populated place nearest to the place in which an event happened to the event itself."@en ;
+              rdfs:label "isPlaceWhere"@en ,
+                         "èLuogoInCui"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isProducedIn
+:isProducedIn rdf:type rdf:Property ;
+              rdfs:subPropertyOf :isLocatedIn ;
+              rdfs:domain obo:FOODON_00002403 ;
+              rdfs:comment "Associa un alimento all'insediamento umano più vicino al luogo in cui è stato prodotto."@it ,
+                           "Relates a food to the populated place nearest to the place in which was produced."@en ;
+              rdfs:label "isProducedIn"@en ,
+                         "èProdottoA"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isProductionPlaceOf
+:isProductionPlaceOf rdf:type rdf:Property ;
+                     rdfs:comment "Associa l'insediamento umano più vicino al luogo di produzione di un alimento all'alimento stesso."@it ,
+                                  "Relates the populated place nearest to the production place of a food to the food itself."@en ;
+                     rdfs:label "isProductionPlaceOf"@en ,
+                                "èLuogoDiProduzioneDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isProtectedNameOf
+:isProtectedNameOf rdf:type rdf:Property ;
+                   rdfs:comment "Associa una denominazione ad un alimento certificato che la possiede."@it ,
+                                "Relates a certified name to a certified food that owns it."@en ;
+                   rdfs:label "isProtectedNameOf"@en ,
+                              "èDenominazioneDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isRawMaterialUsedIn
+:isRawMaterialUsedIn rdf:type rdf:Property ;
+                     rdfs:comment "Associa una materia prima ad un formaggio in cui è stata utilizzata."@it ,
+                                  "Relates a raw material to a cheese in which it has been used."@en ;
+                     rdfs:label "isRawMaterialUsedIn"@en ,
+                                "èMateriaPrimaUsataIn"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isRipeningOf
+:isRipeningOf rdf:type rdf:Property ;
+              rdfs:comment "Associa una maturazione ad un formaggio che la subisce."@it ,
+                           "Relates a ripening to a cheese that endures it."@en ;
+              rdfs:label "isRipeningOf"@en ,
+                         "èMaturazioneDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isSkimmingOf
+:isSkimmingOf rdf:type rdf:Property ;
+              rdfs:comment "Associa una tipologia di scrematura al latte che la subisce."@it ,
+                           "Relates a skimming procedure to a milk that endures it."@en ;
+              rdfs:label "isSkimmingOf"@en ,
+                         "èScrematuraDi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/isTextureOf
+:isTextureOf rdf:type rdf:Property ;
+             rdfs:comment "Associa una tipologia di pasta con un formaggio che la possiede."@it ,
+                          "Relates a texture to a cheese that has it."@en ;
+             rdfs:label "isTextureOf"@en ,
+                        "èPastaDi"@it .
+
+###  https://github.com/nicolasfara/cheese-ontology/hasAgingDuration
+:hasAgingDuration rdf:type rdf:Property ;
+                  rdfs:domain :Aging ;
+                  rdfs:range xsd:positiveInteger ;
+                  rdfs:comment "Rappresenta il tempo di stagionatura di un dato formaggio espresso in mesi."@it ,
+                               "Represents the aging duration for a given cheese in months."@en ;
+                  rdfs:label "haDurataStagionatura"@it ,
+                             "hasAgingDuration"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/hasRipeningDuration
+:hasRipeningDuration rdf:type rdf:Property ;
+                     rdfs:domain :Ripening ;
+                     rdfs:range xsd:positiveInteger ;
+                     rdfs:comment "Rappresenta il tempo di maturazione di un dato formaggio espresso in giorni."@it ,
+                                  "Represents the ripening time for a given cheese in days."@en ;
+                     rdfs:label "haDurataMaturazione"@it ,
+                                "hasRipeningDuration"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://aims.fao.org/aos/agrovoc/c_1507
+agrovoc:c_1507 rdf:type rdfs:Class ;
+               rdfs:subClassOf obo:FOODON_00001013 ,
+                               food-upper:MateriaPrima ;
+               rdfs:comment "A cheese used as a raw material in the production of another cheese."@en ,
+                            "Un formaggio usato come materia prima nella produzione di un altro formaggio."@it ;
+               rdfs:label "CheeseRawMaterial"@en ,
+                          "MateriaPrimaFormaggio"@it .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_24075
+agrovoc:c_24075 rdf:type rdfs:Class ;
+                rdfs:subClassOf obo:FOODON_00001228 ,
+                                food-upper:MateriaPrima ;
+                rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk and is then used as a raw material in the cheese production process."@en ,
+                             "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte ed è quindi usato come materia prima nel processo produttivo del formaggio."@it ;
+                rdfs:label "MateriaPrimaCaglio"@it ,
+                           "RennetRawMaterial"@en .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_33129
+agrovoc:c_33129 rdf:type rdfs:Class ;
+                rdfs:subClassOf obo:FOODON_00002221 ,
+                                food-upper:MateriaPrima ;
+                rdfs:comment "A mineral composed primarily of sodium chloride used as a raw material in the cheese production process where it functions as both a preservative and a flavoring."@en ,
+                             "Un minerale composto principalmente di cloruro di sodio utilizzato come materia prima nella produzione del formaggio dove ha sia lo scopo di conservante che di insaporitore."@it ;
+                rdfs:label "MateriaPrimaSale"@it ,
+                           "SaltRawMaterial"@en ;
+                rdfs:seeAlso "https://en.wikipedia.org/wiki/Salt#Salt_in_food"@en ,
+                             "https://it.wikipedia.org/wiki/Sale_da_cucina#Usi"@it .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_4826
+agrovoc:c_4826 rdf:type rdfs:Class ;
+               rdfs:subClassOf obo:UBERON_0001913 ,
+                               food-upper:MateriaPrima ;
+               rdfs:comment "A milk used as a raw material in the cheese production process."@en ,
+                            "Un latte usato come materia prima nella produzione di un formaggio."@it ;
+               rdfs:label "MateriaPrimaLatte"@it ,
+                          "MilkRawMaterial"@en .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_8309
+agrovoc:c_8309 rdf:type rdfs:Class ;
+               rdfs:subClassOf obo:FOODON_00002340 ,
+                               food-upper:MateriaPrima ;
+               rdfs:comment "A kind of water when used as a raw material in the cheese production process."@en ,
+                            "Un tipo di acqua quando utilizzata come materia prima nel processo di produzione del formaggio."@it ;
+               rdfs:label "MateriaPrimaAcqua"@it ,
+                          "WaterRawMaterial"@en .
+
+
+###  http://aims.fao.org/aos/agrovoc/c_8376
+agrovoc:c_8376 rdf:type rdfs:Class ;
+               rdfs:subClassOf food-upper:MateriaPrima ;
+               rdfs:comment "Il siero di latte è la parte liquida del latte che si separa dalla cagliata durante la caseificazione."@it ,
+                            "Whey is the liquid remaining after milk has been curdled and strained in the cheesemaking process."@en ;
+               rdfs:label "Siero"@it ,
+                          "Whey"@en ;
+               rdfs:seeAlso "https://en.wikipedia.org/wiki/Whey"@en ,
+                            "https://it.wikipedia.org/wiki/Siero_di_latte"@it .
+
+
+###  http://dbpedia.org/ontology/PopulatedPlace
+dbo:PopulatedPlace rdf:type rdfs:Class ;
+                   rdfs:comment "A place or area with clustered or scattered buildings and a permanent human population referenced with geographic coordinates."@en ,
+                                "Un luogo o un area dotata di edifici raggruppati o sparsi e una popolazione umana a cui è possibile fare riferimento mediante coordinate geografiche."@it ;
+                   rdfs:label "InsediamentoUmano"@it ,
+                              "PopulatedPlace"@en ;
+                   rdfs:seeAlso "http://en.wikipedia.org/wiki/Populated_place"@en ,
+                                "https://it.wikipedia.org/wiki/Insediamento_umano"@it .
+
+
+###  http://purl.obolibrary.org/obo/ENVO_00000067
+obo:ENVO_00000067 rdf:type rdfs:Class ;
+                  rdfs:subClassOf :Environment ;
+                  rdfs:comment "A large hole in the side of a hill, cliff, or mountain, or one that is underground, used for cheese affinage."@en ,
+                               "Cavità naturale a sviluppo prevalentemente orizzontale che si addentra nei fianchi di un monte, di una collina, di una scarpata o nel sottosuolo, utilizzata per l'affinatura dei formaggi."@it ;
+                  rdfs:label "Cave"@en ,
+                             "Grotta"@it .
+
+
+###  http://purl.obolibrary.org/obo/ENVO_01000583
+obo:ENVO_01000583 rdf:type rdfs:Class ;
+                  rdfs:subClassOf :Environment ;
+                  rdfs:comment "A large piece of equipment that uses electricity to preserve cheese at a cold temperature."@en ,
+                               "Un locale di conservazione del formaggio, ove viene mantenuta una temperatura inferiore a quella ambientale."@it ;
+                  rdfs:label "CellaFrigorifera"@it ,
+                             "Refrigerator"@en .
+
+
+###  http://purl.obolibrary.org/obo/ENVO_01001871
+obo:ENVO_01001871 rdf:type rdfs:Class ;
+                  rdfs:subClassOf :Environment ;
+                  rdfs:comment "A large hole in the ground, varying in depth, used for cheese affinage."@en ,
+                               "Scavatura del terreno, più o meno profonda, praticata per l'affinatura dei formaggi."@it ;
+                  rdfs:label "Fossa"@it ,
+                             "Pit"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001013
+obo:FOODON_00001013 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:comment "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein."@en ,
+                                 "Il formaggio è un prodotto caseario ottenuto dalla coagulazione acida o presamica del latte intero, parzialmente o totalmente scremato per coagulazione delle caseine, facendo anche uso di fermenti e sale da cucina."@it ;
+                    rdfs:label "Cheese"@en ,
+                               "Formaggio"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Formaggio"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001065
+obo:FOODON_00001065 rdf:type rdfs:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese ;
+                    rdfs:comment "Cheese which production process entails the appearance of blue-green stripes and spots in the core, caused by the fungi cultures to which the forms are subjected."@en ,
+                                 "Un formaggio il cui processo di lavorazione prevede la comparsa di striature e chiazze verdi-blu all'interno della pasta, dovute alle colture di funghi alle quali le forme vengono sottoposte."@it ;
+                    rdfs:label "BlueCheese"@en ,
+                               "FormaggioErborinato"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Blue_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_erborinata"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001108
+obo:FOODON_00001108 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:comment "Milk produced by milking buffalos."@en ,
+                                 "Un latte prodotto dalla mungitura dei bufali."@it ;
+                    rdfs:label "BuffaloMilk"@en ,
+                               "LatteBufalino"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Buffalo_milk"@en ,
+                                 "https://it.wikipedia.org/wiki/Latte_bufalino"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001112
+obo:FOODON_00001112 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:comment "Latte prodotto dalla mungitura delle pecore."@it ,
+                                 "Milk produced by milking sheeps."@en ;
+                    rdfs:label "LattePecorino"@it ,
+                               "SheepMilk"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Sheep_milk"@it ,
+                                 "https://it.wikipedia.org/wiki/Latte_pecorino"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001124
+obo:FOODON_00001124 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese made with goat milk."@en ,
+                                 "Un formaggio prodotto da latte di capra."@it ;
+                    rdfs:label "FormaggioCaprino"@it ,
+                               "GoatCheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001125
+obo:FOODON_00001125 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese produced from sheep milk."@en ,
+                                 "Un formaggio prodotto da latte di pecora."@it ;
+                    rdfs:label "FormaggioPecorino"@it ,
+                               "SheepCheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001126
+obo:FOODON_00001126 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese made with cow milk."@en ,
+                                 "Un formaggio prodotto da latte di mucca."@it ;
+                    rdfs:label "CowCheese"@en ,
+                               "FormaggioMucchino"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001228
+obo:FOODON_00001228 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk."@en ,
+                                 "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte."@it ;
+                    rdfs:label "Caglio"@it ,
+                               "Rennet"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet"@en ,
+                                 "https://it.wikipedia.org/wiki/Caglio"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001771
+obo:FOODON_00001771 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:comment "Milk produced by milking cows."@en ,
+                                 "Un latte prodotto dalla mungitura delle mucche."@it ;
+                    rdfs:label "CowMilk"@en ,
+                               "LatteVaccino"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cow_milk"@en ,
+                                 "https://it.wikipedia.org/wiki/Latte_vaccino"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001911
+obo:FOODON_00001911 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:comment "Milk produced by milking goats."@en ,
+                                 "Un latte prodotto dalla mungitura delle capre."@it ;
+                    rdfs:label "GoatMilk"@en ,
+                               "LatteCaprino"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Goat_milk"@en ,
+                                 "https://it.wikipedia.org/wiki/Latte_caprino"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00001945
+obo:FOODON_00001945 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese quite firmly packed into a large form and aged for months or years."@en ,
+                                 "Un formaggio abbastanza saldamente confezionato in una forma di grandi dimensioni e stagionato per mesi o anni."@it ;
+                    rdfs:label "FormaggioPastaDura"@it ,
+                               "HardCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Hard_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_dura"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002221
+obo:FOODON_00002221 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:comment "A mineral composed primarily of sodium chloride."@en ,
+                                 "Un minerale principalmente composto da cloruro di sodio."@it ;
+                    rdfs:label "Sale"@it ,
+                               "Salt"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Salt"@en ,
+                                 "https://it.wikipedia.org/wiki/Sale_da_cucina"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002230
+obo:FOODON_00002230 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese which has a lower moisture content, is packed into molds under more pressure and is aged for a longer time than a softer cheese."@en ,
+                                 "Un formaggio che ha un contenuto di acqua, è impacchettato in stampi con maggior pressione ed è stagionato per maggior tempo rispetto ad un formaggio più soffice."@it ;
+                    rdfs:label "FormaggioPastaSemidura"@it ,
+                               "SemiHardCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Semi-hard_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_semidura"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002231
+obo:FOODON_00002231 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese which has a high moisture content and tends to be mild-tasting."@en ,
+                                 "Un formaggio con elevato contenuto d'acqua e che tende ad essere dal sapore delicato."@it ;
+                    rdfs:label "FormaggioPastaSemimorbida"@it ,
+                               "SemiSoftCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Semi-soft_cheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002252
+obo:FOODON_00002252 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese which curd was not heatened or pressed during processing, allowing the texture to remain soft and smooth, with a relatively high moisture content."@en ,
+                                 "Un formaggio la cui cagliata, al momento della lavorazione, non è stata soggetta a riscaldamento o pressione mantenendo il formaggio morbido e liscio con un contenuto di acqua relativamente alto."@it ;
+                    rdfs:label "FormaggioPastaMorbida"@it ,
+                               "SoftCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Soft_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_molle"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002340
+obo:FOODON_00002340 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:comment "An inorganic, transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of the fluids of all known living organisms, in which it acts as a solvent."@en ,
+                                 "Una sostanza chimica inorganica, trasparente, insapore, inodore, e quasi senza colore, che è la principale costituente dei fluidi di tutti gli organismi viventi conosciuti, nei quali si comporta da solvente."@it ;
+                    rdfs:label "Acqua"@it ,
+                               "Water"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Water"@en ,
+                                 "https://it.wikipedia.org/wiki/Acqua"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_00002403
+obo:FOODON_00002403 rdf:type rdfs:Class ;
+                    rdfs:comment "Any substance consumed to provide nutritional support for an organism."@en ,
+                                 "Ogni sostanza ingerita per fornire supporto nutrizionale ad un organismo."@it ;
+                    rdfs:label "Alimento"@it ,
+                               "Food"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Food"@en ,
+                                 "https://it.wikipedia.org/wiki/Alimento"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03301039
+obo:FOODON_03301039 rdf:type rdfs:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese ;
+                    rdfs:comment "Cheese which endured addition of spores into its milk before adding rennet or the addition of spores on the rind, during the form ripening."@en ,
+                                 "Un formaggio che ha subito insemenzamento delle spore nel latte prima di aggiungere il caglio oppure aspersione delle spore sulla crosta, durante la maturazione della forma."@it ;
+                    rdfs:label "FormaggioCrostaFiorita"@it ,
+                               "SoftRipenedCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Soft-ripened"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_crosta_fiorita"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03301484
+obo:FOODON_03301484 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:UBERON_0001913 ;
+                    rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene meno dello 0,5% di grasso."@it ,
+                                 "Milk which endured a cream mixing process and it contains less than 0,5% fat."@en ;
+                    rdfs:label "LatteScremato"@it ,
+                               "SkimmedMilk"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                                 "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03301889
+obo:FOODON_03301889 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:comment "A soft, usually mild-tasting fresh cheese made from milk and cream."@en ,
+                                 "Un formaggio fresco, molto tenero e spesso delicato fatto da latte e panna."@it ;
+                    rdfs:label "CreamCheese"@en ,
+                               "FormaggioCremoso"@it ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Cream_cheese"@en ,
+                                 "https://it.wikipedia.org/wiki/Formaggio_spalmabile"@it .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03306447
+obo:FOODON_03306447 rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00001013 ;
+                    rdfs:comment "Cheese which cheesemaking process involves mold use."@en ,
+                                 "Un formaggio per il quale è stata utilizzata muffa nel suo processo produttivo."@it ;
+                    rdfs:label "FormaggioAmmuffito"@it ,
+                               "MoldRipenedCheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03401217
+obo:FOODON_03401217 rdf:type rdfs:Class ;
+                    rdfs:comment "Cheese produced from semi-skimmed milk."@it ,
+                                 "Un formaggio prodotto da latte parzialmente scremato."@it ;
+                    rdfs:label "FormaggioLatteParzialmenteScremato"@it ,
+                               "SemiSkimmedMilkCheese"@en .
+
+
+###  http://purl.obolibrary.org/obo/FOODON_03544452
+obo:FOODON_03544452 rdf:type rdfs:Class ;
+                    rdfs:comment "Proteine che catalizzano reazioni biochimiche e sono normalmente utilizzate al fine di velocizzare e/o modificare specifiche reazioni chimiche."@en ,
+                                 "Proteins that catalyse biochemical reactions and are normally used to speed up and/or target specific chemical reactions."@en ;
+                    rdfs:label "EnzimaProduzioneAlimentare"@it ,
+                               "FoodManufactureEnzyme"@en ;
+                    rdfs:seeAlso "https://www.efsa.europa.eu/en/topics/topic/food-enzymes"@en ,
+                                 "https://www.efsa.europa.eu/it/topics/topic/food-enzymes"@it .
+
+
+###  http://purl.obolibrary.org/obo/UBERON_0001913
+obo:UBERON_0001913 rdf:type rdfs:Class ;
+                   rdfs:subClassOf obo:FOODON_00002403 ;
+                   rdfs:comment "A nutrient-rich liquid food produced by the mammary glands of mammals."@en ,
+                                "Un cibo liquido ricco di nutrienti prodotto dalle ghiandole mammarie dei mammiferi."@it ;
+                   rdfs:label "Latte"@it ,
+                              "Milk"@en ;
+                   rdfs:seeAlso "https://en.wikipedia.org/wiki/Milk"@en ,
+                                "https://it.wikipedia.org/wiki/Latte"@it .
+
+
+###  http://w3id.org/food/ontology/denominazione-italiana/ProdottiAgroalimentariTradizionali
+food-ita:ProdottiAgroalimentariTradizionali rdf:type rdfs:Class ;
+                                            rdfs:subClassOf food-upper:Denominazione ;
+                                            rdfs:comment "Denominazione assegnata a quei prodotti ottenuti con metodi di lavorazione, conservazione e stagionatura consolidati nel tempo, omogenei per tutto il territorio interessato, secondo regole tradizionali, per un periodo non inferiore ai 25 anni."@it ,
+                                                         "Protected name owned by those products obtained with production, conservation and ripening methods established through time, uniform over the whole interested zone, following traditional rules, for a period of at least 25 years."@en ;
+                                            rdfs:label "ProdottiAgroalimentariTradizionali"@it ,
+                                                       "TraditionalAgriFoodstuff"@en ;
+                                            rdfs:seeAlso "https://en.wikipedia.org/wiki/Prodotto_agroalimentare_tradizionale"@en ,
+                                                         "https://it.wikipedia.org/wiki/Prodotti_agroalimentari_tradizionali_italiani"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-formaggio/DenominazioneFormaggio
+food-cheese:DenominazioneFormaggio rdf:type rdfs:Class ;
+                                   rdfs:subClassOf food-upper:Denominazione ;
+                                   rdfs:comment "Distinctive quality consisting of the geographical indication of the original zone of a cheese with peculiar commercial characteristics deriving from, or connected to, the original place."@en ,
+                                                "Segno distintivo consistente nell’indicazione geografica della zona originaria di un formaggio con particolari caratteristiche merceologiche derivanti dal, o connesse con, il luogo di origine."@it ;
+                                   rdfs:label "CheeseProtectedName"@en ,
+                                              "DenominazioneFormaggio"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-formaggio/Formaggio
+food-cheese:Formaggio rdf:type rdfs:Class ;
+                      rdfs:subClassOf obo:FOODON_00001013 ,
+                                      food-upper:Prodotto ;
+                      rdfs:comment "Cheese following some production specifications issued by a competent authority and for this that owns a protected name guaranteeing its quality."@en ,
+                                   "Un formaggio che rispetta un disciplinare di produzione emanato da un'autorità competente e per tale motivo che possiede una certificazione volta a garantirne la qualità."@it ;
+                      rdfs:label "FormaggioCertificato"@it ,
+                                 "ProtectedCheese"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-ricotta/DenominazioneRicotta
+food-ricotta:DenominazioneRicotta rdf:type rdfs:Class ;
+                                  rdfs:subClassOf food-upper:Denominazione ;
+                                  rdfs:comment "Distinctive quality consisting of the geographical indication of the original zone of a ricotta with peculiar commercial characteristics deriving from, or connected to, the original place."@en ,
+                                               "Segno distintivo consistente nell’indicazione geografica della zona originaria di una ricotta con particolari caratteristiche merceologiche derivanti dal, o connesse con, il luogo di origine."@it ;
+                                  rdfs:label "DenominazioneRicotta"@it ,
+                                             "RicottaProtectedName"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-ricotta/Ricotta
+food-ricotta:Ricotta rdf:type rdfs:Class ;
+                     rdfs:subClassOf obo:FOODON_00001013 ,
+                                     food-upper:Prodotto ;
+                     rdfs:comment "Ricotta following some production specifications issued by a competent authority and for this that owns a protected name guaranteeing its quality."@en ,
+                                  "Una ricotta che rispetta un disciplinare di produzione emanato da un'autorità competente e per tale motivo che possiede una certificazione volta a garantirne la qualità."@it ;
+                     rdfs:label "ProtectedRicotta"@en ,
+                                "RicottaCertificata"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/Denominazione
+food-upper:Denominazione rdf:type rdfs:Class ;
+                         rdfs:comment "Distinctive quality consisting of the geographical indication of the original zone of a product with peculiar commercial characteristics deriving from, or connected to, the original place."@en ,
+                                      "Segno distintivo consistente nell’indicazione geografica della zona originaria di un prodotto con particolari caratteristiche merceologiche derivanti dal, o connesse con, il luogo di origine."@it ;
+                         rdfs:label "Denominazione"@it ,
+                                    "ProtectedName"@en ;
+                         rdfs:seeAlso "https://www.treccani.it/vocabolario/denominazione/"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/DenominazioneOrigineProtetta
+food-upper:DenominazioneOrigineProtetta rdf:type rdfs:Class ;
+                                        rdfs:subClassOf food-upper:Denominazione ;
+                                        rdfs:comment "A protected name assigned by the European Union to foods which peculiar qualities depend essentially or exclusively to the zone in which are produced."@en ,
+                                                     "Una denominazione che viene attribuita dall'Unione europea agli alimenti le cui peculiari caratteristiche qualitative dipendono essenzialmente o esclusivamente dal territorio in cui sono stati prodotti."@it ;
+                                        rdfs:label "DenominazioneOrigineProtetta"@it ,
+                                                   "ProtectedDesignationOrigin"@en ;
+                                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Protected_designation_of_origin"@en ,
+                                                     "https://it.wikipedia.org/wiki/Denominazione_di_origine_protetta"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/IndicazioneGeograficaProtetta
+food-upper:IndicazioneGeograficaProtetta rdf:type rdfs:Class ;
+                                         rdfs:subClassOf food-upper:Denominazione ;
+                                         rdfs:comment "Denominazione attribuita dall'Unione europea ai prodotti con una determinata qualità, reputazione o ulteriore caratteristica dipendente dall'origine geografica."@it ,
+                                                      "Protected name given by the European Union to products with a given quality, reputation or characteristic which depends from the geographical origin of the product itself."@en ;
+                                         rdfs:label "IndicazioneGeograficaProtetta"@it ,
+                                                    "ProtectedGeographicalIndication"@en ;
+                                         rdfs:seeAlso "https://en.wikipedia.org/wiki/Geographical_indications_and_traditional_specialities_in_the_European_Union#Protected_geographical_indication_(PGI)"@en ,
+                                                      "https://it.wikipedia.org/wiki/Indicazione_geografica_protetta_(Unione_europea)"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/MateriaPrima
+food-upper:MateriaPrima rdf:type rdfs:Class ;
+                        rdfs:comment "A material in the cheese production process which endures adequate processing through industrial processes application."@en ,
+                                     "Un materiale alla base del processo di produzione di formaggio che subisce opportune lavorazioni attraverso l'applicazione di processi industriali."@it ;
+                        rdfs:label "MateriaPrima"@it ,
+                                   "RawMaterial"@en ;
+                        rdfs:seeAlso "https://en.wikipedia.org/wiki/Raw_material"@en ,
+                                     "https://it.wikipedia.org/wiki/Materie_prime"@it .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/Prodotto
+food-upper:Prodotto rdf:type rdfs:Class ;
+                    rdfs:subClassOf obo:FOODON_00002403 ;
+                    rdfs:comment "Food following some production specifications issued by a competent authority and for this that owns a protected name guaranteeing its quality."@en ,
+                                 "Un alimento che rispetta un disciplinare di produzione emanato da un'autorità competente e per tale motivo che possiede una certificazione volta a garantirne la qualità."@it ;
+                    rdfs:label "AlimentoCertificato"@it ,
+                               "ProtectedFood"@en .
+
+
+###  http://w3id.org/food/ontology/disciplinare-upper/SpecialitaTradizionaleGarantita
+food-upper:SpecialitaTradizionaleGarantita rdf:type rdfs:Class ;
+                                           rdfs:subClassOf food-upper:Denominazione ;
+                                           rdfs:comment "Denominazione introdotta dall'Unione europea volta a tutelare produzioni specifiche che siano caratterizzate da composizioni o metodi di produzione tradizionali."@it ,
+                                                        "Protected name introduced by the European Union for protecting specific productions which are distinguished for traditonal compositions or traditional production methods."@en ;
+                                           rdfs:label "SpecialitàTradizionaleGarantita"@it ,
+                                                      "TraditionalSpecialtyGuaranteed"@en ;
+                                           rdfs:seeAlso "https://en.wikipedia.org/wiki/Traditional_speciality_guaranteed"@en ,
+                                                        "https://it.wikipedia.org/wiki/Specialit%C3%A0_tradizionale_garantita"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AgedCheese
+:AgedCheese rdf:type rdfs:Class ;
+            rdfs:subClassOf obo:FOODON_00001013 ;
+            rdfs:comment "Cheese which endured the aging process."@en ,
+                         "Un formaggio che ha subito il processo di stagionatura."@it ;
+            rdfs:label "AgedCheese"@en ,
+                       "FormaggioStagionato"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Aging
+:Aging rdf:type rdfs:Class ;
+       rdfs:subClassOf :Event ;
+       rdfs:comment "A process in cheesemaking responsible for the distinct flavour of cheese determining the features that define many different varieties of cheeses, such as taste, texture, and body, when its duration is more than one month."@en ,
+                    "Un processo nella produzione del formaggio che gli conferisce il suo specifico sapore, determina le diverse caratteristiche che definiscono i vari tipi di formaggio come il sapore, la pasta ed il corpo, quando superiore in durata ad un mese."@it ;
+       rdfs:label "Aging"@en ,
+                  "Stagionatura"@it ;
+       rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese_ripening"@en ,
+                    "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_stagionatura_del_formaggio"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AnimalRennet
+:AnimalRennet rdf:type rdfs:Class ;
+              rdfs:subClassOf obo:FOODON_00001228 ;
+              rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk extracted from the inner mucosa of the stomach of specific animals."@en ,
+                           "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte estratto dalla mucosa interna dello stomaco di certi animali."@it ;
+              rdfs:label "AnimalRennet"@en ,
+                         "CaglioAnimale"@it ;
+              rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet#Extraction_of_calf_rennet"@en ,
+                           "https://it.wikipedia.org/wiki/Caglio#Origine"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BuffaloCheese
+:BuffaloCheese rdf:type rdfs:Class ;
+               rdfs:comment "Cheese made with buffalo milk."@en ,
+                            "Un formaggio prodotto da latte di bufalo."@it ;
+               rdfs:label "BuffaloCheese"@en ,
+                          "FormaggioBufalino"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Environment
+:Environment rdf:type rdfs:Class ;
+             rdfs:comment "I dintorni o le condizioni in cui un formaggio stagiona o matura."@it ,
+                          "The surroundings or conditions in which a cheese ages or ripens."@en ;
+             rdfs:label "Ambiente"@it ,
+                        "Environment"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Event
+:Event rdf:type rdfs:Class ;
+       rdfs:comment "A physical phenomenon which took place during the cheese production process."@en ,
+                    "Un fenomeno fisico avvenuto nel processo di produzione del formaggio."@it ;
+       rdfs:label "Event"@en ,
+                  "Evento"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/FreshCheese
+:FreshCheese rdf:type rdfs:Class ;
+             rdfs:subClassOf obo:FOODON_00001013 ;
+             rdfs:comment "Cheese that has not endured neither an aging process nor a ripening process."@en ,
+                          "Un formaggio che non è stato sottoposto a stagionatura né a maturazione."@it ;
+             rdfs:label "FormaggioFresco"@it ,
+                        "FreshCheese"@en ;
+             rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Fresh_and_whey_cheeses"@en ,
+                          "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_freschi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MediumHardCheese
+:MediumHardCheese rdf:type rdfs:Class ;
+                  rdfs:comment "Cheese that range in texture from semi-soft to firm."@en ,
+                               "Un formaggio la cui pasta va da semi-soffice a solida."@it ;
+                  rdfs:label "FormaggioPastaMedia"@it ,
+                             "MediumHardCheese"@en ;
+                  rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Medium-hard_cheese"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MilkEnzyme
+:MilkEnzyme rdf:type rdfs:Class ;
+            rdfs:subClassOf obo:FOODON_03544452 ,
+                            food-upper:MateriaPrima ;
+            rdfs:comment "An enzyme derived from milk which is used as a food additive in the cheese production process."@en ,
+                         "Enzimi derivati dal latte che vengono usati come additivi nel processo di produzione del formaggio."@it ;
+            rdfs:label "FermentiLattici"@it ,
+                       "MilkEnzyme"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MilkSkimming
+:MilkSkimming rdf:type rdfs:Class ;
+              rdfs:comment "A physical process in milk production useful for separating the fat component from the hydrophilic component using a process named centrifugation."@en ,
+                           "Un procedimento fisico nella produzione del latte utile alla separazione della componente grassa da quella idrofila attraverso l'uso di una tecnica detta centrifugazione."@it ;
+              rdfs:label "MilkSkimming"@en ,
+                         "Scrematura"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MixedMilk
+:MixedMilk rdf:type rdfs:Class ;
+           rdfs:subClassOf obo:UBERON_0001913 ;
+           rdfs:comment "Milk produced by mixing milk produced by milking different animals."@en ,
+                        "Un latte prodotto dalla mescita di latte prodotto dalla mungitura di diversi animali."@it ;
+           rdfs:label "LatteMisto"@it ,
+                      "MixedMilk"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MixedMilkCheese
+:MixedMilkCheese rdf:type rdfs:Class ;
+                 rdfs:comment "Cheese produced using milk coming from different animals."@en ,
+                              "Un formaggio prodotto da latte proveniente da diversi animali."@it ;
+                 rdfs:label "FormaggioLatteMisto"@it ,
+                            "MixedMilkCheese"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Mold
+:Mold rdf:type rdfs:Class ;
+      rdfs:subClassOf food-upper:MateriaPrima ;
+      rdfs:comment "A fungus that grows in the form of multicellular filaments. It is safe for human consumption and it is used as a food additive in the cheese production process."@en ,
+                   "Organismo pluricellulare appartenente al regno dei funghi che cresce sotto forma di filamenti. Sono commestibili e sono usati come additivi nel processo di produzione di un formaggio."@it ;
+      rdfs:label "Mold"@en ,
+                 "Muffa"@it ;
+      rdfs:seeAlso "https://en.wikipedia.org/wiki/Mold#Food_production"@en ,
+                   "https://it.wikipedia.org/wiki/Muffa"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MoldRipenedCheese
+:MoldRipenedCheese rdf:type rdfs:Class ;
+                   rdfs:subClassOf obo:FOODON_03306447 ;
+                   rdfs:comment "Cheese which contains mold, either in the rind or in the core, in order to get specific tasting qualities."@en ,
+                                "Un formaggio il quale presenta muffa al suo interno, che può essere sia la crosta che il cuore, tale da garantirgli proprietà organolettiche specifiche."@it ;
+                   rdfs:label "FormaggioAmmuffito"@it ,
+                              "MoldRipenedCheese"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PasteurizedMilk
+:PasteurizedMilk rdf:type rdfs:Class ;
+                 rdfs:subClassOf obo:UBERON_0001913 ;
+                 rdfs:comment "Milk that has been pasteurized."@en ,
+                              "Un latte che ha subito il processo di pastorizzazione."@it ;
+                 rdfs:label "LattePastorizzato"@it ,
+                            "PasteurizedMilk"@en ;
+                 rdfs:seeAlso "https://en.wikipedia.org/wiki/Pasteurized_milk"@en ,
+                              "https://it.wikipedia.org/wiki/Latte#Pastorizzazione"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RawMilk
+:RawMilk rdf:type rdfs:Class ;
+         rdfs:subClassOf obo:UBERON_0001913 ;
+         rdfs:comment "Milk that has not been pasteurized."@en ,
+                      "Un latte che non ha subito il processo di pastorizzazione."@it ;
+         rdfs:label "LatteCrudo"@it ,
+                    "RawMilk"@en ;
+         rdfs:seeAlso "https://en.wikipedia.org/wiki/Raw_milk"@en ,
+                      "https://it.wikipedia.org/wiki/Latte_crudo"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Ripening
+:Ripening rdf:type rdfs:Class ;
+          rdfs:subClassOf :Event ;
+          rdfs:comment "A process in cheesemaking responsible for the distinct flavour of cheese determining the features that define many different varieties of cheeses, such as taste, texture, and body, when its duration is less than 30 days."@en ,
+                       "Un processo nella produzione del formaggio che gli conferisce il suo specifico sapore, determina le diverse caratteristiche che definiscono i vari tipi di formaggio come il sapore, la pasta ed il corpo, quando inferiore in durata ai 30 giorni."@it ;
+          rdfs:label "Maturazione"@it ,
+                     "Ripening"@en ;
+          rdfs:seeAlso "https://en.wikipedia.org/wiki/Cheese_ripening"@en ,
+                       "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_stagionatura_del_formaggio"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SemiSkimmedMilk
+:SemiSkimmedMilk rdf:type rdfs:Class ;
+                 rdfs:subClassOf obo:UBERON_0001913 ;
+                 rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene tra l'1,5% e l'1,8% di grasso."@it ,
+                              "Milk which endured a cream mixing process and it contains between 1,5% and 1,8% fat."@en ;
+                 rdfs:label "LatteParzialmenteScremato"@it ,
+                            "SemiSkimmedMilk"@en ;
+                 rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                              "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SkimmedMilkCheese
+:SkimmedMilkCheese rdf:type rdfs:Class ;
+                   rdfs:comment "Cheese produced from skimmed milk cheese."@en ,
+                                "Formaggio prodotto da latte scremato."@it ;
+                   rdfs:label "FormaggioLatteScremato"@it ,
+                              "SkimmedMilkCheese"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SmearRipenedCheese
+:SmearRipenedCheese rdf:type rdfs:Class ;
+                    rdfs:subClassOf :MoldRipenedCheese ;
+                    rdfs:comment "Cheese which surface is repeatedly washed and brushed allowing a specific kind of bacteria to grow."@en ,
+                                 "Un formaggio la cui superficie viene ripetutamente lavata e spazzolata permettendo la crescita di un particolare tipo di batteri."@it ;
+                    rdfs:label "FormaggioCrostaLavata"@it ,
+                               "SmearRipenedCheese"@en ;
+                    rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Smear-ripened"@en ,
+                                 "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_crosta_lavata"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/StretchedCurdCheese
+:StretchedCurdCheese rdf:type rdfs:Class ;
+                     rdfs:subClassOf obo:FOODON_00001013 ;
+                     rdfs:comment "Cheese which curd processing allows to stretch it into continuous fibers."@en ,
+                                  "Un formaggio la cui lavorazione della cagliata con acqua bollente permette di tirarla in filamenti continui."@it ;
+                     rdfs:label "FormaggioPastaFilata"@it ,
+                                "StretchedCurdCheese"@en ;
+                     rdfs:seeAlso "https://en.wikipedia.org/wiki/Pasta_filata"@en ,
+                                  "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#Formaggi_a_pasta_filata"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Texture
+:Texture rdf:type rdfs:Class ;
+         rdfs:comment "A composite sensory attribute resulting from a combination of physical properties that are perceived by the senses of touch (including kinesthesis and mouthfeel), sight, and hearing."@en ,
+                      "Un attributo sensoriale composto che risulta da una combinazione di proprietà fisiche che sono percepite dai sensi tattili (inclusi la cinestesia e la sensazione in bocca), dalla vista e dall'udito."@it ;
+         rdfs:label "Pasta"@it ,
+                    "Texture"@en ;
+         rdfs:seeAlso "https://en.wikipedia.org/wiki/Types_of_cheese#Moisture:_soft_to_hard"@en ,
+                      "https://it.wikipedia.org/wiki/Classificazione_dei_formaggi#La_pasta_del_formaggio"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/VegetalRennet
+:VegetalRennet rdf:type rdfs:Class ;
+               rdfs:subClassOf obo:FOODON_00001228 ;
+               rdfs:comment "A complex set of enzymes which its key component is a protease enzyme that curdles the casein in milk extracted from specific plants."@en ,
+                            "Un complesso insieme di enzimi il cui componente principale è un enzima proteasi capace di addensare la caseina nel latte estratto da certe piante."@it ;
+               rdfs:label "CaglioVegetale"@it ,
+                          "VegetalRennet"@en ;
+               rdfs:seeAlso "https://en.wikipedia.org/wiki/Rennet#Vegetable"@en ,
+                            "https://it.wikipedia.org/wiki/Caglio#Origine"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/WholeMilk
+:WholeMilk rdf:type rdfs:Class ;
+           rdfs:subClassOf obo:UBERON_0001913 ;
+           rdfs:comment "Latte che ha subito rimiscelazione della panna e contiene almeno il 3,5% di grasso."@it ,
+                        "Milk which endured a cream mixing process and it contains at least 3,5% fat."@en ;
+           rdfs:label "LatteIntero"@it ,
+                      "WholeMilk"@en ;
+           rdfs:seeAlso "https://en.wikipedia.org/wiki/Skimmed_milk#Terminology"@en ,
+                        "https://it.wikipedia.org/wiki/Latte#Scrematura"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/WholeMilkCheese
+:WholeMilkCheese rdf:type rdfs:Class ;
+                 rdfs:comment "Cheese produced from whole milk."@en ,
+                              "Un formaggio prodotto da latte intero."@it ;
+                 rdfs:label "FormaggioLatteIntero"@it ,
+                            "WholeMilkCheese"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://dbpedia.org/resource/Bertinoro
+dbr:Bertinoro rdf:type rdfs:Resource .
+
+
+###  http://dbpedia.org/resource/Forlì
+dbr:Forlì rdf:type rdfs:Resource .
+
+
+###  http://dbpedia.org/resource/Lecco
+dbr:Lecco rdf:type rdfs:Resource .
+
+
+###  http://dbpedia.org/resource/Naples
+dbr:Naples rdf:type rdfs:Resource .
+
+
+###  http://dbpedia.org/resource/Parma
+dbr:Parma rdf:type rdfs:Resource .
+
+
+###  http://dbpedia.org/resource/Sogliano_al_Rubicone
+dbr:Sogliano_al_Rubicone rdf:type rdfs:Resource .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AlceMilkEnzyme
+:AlceMilkEnzyme rdf:type rdfs:Resource ,
+                         :MilkEnzyme .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AnticaCascinaFossaDOP
+:AnticaCascinaFossaDOP rdf:type rdfs:Resource ;
+                       food-upper:haDenominazione :FormaggioDiFossaDOP ;
+                       :hasAging :AnticaCascinaFossaPitAging ,
+                                 :AnticaCascinaFossaRefrigeratorAging ;
+                       :hasTexture :SemiHardTexture ;
+                       :isMadeWithMilk :BrintazzoliSheepMilk ;
+                       :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                              :CalfRennet ,
+                                              :CaveSalt ;
+                       :isProducedIn dbr:Forlì ;
+                       rdfs:label "Formaggio di fossa D.O.P. Antica Cascina"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AnticaCascinaFossaPitAging
+:AnticaCascinaFossaPitAging rdf:type rdfs:Resource ;
+                            :hasTakenPlaceIn dbr:Sogliano_al_Rubicone ;
+                            :isLocatedInEnvironment :VenturiPit ;
+                            :hasAgingDuration "3"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AnticaCascinaFossaRefrigeratorAging
+:AnticaCascinaFossaRefrigeratorAging rdf:type rdfs:Resource ;
+                                     :hasTakenPlaceIn dbr:Forlì ;
+                                     :isLocatedInEnvironment :AnticaCascinaRefrigerator ;
+                                     :hasAgingDuration "2"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/AnticaCascinaRefrigerator
+:AnticaCascinaRefrigerator rdf:type rdfs:Resource ,
+                                    obo:ENVO_01000583 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrandinelliPit
+:BrandinelliPit rdf:type rdfs:Resource ,
+                         obo:ENVO_01001871 ;
+                rdfs:label "Fossa Brandinelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBioCowMilk
+:BrintazzoliBioCowMilk rdf:type rdfs:Resource ,
+                                obo:FOODON_00001771 ,
+                                :PasteurizedMilk ;
+                       :hasSkimming :NoSkimming ;
+                       rdfs:label "Latte di mucca biologico Brintazzoli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliBuffaloMilk
+:BrintazzoliBuffaloMilk rdf:type rdfs:Resource ,
+                                 obo:FOODON_00001108 ,
+                                 :RawMilk ;
+                        :hasSkimming :NoSkimming ;
+                        rdfs:label "Latte di bufala Brintazzoli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCowMilk
+:BrintazzoliCowMilk rdf:type rdfs:Resource ,
+                             obo:FOODON_00001771 ,
+                             :PasteurizedMilk ;
+                    :hasSkimming :NoSkimming ;
+                    rdfs:label "Latte di mucca Brintazzoli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliCream
+:BrintazzoliCream rdf:type rdfs:Resource .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/BrintazzoliSheepMilk
+:BrintazzoliSheepMilk rdf:type rdfs:Resource ,
+                               obo:FOODON_00001112 ,
+                               :PasteurizedMilk ;
+                      :hasSkimming :NoSkimming ;
+                      rdfs:label "Latte di pecora Brintazzoli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CalfRennet
+:CalfRennet rdf:type rdfs:Resource ,
+                     :AnimalRennet .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CardoonRennet
+:CardoonRennet rdf:type rdfs:Resource ,
+                        :VegetalRennet .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CarozziCamembert
+:CarozziCamembert rdf:type rdfs:Resource ,
+                           obo:FOODON_03301039 ;
+                  :hasTexture :SemiSoftTexture ;
+                  :isMadeWithMilk :ParmalatGoatMilk ;
+                  :isMadeWithMold :PenicilliumCandidum ;
+                  :isMadeWithRawMaterial :CalfRennet ,
+                                         :CaveSalt ,
+                                         :SaccoMilkEnzyme ;
+                  :isProducedIn dbr:Lecco ;
+                  rdfs:label "Camembert Carozzi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CarozziCamembertRipening
+:CarozziCamembertRipening rdf:type rdfs:Resource ;
+                          :hasTakenPlaceIn dbr:Lecco ;
+                          :isLocatedInEnvironment :CarozziRefrigerator ;
+                          :hasRipeningDuration "10"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CarozziGorgonzola
+:CarozziGorgonzola rdf:type rdfs:Resource ,
+                            obo:FOODON_00001065 ;
+                   :hasAging :CarozziGorgonzolaAging ;
+                   :hasTexture :SemiSoftTexture ;
+                   :isMadeWithMilk :ParmalatCowMilk ;
+                   :isMadeWithMold :PenicilliumRoqueforti ;
+                   :isMadeWithRawMaterial :CalfRennet ,
+                                          :CaveSalt ,
+                                          :SaccoMilkEnzyme ;
+                   :isProducedIn dbr:Lecco ;
+                   rdfs:label "Gorgonzola Carozzi"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CarozziGorgonzolaAging
+:CarozziGorgonzolaAging rdf:type rdfs:Resource ;
+                        :hasTakenPlaceIn dbr:Lecco ;
+                        :isLocatedInEnvironment :CarozziRefrigerator ;
+                        :hasAgingDuration "2"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CarozziRefrigerator
+:CarozziRefrigerator rdf:type rdfs:Resource ,
+                              obo:ENVO_01000583 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CaveSalt
+:CaveSalt rdf:type rdfs:Resource ,
+                   obo:FOODON_00002221 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CerviaSalt
+:CerviaSalt rdf:type rdfs:Resource ,
+                     agrovoc:c_33129 ;
+            rdfs:label "Sale di Cervia"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CitricAcid
+:CitricAcid rdf:type rdfs:Resource .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/CowMilkWhey
+:CowMilkWhey rdf:type rdfs:Resource ,
+                      agrovoc:c_8376 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/FormaggioDiFossaDOP
+:FormaggioDiFossaDOP rdf:type rdfs:Resource ,
+                              food-cheese:DenominazioneFormaggio ,
+                              food-upper:DenominazioneOrigineProtetta ;
+                     rdfs:label "Formaggio di fossa D.O.P."@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/FrattaWater
+:FrattaWater rdf:type rdfs:Resource ,
+                      obo:FOODON_00002340 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/GranaroloCowMilk
+:GranaroloCowMilk rdf:type rdfs:Resource ,
+                           obo:FOODON_00001771 ,
+                           :PasteurizedMilk ;
+                  :hasSkimming :TotalSkimming ;
+                  rdfs:label "Latte di mucca Granarolo"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/GranaroloParmigianoReggianoDOP
+:GranaroloParmigianoReggianoDOP rdf:type rdfs:Resource ;
+                                food-upper:haDenominazione :ParmigianoReggianoDOP ;
+                                :hasAging :ParmigianoReggianoDOPAging ;
+                                :isMadeWithMilk :GranaroloCowMilk ;
+                                :isMadeWithRawMaterial :CalfRennet ,
+                                                       :CaveSalt ;
+                                :isProducedIn dbr:Parma ;
+                                rdfs:label "Parmigiano Reggiano D.O.P. Granarolo"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/GranaroloRefrigerator
+:GranaroloRefrigerator rdf:type rdfs:Resource ,
+                                obo:ENVO_01000583 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/HardTexture
+:HardTexture rdf:type rdfs:Resource ,
+                      :Texture ;
+             rdfs:label "HardTexture"@en ,
+                        "PastaDura"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/LaFattoriaRawMilkMozzarella
+:LaFattoriaRawMilkMozzarella rdf:type rdfs:Resource ,
+                                      :StretchedCurdCheese ;
+                             :hasTexture :SoftTexture ;
+                             :isMadeWithMilk :BrintazzoliBuffaloMilk ;
+                             :isMadeWithRawMaterial :CalfRennet ,
+                                                    :CaveSalt ,
+                                                    :SaccoMilkEnzyme ;
+                             :isProducedIn dbr:Naples ;
+                             rdfs:label "Mozzarella di latte crudo La Fattoria"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/LatterieVicentineCowMilk
+:LatterieVicentineCowMilk rdf:type rdfs:Resource ,
+                                   obo:FOODON_00001771 ;
+                          :hasSkimming :NoSkimming ;
+                          rdfs:label "Latte di mucca Latterie Vicentine"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCaciotta
+:MambelliCaciotta rdf:type rdfs:Resource ;
+                  :hasRipening :MambelliCaciottaRipening ;
+                  :hasTexture :SemiSoftTexture ;
+                  :isMadeWithMilk :ParmalatCowMilk ;
+                  :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                         :CalfRennet ,
+                                         :CaveSalt ;
+                  :isProducedIn dbr:Bertinoro ;
+                  rdfs:label "Caciotta Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCaciottaRipening
+:MambelliCaciottaRipening rdf:type rdfs:Resource ;
+                          :hasTakenPlaceIn dbr:Bertinoro ;
+                          :hasRipeningDuration "30"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCasatella
+:MambelliCasatella rdf:type rdfs:Resource ;
+                   :hasRipening :MambelliCasatellaRipening ;
+                   :hasTexture :SoftTexture ;
+                   :isMadeWithMilk :BrintazzoliCowMilk ;
+                   :isMadeWithRawMaterial :CalfRennet ,
+                                          :CaveSalt ,
+                                          :SaccoMilkEnzyme ;
+                   :isProducedIn dbr:Bertinoro ;
+                   rdfs:label "Casatella di Romagna Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCasatellaRipening
+:MambelliCasatellaRipening rdf:type rdfs:Resource ;
+                           :hasTakenPlaceIn dbr:Bertinoro ;
+                           :hasRipeningDuration "6"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCerviaSaltCaciotta
+:MambelliCerviaSaltCaciotta rdf:type rdfs:Resource ;
+                            :hasRipening :MambelliCaciottaRipening ;
+                            :hasTexture :SemiSoftTexture ;
+                            :isMadeWithMilk :BrintazzoliCowMilk ;
+                            :isMadeWithRawMaterial :CalfRennet ,
+                                                   :CerviaSalt ,
+                                                   :SaccoMilkEnzyme ;
+                            :isProducedIn dbr:Bertinoro ;
+                            rdfs:label "Caciotta al sale di Cervia Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCerviaSaltPrimosale
+:MambelliCerviaSaltPrimosale rdf:type rdfs:Resource ;
+                             :hasTexture :SemiSoftTexture ;
+                             :isMadeWithMilk :BrintazzoliCowMilk ;
+                             :isMadeWithRawMaterial :CalfRennet ,
+                                                    :CerviaSalt ,
+                                                    :SaccoMilkEnzyme ;
+                             :isProducedIn dbr:Bertinoro ;
+                             rdfs:label "Primosale al sale di Cervia Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliCerviaSaltRaviggiolo
+:MambelliCerviaSaltRaviggiolo rdf:type rdfs:Resource ,
+                                       :FreshCheese ;
+                              food-upper:haDenominazione :RaviggioloPAT ;
+                              :isMadeWithMilk :BrintazzoliCowMilk ;
+                              :isMadeWithRawMaterial :CalfRennet ,
+                                                     :CerviaSalt ;
+                              :isProducedIn dbr:Bertinoro ;
+                              rdfs:label "Raviggiolo al sale di Cervia Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliFreshBioRicotta
+:MambelliFreshBioRicotta rdf:type rdfs:Resource ,
+                                  :FreshCheese ;
+                         :isMadeWithMilk :BrintazzoliBioCowMilk ;
+                         :isMadeWithRawMaterial :FrattaWater ;
+                         :isProducedIn dbr:Bertinoro ;
+                         rdfs:label "Ricotta fresca bio Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliMascarpone
+:MambelliMascarpone rdf:type rdfs:Resource ,
+                             :FreshCheese ;
+                    :isMadeWithRawMaterial :BrintazzoliCowMilk ,
+                                           :BrintazzoliCream ,
+                                           :CitricAcid ;
+                    :isProducedIn dbr:Bertinoro ;
+                    rdfs:label "Mascarpone Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliPitCaciotta
+:MambelliPitCaciotta rdf:type rdfs:Resource ;
+                     :hasAging :MambelliPitCaciottaAging ;
+                     :hasRipening :MambelliCaciottaRipening ;
+                     :hasTexture :SemiHardTexture ;
+                     :isMadeWithMilk :BrintazzoliCowMilk ;
+                     :isMadeWithRawMaterial :CalfRennet ,
+                                            :CaveSalt ,
+                                            :SaccoMilkEnzyme ;
+                     :isProducedIn dbr:Bertinoro ;
+                     rdfs:label "Caciotta di Romagna infossata Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliPitCaciottaAging
+:MambelliPitCaciottaAging rdf:type rdfs:Resource ;
+                          :hasTakenPlaceIn dbr:Sogliano_al_Rubicone ;
+                          :isLocatedInEnvironment :BrandinelliPit ;
+                          :hasAgingDuration "1"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliPrimosale
+:MambelliPrimosale rdf:type rdfs:Resource ;
+                   :hasTexture :SemiSoftTexture ;
+                   :isMadeWithMilk :LatterieVicentineCowMilk ;
+                   :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                          :CalfRennet ,
+                                          :CaveSalt ;
+                   :isProducedIn dbr:Bertinoro ;
+                   rdfs:label "Primosale Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliRaviggiolo
+:MambelliRaviggiolo rdf:type rdfs:Resource ,
+                             :FreshCheese ;
+                    food-upper:haDenominazione :RaviggioloPAT ;
+                    :isMadeWithMilk :BrintazzoliCowMilk ;
+                    :isMadeWithRawMaterial :CalfRennet ,
+                                           :CaveSalt ;
+                    :isProducedIn dbr:Bertinoro ;
+                    rdfs:label "Raviggiolo Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliRefrigerator
+:MambelliRefrigerator rdf:type rdfs:Resource ,
+                               obo:ENVO_01000583 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliRicotta
+:MambelliRicotta rdf:type rdfs:Resource ,
+                          :FreshCheese ;
+                 :isMadeWithMilk :BrintazzoliCowMilk ;
+                 :isMadeWithRawMaterial :CaveSalt ,
+                                        :CowMilkWhey ;
+                 :isProducedIn dbr:Bertinoro ;
+                 rdfs:label "Ricotta Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliRocketCerviaSaltRaviggiolo
+:MambelliRocketCerviaSaltRaviggiolo rdf:type rdfs:Resource ,
+                                             :FreshCheese ;
+                                    food-upper:haDenominazione :RaviggioloPAT ;
+                                    :isMadeWithMilk :BrintazzoliCowMilk ;
+                                    :isMadeWithRawMaterial :CalfRennet ,
+                                                           :CerviaSalt ,
+                                                           :Rocket ;
+                                    :isProducedIn dbr:Bertinoro ;
+                                    rdfs:label "Raviggiolo con rucola al sale di Cervia Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliRomagnaRicotta
+:MambelliRomagnaRicotta rdf:type rdfs:Resource ,
+                                 :FreshCheese ;
+                        :isMadeWithMilk :BrintazzoliCowMilk ;
+                        :isMadeWithRawMaterial :FrattaWater ;
+                        :isProducedIn dbr:Bertinoro ;
+                        rdfs:label "Ricotta di Romagna Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliSquacqueroncrema
+:MambelliSquacqueroncrema rdf:type rdfs:Resource ,
+                                   obo:FOODON_03301889 ;
+                          :isMadeWithRawMaterial :BrintazzoliCream ,
+                                                 :MambelliSquacquerone ;
+                          rdfs:label "Scquaqueroncrema Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliSquacquerone
+:MambelliSquacquerone rdf:type rdfs:Resource ;
+                      :hasRipening :SquacqueroneMambelliRipening ;
+                      :hasTexture :SoftTexture ;
+                      :isMadeWithMilk :BrintazzoliCowMilk ;
+                      :isMadeWithRawMaterial :CalfRennet ,
+                                             :CaveSalt ,
+                                             :SaccoMilkEnzyme ;
+                      :isProducedIn dbr:Bertinoro ;
+                      rdfs:label "Squaquerone Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliSquacqueroneDiRomagnaDOP
+:MambelliSquacqueroneDiRomagnaDOP rdf:type rdfs:Resource ;
+                                  food-upper:haDenominazione :SquaqueroneDiRomagnaDOP ;
+                                  :hasRipening :SquacqueroneMambelliRipening ;
+                                  :hasTexture :SoftTexture ;
+                                  :isMadeWithMilk :BrintazzoliCowMilk ;
+                                  :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                                         :CalfRennet ,
+                                                         :MarineSalt ;
+                                  :isProducedIn dbr:Bertinoro ;
+                                  rdfs:label "Squacquerone di Romagna D.O.P. Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliStracchinoRipening
+:MambelliStracchinoRipening rdf:type rdfs:Resource ;
+                            :hasTakenPlaceIn dbr:Bertinoro ;
+                            :isLocatedInEnvironment :MambelliRefrigerator ;
+                            :hasRipeningDuration "8"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliVegetalRennetCaciotta
+:MambelliVegetalRennetCaciotta rdf:type rdfs:Resource ;
+                               :hasRipening :MambelliCaciottaRipening ;
+                               :hasTexture :SemiSoftTexture ;
+                               :isMadeWithMilk :BrintazzoliCowMilk ;
+                               :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                                      :CardoonRennet ,
+                                                      :CaveSalt ;
+                               :isProducedIn dbr:Bertinoro ;
+                               rdfs:label "Caciotta con caglio vegetale Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MambelliVegetalRennetStracchino
+:MambelliVegetalRennetStracchino rdf:type rdfs:Resource ;
+                                 :hasRipening :MambelliStracchinoRipening ;
+                                 :hasTexture :SoftTexture ;
+                                 :isMadeWithMilk :ParmalatCowMilk ;
+                                 :isMadeWithRawMaterial :AlceMilkEnzyme ,
+                                                        :CardoonRennet ,
+                                                        :CaveSalt ;
+                                 :isProducedIn dbr:Bertinoro ;
+                                 rdfs:label "Stracchino con caglio vegetale Mambelli"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MarineSalt
+:MarineSalt rdf:type rdfs:Resource ,
+                     obo:FOODON_00002221 .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/MediumHardTexture
+:MediumHardTexture rdf:type rdfs:Resource ,
+                            :Texture ;
+                   rdfs:label "MediumHardTexture"@en ,
+                              "PastaMedia"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/NoSkimming
+:NoSkimming rdf:type rdfs:Resource ,
+                     :MilkSkimming ;
+            rdfs:label "NessunaScrematura"@it ,
+                       "NoSkimming"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/ParmalatCowMilk
+:ParmalatCowMilk rdf:type rdfs:Resource ,
+                          obo:FOODON_00001771 ,
+                          :PasteurizedMilk ;
+                 :hasSkimming :NoSkimming ;
+                 rdfs:label "Latte di mucca Parmalat"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/ParmalatGoatMilk
+:ParmalatGoatMilk rdf:type rdfs:Resource ,
+                           obo:FOODON_00001911 ,
+                           :WholeMilk ;
+                  rdfs:label "Latte di capra Parmalat"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/ParmigianoReggianoDOP
+:ParmigianoReggianoDOP rdf:type rdfs:Resource ,
+                                food-cheese:DenominazioneFormaggio ,
+                                food-upper:DenominazioneOrigineProtetta ;
+                       rdfs:label "Parmigiano Reggiano D.O.P."@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/ParmigianoReggianoDOPAging
+:ParmigianoReggianoDOPAging rdf:type rdfs:Resource ;
+                            :hasTakenPlaceIn dbr:Parma ;
+                            :isLocatedInEnvironment :GranaroloRefrigerator ;
+                            :hasAgingDuration "12"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PartialSkimming
+:PartialSkimming rdf:type rdfs:Resource ,
+                          :MilkSkimming ;
+                 rdfs:label "PartialSkimming"@en ,
+                            "ScrematuraParziale"@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PenicilliumCandidum
+:PenicilliumCandidum rdf:type rdfs:Resource ,
+                              :Mold .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/PenicilliumRoqueforti
+:PenicilliumRoqueforti rdf:type rdfs:Resource ,
+                                :Mold .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/RaviggioloPAT
+:RaviggioloPAT rdf:type rdfs:Resource ,
+                        food-ita:ProdottiAgroalimentariTradizionali ,
+                        food-cheese:DenominazioneFormaggio ;
+               rdfs:label "Raviggiolo P.A.T."@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/Rocket
+:Rocket rdf:type rdfs:Resource .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SaccoMilkEnzyme
+:SaccoMilkEnzyme rdf:type rdfs:Resource ,
+                          :MilkEnzyme .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SemiHardTexture
+:SemiHardTexture rdf:type rdfs:Resource ,
+                          :Texture ;
+                 rdfs:label "PastaSemiDura"@it ,
+                            "SemiHardTexture"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SemiSoftTexture
+:SemiSoftTexture rdf:type rdfs:Resource ,
+                          :Texture ;
+                 rdfs:label "PastaSemiMorbida"@it ,
+                            "SemiSoftTexture"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SoftTexture
+:SoftTexture rdf:type rdfs:Resource ,
+                      :Texture ;
+             rdfs:label "PastaMorbida"@it ,
+                        "SoftTexture"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SquacqueroneMambelliRipening
+:SquacqueroneMambelliRipening rdf:type rdfs:Resource ;
+                              :hasTakenPlaceIn dbr:Bertinoro ;
+                              :isLocatedInEnvironment :MambelliRefrigerator ;
+                              :hasRipeningDuration "6"^^xsd:positiveInteger .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/SquaqueroneDiRomagnaDOP
+:SquaqueroneDiRomagnaDOP rdf:type rdfs:Resource ,
+                                  food-cheese:DenominazioneFormaggio ,
+                                  food-upper:DenominazioneOrigineProtetta ;
+                         rdfs:label "Squaquerone di Romagna D.O.P."@it .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/TotalSkimming
+:TotalSkimming rdf:type rdfs:Resource ,
+                        :MilkSkimming ;
+               rdfs:label "ScrematuraTotale"@it ,
+                          "TotalSkimming"@en .
+
+
+###  https://github.com/nicolasfara/cheese-ontology/VenturiPit
+:VenturiPit rdf:type rdfs:Resource ,
+                     obo:ENVO_01001871 ;
+            rdfs:label "Fossa Venturi"@it .
