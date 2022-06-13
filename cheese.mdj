@@ -61,7 +61,7 @@
 											"font": "Arial;13;1",
 											"left": 349,
 											"top": 352,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Cheese"
 										},
@@ -88,7 +88,7 @@
 											"font": "Arial;13;0",
 											"left": 349,
 											"top": 367,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00001013\"}",
 											"horizontalAlignment": 1
@@ -292,7 +292,7 @@
 							"containerChangeable": true,
 							"left": 344,
 							"top": 345,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -342,7 +342,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 341,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "«powertype»"
 										},
@@ -355,7 +355,7 @@
 											"font": "Arial;13;1",
 											"left": 660.90185546875,
 											"top": 356,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "CheeseTexture"
 										},
@@ -390,7 +390,7 @@
 									"font": "Arial;13;0",
 									"left": 655.90185546875,
 									"top": 336,
-									"width": 124.91162109375,
+									"width": 136.8134765625,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAtzOM8mes5uY="
@@ -427,7 +427,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 379,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "+SoftCheese",
 											"horizontalAlignment": 0
@@ -444,7 +444,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 394,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "+SemiSoftCheese",
 											"horizontalAlignment": 0
@@ -461,7 +461,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 409,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "+MediumHardCheese",
 											"horizontalAlignment": 0
@@ -478,7 +478,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 424,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "+SemiHardCheese",
 											"horizontalAlignment": 0
@@ -495,7 +495,7 @@
 											"font": "Arial;13;0",
 											"left": 660.90185546875,
 											"top": 439,
-											"width": 114.91162109375,
+											"width": 126.8134765625,
 											"height": 13,
 											"text": "+HardCheese",
 											"horizontalAlignment": 0
@@ -561,7 +561,7 @@
 							"containerChangeable": true,
 							"left": 655.90185546875,
 							"top": 336,
-							"width": 124.91162109375,
+							"width": 136.8134765625,
 							"height": 121,
 							"autoResize": true,
 							"nameCompartment": {
@@ -622,7 +622,7 @@
 											"font": "Arial;13;1",
 											"left": 21,
 											"top": 527,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "SoftCheese"
 										},
@@ -649,7 +649,7 @@
 											"font": "Arial;13;0",
 											"left": 21,
 											"top": 542,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002252\"}",
 											"horizontalAlignment": 1
@@ -763,7 +763,7 @@
 							"containerChangeable": true,
 							"left": 16,
 							"top": 520,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -825,7 +825,7 @@
 											"font": "Arial;13;1",
 											"left": 237,
 											"top": 527,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "SemiSoftCheese"
 										},
@@ -852,7 +852,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 542,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002231\"}",
 											"horizontalAlignment": 1
@@ -966,7 +966,7 @@
 							"containerChangeable": true,
 							"left": 232,
 							"top": 520,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -1028,7 +1028,7 @@
 											"font": "Arial;13;1",
 											"left": 605,
 											"top": 527,
-											"width": 160.42431640625,
+											"width": 164.2392578125,
 											"height": 13,
 											"text": "SemiHardCheese"
 										},
@@ -1055,7 +1055,7 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 542,
-											"width": 160.42431640625,
+											"width": 164.2392578125,
 											"height": 13,
 											"text": "{IRI=\"FOODON_00002230\"}",
 											"horizontalAlignment": 1
@@ -1169,7 +1169,7 @@
 							"containerChangeable": true,
 							"left": 600,
 							"top": 520,
-							"width": 170.42431640625,
+							"width": 174.2392578125,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -1231,7 +1231,7 @@
 											"font": "Arial;13;1",
 											"left": 797,
 											"top": 527,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "HardCheese"
 										},
@@ -1258,7 +1258,7 @@
 											"font": "Arial;13;0",
 											"left": 797,
 											"top": 542,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00001945\"}",
 											"horizontalAlignment": 1
@@ -1372,7 +1372,7 @@
 							"containerChangeable": true,
 							"left": 792,
 							"top": 520,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -1434,7 +1434,7 @@
 											"font": "Arial;13;1",
 											"left": 21,
 											"top": 447,
-											"width": 121.798828125,
+											"width": 136.5380859375,
 											"height": 13,
 											"text": "StretchedCurdCheese"
 										},
@@ -1610,7 +1610,7 @@
 							"containerChangeable": true,
 							"left": 16,
 							"top": 440,
-							"width": 131.798828125,
+							"width": 146.5380859375,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -1672,7 +1672,7 @@
 											"font": "Arial;13;1",
 											"left": 453,
 											"top": 527,
-											"width": 115.5400390625,
+											"width": 124.97900390625,
 											"height": 13,
 											"text": "MediumHardCheese"
 										},
@@ -1812,7 +1812,7 @@
 							"containerChangeable": true,
 							"left": 448,
 							"top": 520,
-							"width": 125.5400390625,
+							"width": 134.97900390625,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -2352,7 +2352,7 @@
 											"font": "Arial;13;1",
 											"left": 189,
 											"top": 447,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "CreamCheese"
 										},
@@ -2379,7 +2379,7 @@
 											"font": "Arial;13;0",
 											"left": 189,
 											"top": 462,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_03301889\"}",
 											"horizontalAlignment": 1
@@ -2473,7 +2473,7 @@
 							"containerChangeable": true,
 							"left": 184,
 							"top": 440,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -2575,7 +2575,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAt1+2U70cJ74="
 							},
-							"points": "88:440;88:416;184:416;184:376;344:376",
+							"points": "88:440;88:416;184:416;184:368;344:368",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGAuHAf4WCWAtw="
@@ -2668,7 +2668,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAuG68q1yZwLg="
 							},
-							"points": "288:440;288:416;184:416;184:376;344:376",
+							"points": "288:440;288:416;184:416;184:368;344:368",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGAuHAsiGDUb1Q="
@@ -2700,7 +2700,7 @@
 										"$ref": "AAAAAAGAwtNtNgGF7ic="
 									},
 									"font": "Arial;13;0",
-									"left": 561,
+									"left": 564,
 									"top": 342,
 									"width": 71.1826171875,
 									"height": 13,
@@ -2723,7 +2723,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 596,
+									"left": 599,
 									"top": 327,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2744,7 +2744,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 596,
+									"left": 599,
 									"top": 372,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -2765,7 +2765,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 562,
+									"left": 568,
 									"top": 342,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -2786,7 +2786,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 565,
+									"left": 571,
 									"top": 328,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -2806,7 +2806,7 @@
 										"$ref": "AAAAAAGAwtNtNgGGFjs="
 									},
 									"font": "Arial;13;0",
-									"left": 548,
+									"left": 554,
 									"top": 369,
 									"width": 21.68359375,
 									"height": 13,
@@ -2919,7 +2919,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAtzMXVGd8aSw="
 							},
-							"points": "537:363;656:363",
+							"points": "543:363;656:363",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGAwtNtNgGKxiE="
@@ -2975,8 +2975,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 40,
-							"top": 392,
+							"left": 192,
+							"top": 344,
 							"width": 145,
 							"height": 25,
 							"text": "{disjoint, incomplete}"
@@ -3009,8 +3009,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
-											"top": -32,
+											"left": 576,
+											"top": -224,
 											"height": 13
 										},
 										{
@@ -3020,9 +3020,9 @@
 												"$ref": "AAAAAAGBFFHLw2hxnXw="
 											},
 											"font": "Arial;13;1",
-											"left": 21,
-											"top": 335,
-											"width": 183.5361328125,
+											"left": 349,
+											"top": 239,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Food"
 										},
@@ -3034,8 +3034,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
-											"top": -32,
+											"left": 576,
+											"top": -224,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -3047,17 +3047,17 @@
 												"$ref": "AAAAAAGBFFHLw2hxnXw="
 											},
 											"font": "Arial;13;0",
-											"left": 21,
-											"top": 350,
-											"width": 183.5361328125,
+											"left": 349,
+											"top": 254,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002403\"}",
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": 328,
+									"left": 344,
+									"top": 232,
 									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
@@ -3084,8 +3084,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": 353,
+									"left": 344,
+									"top": 257,
 									"width": 51.919921875,
 									"height": 10
 								},
@@ -3100,8 +3100,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": 353,
+									"left": 344,
+									"top": 257,
 									"width": 51.919921875,
 									"height": 10
 								},
@@ -3116,8 +3116,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -40,
-									"top": -16,
+									"left": 288,
+									"top": -112,
 									"width": 10,
 									"height": 10
 								},
@@ -3132,8 +3132,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -40,
-									"top": -16,
+									"left": 288,
+									"top": -112,
 									"width": 10,
 									"height": 10
 								}
@@ -3141,9 +3141,9 @@
 							"font": "Arial;13;0",
 							"showShadow": false,
 							"containerChangeable": true,
-							"left": 16,
-							"top": 328,
-							"width": 193.5361328125,
+							"left": 344,
+							"top": 232,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -3185,8 +3185,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 275,
-									"top": 368,
+									"left": 425,
+									"top": 301,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -3206,8 +3206,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 275,
-									"top": 383,
+									"left": 410,
+									"top": 301,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -3227,8 +3227,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 276,
-									"top": 338,
+									"left": 454,
+									"top": 302,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -3245,7 +3245,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAtzMXVGd8aSw="
 							},
-							"points": "344:359;209:359",
+							"points": "440:345;440:271",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBFFMIE214FHQ="
@@ -3294,7 +3294,7 @@
 								"reference": {
 									"$ref": "AAAAAAGAtzV3cmi6jWU="
 								},
-								"multiplicity": "0..1"
+								"multiplicity": "*"
 							}
 						},
 						{
@@ -3397,7 +3397,7 @@
 								"reference": {
 									"$ref": "AAAAAAGBENsCFD+JKwA="
 								},
-								"multiplicity": "0..1"
+								"multiplicity": "*"
 							}
 						},
 						{
@@ -19157,7 +19157,7 @@
 											"font": "Arial;13;1",
 											"left": 21,
 											"top": 127,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Cheese"
 										},
@@ -19184,7 +19184,7 @@
 											"font": "Arial;13;0",
 											"left": 21,
 											"top": 142,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00001013\"}",
 											"horizontalAlignment": 1
@@ -19193,7 +19193,7 @@
 									"font": "Arial;13;0",
 									"left": 16,
 									"top": 120,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAwtEueD0l+DM="
@@ -19278,7 +19278,7 @@
 							"containerChangeable": true,
 							"left": 16,
 							"top": 120,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -19340,7 +19340,7 @@
 											"font": "Arial;13;1",
 											"left": 779,
 											"top": 503,
-											"width": 114.8291015625,
+											"width": 127.8544921875,
 											"height": 13,
 											"text": "MoldRipenedCheese"
 										},
@@ -19375,7 +19375,7 @@
 									"font": "Arial;13;0",
 									"left": 774,
 									"top": 496,
-									"width": 124.8291015625,
+									"width": 137.8544921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAwtFr4D2CBZI="
@@ -19460,7 +19460,7 @@
 							"containerChangeable": true,
 							"left": 774,
 							"top": 496,
-							"width": 124.8291015625,
+							"width": 137.8544921875,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -19522,7 +19522,7 @@
 											"font": "Arial;13;1",
 											"left": 565,
 											"top": 593,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "SoftRipenedCheese"
 										},
@@ -19549,7 +19549,7 @@
 											"font": "Arial;13;0",
 											"left": 565,
 											"top": 608,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_03301039\"}",
 											"horizontalAlignment": 1
@@ -19558,7 +19558,7 @@
 									"font": "Arial;13;0",
 									"left": 560,
 									"top": 586,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAwtGNBT21Xu0="
@@ -19643,7 +19643,7 @@
 							"containerChangeable": true,
 							"left": 560,
 							"top": 586,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -19705,7 +19705,7 @@
 											"font": "Arial;13;1",
 											"left": 774,
 											"top": 593,
-											"width": 121.31640625,
+											"width": 137.28076171875,
 											"height": 13,
 											"text": "SmearRipenedCheese"
 										},
@@ -19740,7 +19740,7 @@
 									"font": "Arial;13;0",
 									"left": 769,
 									"top": 586,
-									"width": 131.31640625,
+									"width": 147.28076171875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAwtGnIT3fFxU="
@@ -19825,7 +19825,7 @@
 							"containerChangeable": true,
 							"left": 769,
 							"top": 586,
-							"width": 131.31640625,
+							"width": 147.28076171875,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -19887,7 +19887,7 @@
 											"font": "Arial;13;1",
 											"left": 933,
 											"top": 593,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "BlueCheese"
 										},
@@ -19914,7 +19914,7 @@
 											"font": "Arial;13;0",
 											"left": 933,
 											"top": 608,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00001065\"}",
 											"horizontalAlignment": 1
@@ -19923,7 +19923,7 @@
 									"font": "Arial;13;0",
 									"left": 928,
 									"top": 586,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAwtHPiT4KsiI="
@@ -20008,7 +20008,7 @@
 							"containerChangeable": true,
 							"left": 928,
 							"top": 586,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -20070,7 +20070,7 @@
 											"font": "Arial;13;1",
 											"left": 533,
 											"top": 359,
-											"width": 180.59716796875,
+											"width": 185.90380859375,
 											"height": 13,
 											"text": "RawMaterial"
 										},
@@ -20097,7 +20097,7 @@
 											"font": "Arial;13;0",
 											"left": 533,
 											"top": 374,
-											"width": 180.59716796875,
+											"width": 185.90380859375,
 											"height": 13,
 											"text": "{IRI=\"food-upper:MateriaPrima\"}",
 											"horizontalAlignment": 1
@@ -20106,7 +20106,7 @@
 									"font": "Arial;13;0",
 									"left": 528,
 									"top": 352,
-									"width": 190.59716796875,
+									"width": 195.90380859375,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAyg9DFhAMojg="
@@ -20191,7 +20191,7 @@
 							"containerChangeable": true,
 							"left": 528,
 							"top": 352,
-							"width": 190.59716796875,
+							"width": 195.90380859375,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -20820,7 +20820,7 @@
 											"font": "Arial;13;1",
 											"left": 461,
 											"top": 23,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Food"
 										},
@@ -20846,7 +20846,7 @@
 											"font": "Arial;13;0",
 											"left": 461,
 											"top": 38,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002403\"}",
 											"horizontalAlignment": 1
@@ -20855,7 +20855,7 @@
 									"font": "Arial;13;0",
 									"left": 456,
 									"top": 16,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFPgEDKUMptg="
@@ -20938,7 +20938,7 @@
 							"containerChangeable": true,
 							"left": 456,
 							"top": 16,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -21094,7 +21094,7 @@
 											"font": "Arial;13;1",
 											"left": 229,
 											"top": 127,
-											"width": 176.3125,
+											"width": 180.87646484375,
 											"height": 13,
 											"text": "Milk"
 										},
@@ -21121,7 +21121,7 @@
 											"font": "Arial;13;0",
 											"left": 229,
 											"top": 142,
-											"width": 176.3125,
+											"width": 180.87646484375,
 											"height": 13,
 											"text": "{IRI=\"obo:UBERON_0001913\"}",
 											"horizontalAlignment": 1
@@ -21130,7 +21130,7 @@
 									"font": "Arial;13;0",
 									"left": 224,
 									"top": 120,
-									"width": 186.3125,
+									"width": 190.87646484375,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFPpm56dL1IM="
@@ -21215,7 +21215,7 @@
 							"containerChangeable": true,
 							"left": 224,
 							"top": 120,
-							"width": 186.3125,
+							"width": 190.87646484375,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -21277,7 +21277,7 @@
 											"font": "Arial;13;1",
 											"left": 429,
 											"top": 127,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Rennet"
 										},
@@ -21304,7 +21304,7 @@
 											"font": "Arial;13;0",
 											"left": 429,
 											"top": 142,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00001228\"}",
 											"horizontalAlignment": 1
@@ -21313,7 +21313,7 @@
 									"font": "Arial;13;0",
 									"left": 424,
 									"top": 120,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFPq3CKe3H8g="
@@ -21398,7 +21398,7 @@
 							"containerChangeable": true,
 							"left": 424,
 							"top": 120,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -21460,7 +21460,7 @@
 											"font": "Arial;13;1",
 											"left": 637,
 											"top": 127,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Salt"
 										},
@@ -21487,7 +21487,7 @@
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 142,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002221\"}",
 											"horizontalAlignment": 1
@@ -21496,7 +21496,7 @@
 									"font": "Arial;13;0",
 									"left": 632,
 									"top": 120,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFPrX06gF3lY="
@@ -21581,7 +21581,7 @@
 							"containerChangeable": true,
 							"left": 632,
 							"top": 120,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -21643,7 +21643,7 @@
 											"font": "Arial;13;1",
 											"left": 845,
 											"top": 127,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "Water"
 										},
@@ -21670,7 +21670,7 @@
 											"font": "Arial;13;0",
 											"left": 845,
 											"top": 142,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_00002340\"}",
 											"horizontalAlignment": 1
@@ -21679,7 +21679,7 @@
 									"font": "Arial;13;0",
 									"left": 840,
 									"top": 120,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFPsliqhT0yI="
@@ -21764,7 +21764,7 @@
 							"containerChangeable": true,
 							"left": 840,
 							"top": 120,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -21826,7 +21826,7 @@
 											"font": "Arial;13;1",
 											"left": 893,
 											"top": 175,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "FoodManifactureEnzyme"
 										},
@@ -21853,7 +21853,7 @@
 											"font": "Arial;13;0",
 											"left": 893,
 											"top": 190,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_03544452\"}",
 											"horizontalAlignment": 1
@@ -21862,7 +21862,7 @@
 									"font": "Arial;13;0",
 									"left": 888,
 									"top": 168,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFP6rH61rEdQ="
@@ -21947,7 +21947,7 @@
 							"containerChangeable": true,
 							"left": 888,
 							"top": 168,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -22008,7 +22008,7 @@
 											"font": "Arial;13;1",
 											"left": 1173,
 											"top": 255,
-											"width": 29.61181640625,
+											"width": 30.32275390625,
 											"height": 13,
 											"text": "Mold"
 										},
@@ -22041,7 +22041,7 @@
 									"font": "Arial;13;0",
 									"left": 1168,
 									"top": 248,
-									"width": 39.61181640625,
+									"width": 40.32275390625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFP+Gia5TKCM="
@@ -22124,7 +22124,7 @@
 							"containerChangeable": true,
 							"left": 1168,
 							"top": 248,
-							"width": 39.61181640625,
+							"width": 40.32275390625,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -22558,7 +22558,7 @@
 											"font": "Arial;13;1",
 											"left": 125,
 											"top": 255,
-											"width": 134.75439453125,
+											"width": 138.2392578125,
 											"height": 13,
 											"text": "CheeseRawMaterial"
 										},
@@ -22585,7 +22585,7 @@
 											"font": "Arial;13;0",
 											"left": 125,
 											"top": 270,
-											"width": 134.75439453125,
+											"width": 138.2392578125,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_\n1507\"}",
 											"horizontalAlignment": 1
@@ -22594,7 +22594,7 @@
 									"font": "Arial;13;0",
 									"left": 120,
 									"top": 248,
-									"width": 144.75439453125,
+									"width": 148.2392578125,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQV1q7d3HsQ="
@@ -22679,7 +22679,7 @@
 							"containerChangeable": true,
 							"left": 120,
 							"top": 248,
-							"width": 144.75439453125,
+							"width": 148.2392578125,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -22740,7 +22740,7 @@
 											"font": "Arial;13;1",
 											"left": 301,
 											"top": 255,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "MilkRawMaterial"
 										},
@@ -22766,7 +22766,7 @@
 											"font": "Arial;13;0",
 											"left": 301,
 											"top": 270,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_4826\"}",
 											"horizontalAlignment": 1
@@ -22775,7 +22775,7 @@
 									"font": "Arial;13;0",
 									"left": 296,
 									"top": 248,
-									"width": 141.50439453125,
+									"width": 144.62744140625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQWTULe5puM="
@@ -22858,7 +22858,7 @@
 							"containerChangeable": true,
 							"left": 296,
 							"top": 248,
-							"width": 141.50439453125,
+							"width": 144.62744140625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -22920,7 +22920,7 @@
 											"font": "Arial;13;1",
 											"left": 453,
 											"top": 255,
-											"width": 138.00439453125,
+											"width": 141.857421875,
 											"height": 13,
 											"text": "RennetRawMaterial"
 										},
@@ -22947,7 +22947,7 @@
 											"font": "Arial;13;0",
 											"left": 453,
 											"top": 270,
-											"width": 138.00439453125,
+											"width": 141.857421875,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_24075\"}",
 											"horizontalAlignment": 1
@@ -22956,7 +22956,7 @@
 									"font": "Arial;13;0",
 									"left": 448,
 									"top": 248,
-									"width": 148.00439453125,
+									"width": 151.857421875,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQXBlLggW2U="
@@ -23041,7 +23041,7 @@
 							"containerChangeable": true,
 							"left": 448,
 							"top": 248,
-							"width": 148.00439453125,
+							"width": 151.857421875,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -23103,7 +23103,7 @@
 											"font": "Arial;13;1",
 											"left": 613,
 											"top": 255,
-											"width": 138.00439453125,
+											"width": 141.857421875,
 											"height": 13,
 											"text": "SaltRawMaterial"
 										},
@@ -23130,7 +23130,7 @@
 											"font": "Arial;13;0",
 											"left": 613,
 											"top": 270,
-											"width": 138.00439453125,
+											"width": 141.857421875,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_33129\"}",
 											"horizontalAlignment": 1
@@ -23139,7 +23139,7 @@
 									"font": "Arial;13;0",
 									"left": 608,
 									"top": 248,
-									"width": 148.00439453125,
+									"width": 151.857421875,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQXynriHMu8="
@@ -23224,7 +23224,7 @@
 							"containerChangeable": true,
 							"left": 608,
 							"top": 248,
-							"width": 148.00439453125,
+							"width": 151.857421875,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -23286,7 +23286,7 @@
 											"font": "Arial;13;1",
 											"left": 773,
 											"top": 255,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "WaterRawMaterial"
 										},
@@ -23313,7 +23313,7 @@
 											"font": "Arial;13;0",
 											"left": 773,
 											"top": 270,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_8309\"}",
 											"horizontalAlignment": 1
@@ -23322,7 +23322,7 @@
 									"font": "Arial;13;0",
 									"left": 768,
 									"top": 248,
-									"width": 141.50439453125,
+									"width": 144.62744140625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQYgxrj0JAw="
@@ -23407,7 +23407,7 @@
 							"containerChangeable": true,
 							"left": 768,
 							"top": 248,
-							"width": 141.50439453125,
+							"width": 144.62744140625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -23469,7 +23469,7 @@
 											"font": "Arial;13;1",
 											"left": 1021,
 											"top": 255,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "Whey"
 										},
@@ -23496,7 +23496,7 @@
 											"font": "Arial;13;0",
 											"left": 1021,
 											"top": 270,
-											"width": 131.50439453125,
+											"width": 134.62744140625,
 											"height": 13,
 											"text": "{IRI=\"agrovoc:c_8376\"}",
 											"horizontalAlignment": 1
@@ -23505,7 +23505,7 @@
 									"font": "Arial;13;0",
 									"left": 1016,
 									"top": 248,
-									"width": 141.50439453125,
+									"width": 144.62744140625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQchOLmSgQE="
@@ -23590,7 +23590,7 @@
 							"containerChangeable": true,
 							"left": 1016,
 							"top": 248,
-							"width": 141.50439453125,
+							"width": 144.62744140625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -23652,7 +23652,7 @@
 											"font": "Arial;13;1",
 											"left": 925,
 											"top": 255,
-											"width": 71.49365234375,
+											"width": 74.41357421875,
 											"height": 13,
 											"text": "MilkEnzyme"
 										},
@@ -23687,7 +23687,7 @@
 									"font": "Arial;13;0",
 									"left": 920,
 									"top": 248,
-									"width": 81.49365234375,
+									"width": 84.41357421875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFQdIrLnkf6E="
@@ -23772,7 +23772,7 @@
 							"containerChangeable": true,
 							"left": 920,
 							"top": 248,
-							"width": 81.49365234375,
+							"width": 84.41357421875,
 							"height": 25,
 							"autoResize": true,
 							"nameCompartment": {
@@ -25719,7 +25719,7 @@
 							"tail": {
 								"$ref": "AAAAAAGAwtFr4D2AXvI="
 							},
-							"points": "898:512;1248:512;1248:224;1184:224;1184:248",
+							"points": "911:512;1248:512;1248:224;1184:224;1184:248",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBFRYA9c+ucJE="
@@ -25760,7 +25760,7 @@
 											"font": "Arial;13;0",
 											"left": 101,
 											"top": 506,
-											"width": 97.98876953125,
+											"width": 102.43212890625,
 											"height": 13,
 											"text": "«property»"
 										},
@@ -25773,7 +25773,7 @@
 											"font": "Arial;13;1",
 											"left": 101,
 											"top": 521,
-											"width": 97.98876953125,
+											"width": 102.43212890625,
 											"height": 13,
 											"text": "isMadeWithMold"
 										},
@@ -25808,7 +25808,7 @@
 									"font": "Arial;13;0",
 									"left": 96,
 									"top": 501,
-									"width": 107.98876953125,
+									"width": 112.43212890625,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFReL0NVAzN8="
@@ -25893,7 +25893,7 @@
 							"containerChangeable": true,
 							"left": 96,
 							"top": 501,
-							"width": 107.98876953125,
+							"width": 112.43212890625,
 							"height": 38,
 							"autoResize": true,
 							"nameCompartment": {
@@ -25943,7 +25943,7 @@
 											"font": "Arial;13;0",
 											"left": 389,
 											"top": 506,
-											"width": 142.01611328125,
+											"width": 147.97021484375,
 											"height": 13,
 											"text": "«property»"
 										},
@@ -25956,7 +25956,7 @@
 											"font": "Arial;13;1",
 											"left": 389,
 											"top": 521,
-											"width": 142.01611328125,
+											"width": 147.97021484375,
 											"height": 13,
 											"text": "isMadeWithRawMaterial"
 										},
@@ -25991,7 +25991,7 @@
 									"font": "Arial;13;0",
 									"left": 384,
 									"top": 501,
-									"width": 152.01611328125,
+									"width": 157.97021484375,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFReTstWE2Tw="
@@ -26076,7 +26076,7 @@
 							"containerChangeable": true,
 							"left": 384,
 							"top": 501,
-							"width": 152.01611328125,
+							"width": 157.97021484375,
 							"height": 38,
 							"autoResize": true,
 							"nameCompartment": {
@@ -26126,7 +26126,7 @@
 											"font": "Arial;13;0",
 											"left": 229,
 											"top": 453,
-											"width": 95.1005859375,
+											"width": 97.39208984375,
 											"height": 13,
 											"text": "«property»"
 										},
@@ -26139,7 +26139,7 @@
 											"font": "Arial;13;1",
 											"left": 229,
 											"top": 468,
-											"width": 95.1005859375,
+											"width": 97.39208984375,
 											"height": 13,
 											"text": "isMadeWithMilk"
 										},
@@ -26174,7 +26174,7 @@
 									"font": "Arial;13;0",
 									"left": 224,
 									"top": 448,
-									"width": 105.1005859375,
+									"width": 107.39208984375,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFRedB9XIPTU="
@@ -26259,7 +26259,7 @@
 							"containerChangeable": true,
 							"left": 224,
 							"top": 448,
-							"width": 105.1005859375,
+							"width": 107.39208984375,
 							"height": 38,
 							"autoResize": true,
 							"nameCompartment": {
@@ -26348,7 +26348,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 293,
+									"left": 295,
 									"top": 498,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -26369,7 +26369,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 293,
+									"left": 295,
 									"top": 483,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -26390,7 +26390,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 293,
+									"left": 295,
 									"top": 528,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -26409,7 +26409,7 @@
 								"$ref": "AAAAAAGBFReLz9U+tXA="
 							},
 							"lineStyle": 1,
-							"points": "204:519;383:519",
+							"points": "208:519;383:519",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBFRvYpOHVKts="
@@ -26502,7 +26502,7 @@
 							"tail": {
 								"$ref": "AAAAAAGBFRedB9XGGSo="
 							},
-							"points": "328:464;424:464;424:501",
+							"points": "330:464;424:464;424:501",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBFRvlROITXxY="
@@ -26554,7 +26554,7 @@
 											"font": "Arial;13;1",
 											"left": 748,
 											"top": 423,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "MoldRipenedCheese"
 										},
@@ -26580,7 +26580,7 @@
 											"font": "Arial;13;0",
 											"left": 748,
 											"top": 438,
-											"width": 183.5361328125,
+											"width": 189.541015625,
 											"height": 13,
 											"text": "{IRI=\"obo:FOODON_03306447\"}",
 											"horizontalAlignment": 1
@@ -26589,7 +26589,7 @@
 									"font": "Arial;13;0",
 									"left": 743,
 									"top": 416,
-									"width": 193.5361328125,
+									"width": 199.541015625,
 									"height": 40,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGBFR5tv+Ti1/k="
@@ -26672,7 +26672,7 @@
 							"containerChangeable": true,
 							"left": 743,
 							"top": 416,
-							"width": 193.5361328125,
+							"width": 199.541015625,
 							"height": 40,
 							"autoResize": true,
 							"nameCompartment": {
@@ -26807,7 +26807,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 822,
+									"left": 827,
 									"top": 468,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -26828,8 +26828,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 807,
-									"top": 467,
+									"left": 812,
+									"top": 468,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -26849,7 +26849,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 851,
+									"left": 856,
 									"top": 469,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -26868,7 +26868,7 @@
 								"$ref": "AAAAAAGAwtFr4D2AXvI="
 							},
 							"lineStyle": 1,
-							"points": "836:495;838:456",
+							"points": "842:495;842:456",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBFSBHrOu4PLA="
@@ -28541,7 +28541,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGBKeYIcE0h680="
 									},
-									"text": "0..1"
+									"text": "*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -29956,9 +29956,9 @@
 										"$ref": "AAAAAAGBEOEmyUl60gg="
 									},
 									"font": "Arial;13;0",
-									"left": 595,
+									"left": 590,
 									"top": 262,
-									"width": 136.56982421875,
+									"width": 147.0625,
 									"height": 13,
 									"alpha": 1.5707952156837854,
 									"distance": 9,
@@ -30688,7 +30688,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGBKeYIcU5HARY="
 									},
-									"text": "0..1"
+									"text": "*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -34269,7 +34269,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGBTTYDYR6k14A="
 									},
-									"text": "0..1"
+									"text": "*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -37806,7 +37806,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGBTTYDZB/K+F8="
 									},
-									"text": "0..1"
+									"text": "*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
