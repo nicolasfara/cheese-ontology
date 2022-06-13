@@ -217,7 +217,7 @@ Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 
 This rule defines that a `Cheese` with a cheese certification is a `ProtectedCheese`:
 
-<img src="swrl3.svg" alt="SWRL3" width="50%">
+<img src="swrl3.svg" alt="SWRL3" width="70%">
 
 ```prolog
 obo:FOODON_00001013(?c) ^
