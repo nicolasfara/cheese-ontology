@@ -37,11 +37,26 @@ A detailed cheese ontology
 
 # Alignments
 
-- `obo` -- Open Biological and Biomedical Ontologies
-- `geonames` -- Geographical database covers countries and places
-- `foodon` -- A farm to fork ontology
-- `agrovoc` -- Cover subject like agriculture, food, etc.
-- `disciplinare` -- Italian's food certifications
+- `EnvO` -- An ontology for the description of environments
+- `DBPedia` -- Global and unified access to knowledge graphs
+- `FoodOn` -- A farm to fork ontology
+- `AGROVOC` -- Covers subject like agriculture, food, etc.
+- `FOod in Open Data` -- Italian's food certifications ontology
+
+---
+
+# Statistics
+
+| Metrics | Count |
+|---------|-------|
+| _Axioms_  | __1099__   |
+| _Logical axioms_ | __399__ |
+| _Declaration axioms_ | __181__ |
+| _Class_ | __70__ |
+| _Object property_ | __24__ |
+| _Data property_ | __2__ |
+| _Individuals_ | __79__ |
+| _Annotation Property_ | __10__ |
 
 ---
 
@@ -51,10 +66,10 @@ The ontology captures the following concepts in the __cheese__ domain
 
 - _Cheese_ types
 - _Raw Materials_ and _Milk_ used to make a cheese
-- _Environment_ where a cheese has taken place
+- _Locations_ where the cheesemaking has taken place
 - _Aging_ or _Ripening_ of a cheese
-- _Certifications_
-- _Locations_ were a cheese is made
+- _Environment_ where a cheese is matured
+- _Certifications_ of a cheese
 
 ---
 
@@ -64,33 +79,77 @@ The ontology captures the following concepts in the __cheese__ domain
 
 ---
 
-# Cheese
+# Cheese Classes
 
 ![Cheese](cheese.svg)
 
 ---
 
-# Raw Material
+# Cheese Properties
+
+<br>
+
+| Object Property | Domain | Range | Inverse Of|
+|-----------------|--------|-------|-----------|
+| _hasTexture_      | `Cheese` | `CheeseTexture` | _isTextureOf_ |
+
+---
+
+# Raw Material Class
 
 ![Raw material](rawMaterial.svg)
 
 ---
 
-# Milk
+# Raw Material Properties
+
+| Object Property | Domain | Range | Inverse Of|
+|-----------------|--------|-------|-----------|
+| <em>isMadeWith-<br>RawMaterial</em> | `Cheese` | `RawMaterial` | <em>isRawMaterial-<br>UsedIn</em> |
+| _isMadeWithMold_        | <code>MoldRipened-<br>Cheese</code> | `Mold` | _isMoldUsedIn_ |
+| _isMadeWithMilk_        | `Cheese` | <code>Milk-<br>RawMaterial</code> | _isMilkUsedIn_ |
+
+---
+
+# Milk Classes
 
 <img src="milk.svg" width="80%" alt="milk">
 
 ---
 
-# Environment
+# Milk Properties
 
-![Environment](environment.svg)
+| Object Property | Domain | Range | Inverse Of|
+|-----------------|--------|-------|-----------|
+| <em>isMadeWith-<br>RawMaterial</em> | `Cheese` | `RawMaterial` | <em>isRawMaterial-<br>UsedIn</em> |
+| _isMadeWithMilk_        | `Cheese` | <code>Milk-<br>RawMaterial</code> | _isMilkUsedIn_ |
+| _hasSkimming_ | `Milk` | `MilkSkimming` | _isSkimmingOf_ |
 
 ---
 
-# Event
+# Environment and Event Classes
 
-![Event](event.svg)
+![Environment](EventEnvironment.svg)
+
+---
+
+# Environment and Event Object Properties
+
+| Object Property | Domain | Range | Inverse Of|
+|-----------------|--------|-------|-----------|
+| <em>isLocatedIn-<br>Environment</em> | `Event` | `Environment` |<em>isEnvironment-<br>LocationOf</em> |
+| _isLocatedIn_        | | <code>Populated-<br>Place</code> | _isLocationOf_ |
+| _hasTakenPlaceIn_ | `Event` |  | _isPlacedWhere_ |
+| _isProducedIn_ | `Food` | | _isProductionPlaceOf_ |
+
+---
+
+# Environment and Event Data Properties
+
+| Object Property | Domain | Range |
+|-----------------|--------|-------|
+| _hasAgingDuration_ | `Aging` | `xsd:positiveInteger` |
+| _hasRipeningDuration_ | `Ripening` | `xsd:positiveInteger` |
 
 ---
 
@@ -100,18 +159,11 @@ The ontology captures the following concepts in the __cheese__ domain
 
 ---
 
-# Statistics
+# Certifications Properties
 
-| Metrics | Count |
-|---------|-------|
-| _Axioms_  | __452__   |
-| _Logical axioms_ | __214__ |
-| _Declaration axioms_ | __149__ |
-| _Class_ | __74__ |
-| _Object property_ | __23__ |
-| _Data property_ | __2__ |
-| _Individuals_ | __49__ |
-| _Annotation Property_ | __4__ |
+| Object Property | Domain | Range | Inverse Of|
+|-----------------|--------|-------|-----------|
+| _hasProtectedName_ | <code>Protected-<br>Food</code> | <code>Protected-<br>Name</code> | _isProtectedNameOf_ |
 
 ---
 
@@ -121,33 +173,13 @@ The ontology captures the following concepts in the __cheese__ domain
 
 ## Rule 1
 
-This rule you can __infer__ that a cheese which is made with a certified milk must be a certified cheese
+This rule defines that the __aging__ of a cheese should be between 1 and 30 days
 
-<img src="swrl1.svg" alt="SWRL1" width="80%">
-
-```prolog
-obo:FOODON_00001013(?cheese) ^ isMadeWithMilk(?cheese, ?milk) ^
-           ProtectedMilkRawMaterial(?milk) -> food-cheese:Formaggio(?cheese)
-```
-
-<small>
-⚠️ This rule implies that if a cheese is made from certified milk, then the cheese itself is also certified
-</small>
-
-Due to the _open world assumption_, we are unable to tight this constraint even with __SWLR__.
-
----
-
-## Rule #2
-
-This rule defines that the __ripening__ of a cheese should be between 1 and 30 days.
-
-<img src="swrl2.svg" alt="SWRL2" width="55%">
+<img src="swrl1.svg" alt="SWRL1" width="60%">
 
 ```prolog
 hasRipeningDuration(?r, ?d) ^ Ripening(?r) ->
-swrlb:greaterThanOrEqual(?d, 1) ^
-swrlb:lessThanOrEqual(?d, 30)
+swrlb:greaterThanOrEqual(?d, 1) ^ swrlb:lessThanOrEqual(?d, 30)
 ```
 
 <small>
@@ -156,18 +188,55 @@ swrlb:lessThanOrEqual(?d, 30)
 
 ---
 
-## Rule #3
+## Rule #2
 
-This rule defines that the __aging__ period should be at least one month:
+This rule defines that the __aging__ of a cheese should be greater than one month
 
-<img src="swrl3.svg" alt="SWRL3" width="55%">
+<img src="swrl2.svg" alt="SWRL2" width="55%">
 
 ```prolog
 Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 ```
 
 <small>
+⚠️ In the ontology when referring to the aging period we refer to a period expressed in months
+</small>
+
+---
+
+## Rule #3
+
+This rule defines that a `Cheese` with a cheese certification is a `ProtectedCheese`:
+
+<img src="swrl3.svg" alt="SWRL3" width="80%">
+
+```prolog
+obo:FOODON_00001013(?c) ^
+food-upper:haDenominazione(?c, ?n) ^
+food-cheese:DenominazioneFormaggio(?n) -> food-cheese:Formaggio(?c)
+```
+
+<!--small>
 ⚠️ In the ontology when referring to the aging period we refer to a period expressed in month
+</small-->
+
+---
+
+## Rule #4
+
+This rule defines that a Ricotta `Cheese` with a ricotta certification is a `ProtectedRicotta`:
+
+<img src="swrl4.svg" alt="SWRL4" width="80%">
+
+```prolog
+obo:FOODON_00001013(?c) ^ 
+food-upper:haDenominazione(?c, ?n) ^
+food-ricotta:DenominazioneRicotta(?n) -> food-ricotta:Ricotta(?c)
+```
+
+<small>
+⚠️ Since <b>Ricotta</b> is not a cheese, it is not quite correct to assign it the <code>Cheese</code> class.<br>
+Nevertheless, we accept this simplification in our domain.
 </small>
 
 ---
@@ -178,37 +247,43 @@ Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 
 ## Query #1
 
-_"Find all cheeses with ripeness between 5 and 20 days"_
+_"Show the number of cheeses produced in each city along with their region"_
 
 ```sql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?label ?duration
+SELECT DISTINCT ?city ?region (COUNT(?city) AS ?count)
 WHERE {
-    ?cheese :hasRipening/:hasRipeningDuration ?duration.
-
-    OPTIONAL { ?cheese rdfs:label ?label }
-    FILTER (?duration > 5 && ?duration < 20)
+    [] :isProducedIn ?city
+  
+    SERVICE <https://dbpedia.org/sparql> {
+        ?region dbo:type dbr:Regions_of_Italy;
+                ^dbo:region ?city.
+    }
 }
-ORDER BY ?label
+GROUP BY ?city ?region
+ORDER BY DESC(COUNT(?city))
 ```
 
 ---
 
 ## Query #2
 
-_"Find all cheeses with a certification"_
+_"Show every cheese which is either made with a vegetal rennet or with skimmed milk"_
 
 ```sql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?label ?protectedname
+SELECT DISTINCT ?cheese ?label
 WHERE {
-    ?cheese a/rdfs:label "ProtectedCheese"@en.
- 
-    OPTIONAL { ?cheese :hasProtectedName ?protectedname }
+    { ?cheese :isMadeWithRawMaterial/a :VegetalRennet }
+    UNION
+    { ?cheese :isMadeWithMilk/a/rdfs:label "SkimmedMilk"@en }
+    
     OPTIONAL { ?cheese rdfs:label ?label }
 }
 ORDER BY ?label
@@ -218,28 +293,91 @@ ORDER BY ?label
 
 ## Query #3
 
-_"Get all cheese made from animal milk"_
+_"Show each certified cheese along with their region of production and their protected name"_
+
+```sql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX food-upper: <http://w3id.org/food/ontology/disciplinare-upper/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?region ?cheese ?cheeselabel ?name ?namelabel WHERE {
+    ?cheese :isProducedIn ?city;
+            a/rdfs:label "ProtectedCheese"@en;
+            food-upper:haDenominazione ?name.
+
+    SERVICE <https://dbpedia.org/sparql> {
+        ?region dbo:type dbr:Regions_of_Italy;
+                ^dbo:region ?city.
+    }
+    OPTIONAL { ?cheese rdfs:label ?cheeselabel }
+    OPTIONAL { ?name rdfs:label ?namelabel }
+} ORDER BY ?cheeselabel
+```
+
+---
+
+## Query #4
+
+_"Show every cheese that has been produced using another cheese as its raw material"_
 
 ```sql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
 
-SELECT ?cheese ?cheeselabel ?milk ?milklabel ?animal WHERE {
-    ?cheese :isMadeWithMilk ?milk.
-    {  ?milk a/rdfs:label "CowMilk"@en.
-     VALUES ?animal { "Formaggio di mucca" }
-   } UNION { 
-     ?milk a/rdfs:label "SheepMilk"@en.
-     VALUES ?animal { "Formaggio di pecora" }
-   } UNION { 
-     ?milk a/rdfs:label "GoatMilk"@en.
-     VALUES ?animal { "Formaggio di capra" }
-   } UNION { 
-     ?milk a/rdfs:label "BuffaloMilk"@en.
-     VALUES ?animal { "Formaggio di bufala" }
-   }
+SELECT DISTINCT ?cheese ?label
+WHERE {
+    ?cheese :isMadeWithRawMaterial+/a/rdfs:label "Cheese"@en
+    
+    OPTIONAL { ?cheese rdfs:label ?label }
+}
+ORDER BY ?label
+```
 
-    OPTIONAL { ?milk rdfs:label ?milklabel }
+---
+
+## Query #5
+
+_"Get all cheese made from animal milk"_
+
+```sql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+SELECT ?cheese ?cheeselabel ?city ?citylabel ?pit ?pitlabel WHERE {
+    [] :isAgingOf ?cheese;
+       :hasTakenPlaceIn ?city;
+       :isLocatedInEnvironment ?pit.
+    ?pit a/rdfs:label "Pit"@en.
+    SERVICE <https://dbpedia.org/sparql> {
+        ?city dbo:province dbr:Province_of_Forlì-Cesena
+        OPTIONAL {
+            ?city rdfs:label ?citylabel
+            FILTER(LANG(?citylabel) = "it")
+        }
+    }
     OPTIONAL { ?cheese rdfs:label ?cheeselabel }
-} ORDER BY ?cheeselabel
+    OPTIONAL { ?pit rdfs:label ?pitlabel }
+} ORDER BY ?citylabel
+```
+
+---
+
+## Query #6
+
+_"Check whether or not it exist at least a cheese made without an animal rennet"_
+
+```sql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://github.com/nicolasfara/cheese-ontology/>
+
+ASK
+WHERE {
+    ?cheese a/rdfs:label "Cheese"@en
+
+    FILTER NOT EXISTS { ?cheese :isMadeWithRawMaterial/a :AnimalRennet }
+}
 ```
