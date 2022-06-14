@@ -348,7 +348,7 @@ ORDER BY ?label
 
 ## Query #5
 
-_"Get all cheese made from animal milk"_
+_"Get all cheese aged in a pit in the province of Forlì-Cesena"_
 
 ```sql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
