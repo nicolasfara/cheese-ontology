@@ -27,7 +27,7 @@ A rich ontology for cheese and all things related
 # Motivations
 
 <ul>
-{{% fragment %}}<li>We have <b>domain experts</b> to ask</li>{{% /fragment %}}
+{{% fragment %}}<li>We have <b>domain experts</b> to ask to</li>{{% /fragment %}}
 {{% fragment %}}<li>There is <b>no available ontology</b> on cheese</li>{{% /fragment %}}
 {{% fragment %}}
 <li>
@@ -182,7 +182,7 @@ The ontology captures the following concepts in the __cheese__ domain
 
 ## Rule 1
 
-This rule defines that the __aging__ of a cheese should be between 1 and 30 days
+This rule defines that the __ripening__ of a cheese should be between 1 and 30 days
 
 <img src="swrl1.svg" alt="SWRL1" width="60%">
 
