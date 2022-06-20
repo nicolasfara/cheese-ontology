@@ -197,7 +197,7 @@ swrlb:greaterThanOrEqual(?d, 1) ^ swrlb:lessThanOrEqual(?d, 30)
 
 ---
 
-## Rule #2
+## Rule 2
 
 This rule defines that the __aging__ of a cheese should be greater than one month
 
@@ -213,7 +213,7 @@ Aging(?a) ^ hasAgingDuration(?a, ?d) -> swrlb:greaterThanOrEqual(?d, 1)
 
 ---
 
-## Rule #3
+## Rule 3
 
 This rule defines that a `Cheese` with a cheese certification is a `ProtectedCheese`:
 
@@ -231,7 +231,7 @@ food-cheese:DenominazioneFormaggio(?n) -> food-cheese:Formaggio(?c)
 
 ---
 
-## Rule #4
+## Rule 4
 
 This rule defines that a Ricotta `Cheese` with a ricotta certification is a `ProtectedRicotta`:
 
@@ -254,7 +254,7 @@ Nevertheless, we accept this simplification in our domain.
 
 ---
 
-## Query #1
+## Query 1
 
 _"Show the number of cheeses produced in each city along with their region"_
 
@@ -279,7 +279,7 @@ ORDER BY DESC(COUNT(?city))
 
 ---
 
-## Query #2
+## Query 2
 
 _"Show every cheese which is either made with a vegetal rennet or with skimmed milk"_
 
@@ -300,7 +300,7 @@ ORDER BY ?label
 
 ---
 
-## Query #3
+## Query 3
 
 _"Show each certified cheese along with their region of production and their protected name"_
 
@@ -327,7 +327,7 @@ SELECT ?region ?cheese ?cheeselabel ?name ?namelabel WHERE {
 
 ---
 
-## Query #4
+## Query 4
 
 _"Show every cheese that has been produced using another cheese as its raw material"_
 
@@ -346,7 +346,7 @@ ORDER BY ?label
 
 ---
 
-## Query #5
+## Query 5
 
 _"Get all cheese aged in a pit in the province of Forlì-Cesena"_
 
@@ -375,7 +375,7 @@ SELECT ?cheese ?cheeselabel ?city ?citylabel ?pit ?pitlabel WHERE {
 
 ---
 
-## Query #6
+## Query 6
 
 _"Check whether or not it exist at least a cheese made without an animal rennet"_
 
