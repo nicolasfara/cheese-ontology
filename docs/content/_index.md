@@ -155,7 +155,7 @@ The ontology captures the following concepts in the __cheese__ domain
 
 # Environment and Event Data Properties
 
-| Object Property | Domain | Range |
+| Data Property | Domain | Range |
 |-----------------|--------|-------|
 | _hasAgingDuration_ | `Aging` | `xsd:positiveInteger` |
 | _hasRipeningDuration_ | `Ripening` | `xsd:positiveInteger` |
